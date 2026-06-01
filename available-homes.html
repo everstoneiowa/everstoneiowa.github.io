@@ -21,12 +21,23 @@
     nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 60px; height:80px; background:rgba(14,14,14,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(184,146,42,0.2); transition:height 0.3s; }
     .nav-logo { display:flex; align-items:center; text-decoration:none; }
     .nav-logo img { height:52px; width:auto; display:block; }
-    .nav-back { display:flex; align-items:center; gap:8px; text-decoration:none; color:rgba(255,255,255,0.6); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; transition:color 0.2s; }
-    .nav-back:hover { color:var(--gold); }
-    .nav-back svg { transition:transform 0.2s; }
-    .nav-back:hover svg { transform:translateX(-3px); }
-    .nav-cta-sm { background:var(--gold); color:var(--black); padding:10px 22px; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:background 0.2s; }
-    .nav-cta-sm:hover { background:var(--gold-light); }
+    .nav-links { display:flex; gap:40px; list-style:none; margin:0; padding:0; }
+    .nav-links a { text-decoration:none; color:rgba(255,255,255,0.75); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; transition:color 0.2s; position:relative; }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px; background:var(--gold); transform:scaleX(0); transition:transform 0.3s; }
+    .nav-links a:hover { color:var(--gold-light); }
+    .nav-links a:hover::after { transform:scaleX(1); }
+    .nav-links a.nav-active { color:var(--gold); }
+    .nav-links a.nav-active::after { transform:scaleX(1); }
+    .nav-cta { background:var(--gold); color:var(--black) !important; padding:10px 24px; font-weight:600 !important; }
+    .nav-cta:hover { background:var(--gold-light); color:var(--black) !important; }
+    .nav-cta::after { display:none !important; }
+    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--white); transition:all 0.3s; }
+    .mobile-menu { display:none; position:fixed; top:80px; left:0; right:0; background:rgba(14,14,14,0.98); border-bottom:1px solid rgba(184,146,42,0.2); padding:24px 30px; flex-direction:column; gap:0; z-index:99; }
+    .mobile-menu a { display:block; padding:14px 0; color:rgba(255,255,255,0.75); text-decoration:none; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.06); transition:color 0.2s; }
+    .mobile-menu a:hover { color:var(--gold); }
+    .mobile-menu a.nav-cta { margin-top:16px; text-align:center; background:var(--gold); color:var(--black) !important; padding:12px 24px; border-bottom:none; }
+    @media (max-width:900px) { .nav-links { display:none; } .hamburger { display:flex; } }
 
     /* ─── PAGE HERO ─── */
     .page-hero { margin-top:80px; background:var(--black); padding:72px 60px 64px; position:relative; overflow:hidden; }
@@ -190,12 +201,26 @@
   <a href="index.html" class="nav-logo">
     <img src="everstone-logo.jpg" alt="EverStone Homes" />
   </a>
-  <a href="index.html" class="nav-back">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    Back to Main Site
-  </a>
-  <a href="index.html#contact" class="nav-cta-sm">Contact Us</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="available-homes.html" class="nav-active">Available Homes</a></li>
+    <li><a href="index.html#available-homes">Upcoming Communities</a></li>
+    <li><a href="index.html#communities">Communities</a></li>
+    <li><a href="index.html#gallery">Gallery</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="available-homes.html">Available Homes</a>
+  <a href="index.html#available-homes">Upcoming Communities</a>
+  <a href="index.html#communities">Communities</a>
+  <a href="index.html#gallery">Gallery</a>
+  <a href="index.html#contact" class="nav-cta">Contact Us</a>
+</div>
 
 <!-- PAGE HERO -->
 <div class="page-hero">
@@ -459,6 +484,7 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').style.height = window.scrollY > 60 ? '64px' : '80px';
+  const mm = document.getElementById('mobileMenu'); if(mm) mm.style.top = window.scrollY > 60 ? '64px' : '80px';
   });
 
 </script>
@@ -603,6 +629,12 @@ function initMap() {
   if (mapped.length >= 1) {
     setActiveSidebar(mapped[0].id, false);
   }
+}
+
+
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
 }
 
 function focusListing(id) {
