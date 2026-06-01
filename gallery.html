@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – EverStone Homes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="gallery-data.js"></script>
+  <style>
+    :root {
+      --gold: #b8922a; --gold-light: #d4aa4a; --gold-dark: #8a6a1a;
+      --black: #0e0e0e; --near-black: #141414; --dark: #1a1a1a;
+      --charcoal: #2a2a2a; --white: #ffffff; --off-white: #f8f6f2;
+      --text-muted: #888;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Montserrat',sans-serif; background:var(--off-white); color:var(--black); overflow-x:hidden; }
+
+    /* ─── NAV ─── */
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 60px; height:80px; background:rgba(14,14,14,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(184,146,42,0.2); transition:height 0.3s; }
+    .nav-logo { display:flex; align-items:center; text-decoration:none; }
+    .nav-logo img { height:52px; width:auto; display:block; }
+    .nav-links { display:flex; gap:40px; list-style:none; margin:0; padding:0; }
+    .nav-links a { text-decoration:none; color:rgba(255,255,255,0.75); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; transition:color 0.2s; position:relative; }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px; background:var(--gold); transform:scaleX(0); transition:transform 0.3s; }
+    .nav-links a:hover { color:var(--gold-light); }
+    .nav-links a:hover::after { transform:scaleX(1); }
+    .nav-links a.nav-active { color:var(--gold); }
+    .nav-links a.nav-active::after { transform:scaleX(1); }
+    .nav-cta { background:var(--gold); color:var(--black) !important; padding:10px 24px; font-weight:600 !important; }
+    .nav-cta:hover { background:var(--gold-light); color:var(--black) !important; }
+    .nav-cta::after { display:none !important; }
+    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--white); transition:all 0.3s; }
+    .mobile-menu { display:none; position:fixed; top:80px; left:0; right:0; background:rgba(14,14,14,0.98); border-bottom:1px solid rgba(184,146,42,0.2); padding:24px 30px; flex-direction:column; gap:0; z-index:99; }
+    .mobile-menu a { display:block; padding:14px 0; color:rgba(255,255,255,0.75) !important; text-decoration:none; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.06); transition:color 0.2s; }
+    .mobile-menu a:hover { color:var(--gold) !important; }
+    .mobile-menu a.nav-cta { margin-top:16px; text-align:center; background:var(--gold); color:var(--black) !important; padding:12px 24px; border-bottom:none; }
+    @media (max-width:900px) { .nav-links { display:none; } .hamburger { display:flex; } nav { padding:0 30px; } }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero { background:var(--black); padding:140px 60px 80px; position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 50%, rgba(184,146,42,0.08) 0%, transparent 70%); }
+    .hero-tag { display:inline-flex; align-items:center; gap:10px; font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:20px; }
+    .hero-tag::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+    .page-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(48px,6vw,88px); font-weight:300; color:var(--white); line-height:1.0; margin-bottom:20px; }
+    .page-hero h1 em { font-style:italic; color:var(--gold); }
+    .gold-divider { width:52px; height:2px; background:var(--gold); margin:20px 0; }
+    .page-hero p { font-size:14px; line-height:1.8; color:rgba(255,255,255,0.45); max-width:480px; font-weight:300; }
+    @media (max-width:768px) { .page-hero { padding:120px 30px 60px; } }
+
+    /* ─── FILTER BAR ─── */
+    .filter-bar { background:var(--white); border-bottom:1px solid rgba(0,0,0,0.07); padding:0 60px; display:flex; align-items:center; gap:0; position:static; }
+    .filter-btn { padding:20px 24px; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; color:var(--text-muted); cursor:pointer; background:none; border:none; border-bottom:2px solid transparent; transition:all 0.2s; white-space:nowrap; }
+    .filter-btn:hover { color:var(--black); }
+    .filter-btn.active { color:var(--gold); border-bottom-color:var(--gold); }
+    .filter-count { display:inline-block; background:rgba(184,146,42,0.15); color:var(--gold); font-size:9px; font-weight:700; padding:2px 6px; margin-left:6px; border-radius:0; }
+    @media (max-width:768px) { .filter-bar { padding:0 16px; overflow-x:auto; } }
+
+    /* ─── GALLERY GRID ─── */
+    .gallery-section { padding:60px 60px 100px; max-width:1400px; margin:0 auto; }
+    .gallery-count { font-size:11px; color:var(--text-muted); letter-spacing:0.1em; margin-bottom:32px; }
+    .gallery-count span { color:var(--black); font-weight:600; }
+
+    .gallery-grid { columns:3 300px; gap:16px; }
+    .gallery-item { break-inside:avoid; margin-bottom:16px; position:relative; overflow:hidden; cursor:pointer; background:var(--charcoal); display:block; }
+    .gallery-item img { width:100%; height:auto; display:block; transition:transform 0.5s ease; }
+    .gallery-item:hover img { transform:scale(1.04); }
+    .gallery-item-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%); opacity:0; transition:opacity 0.3s; display:flex; align-items:flex-end; padding:20px; }
+    .gallery-item:hover .gallery-item-overlay { opacity:1; }
+    .gallery-item-info { }
+    .gallery-item-caption { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; color:var(--white); line-height:1.2; margin-bottom:4px; }
+    .gallery-item-community { font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+    .gallery-item-cat { position:absolute; top:14px; left:14px; font-size:8px; letter-spacing:0.15em; text-transform:uppercase; font-weight:700; padding:4px 10px; background:rgba(0,0,0,0.6); color:rgba(255,255,255,0.8); backdrop-filter:blur(4px); }
+    .gallery-featured-badge { position:absolute; top:14px; right:14px; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; padding:4px 10px; background:var(--gold); color:var(--black); }
+
+    /* Empty state */
+    .gallery-empty { text-align:center; padding:100px 40px; border:2px dashed rgba(0,0,0,0.1); background:var(--white); }
+    .gallery-empty-title { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--black); margin-bottom:12px; }
+    .gallery-empty-desc { font-size:13px; color:var(--text-muted); line-height:1.8; max-width:400px; margin:0 auto; }
+
+    /* ─── LIGHTBOX ─── */
+    .lightbox { position:fixed; inset:0; z-index:2000; background:rgba(0,0,0,0.95); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.3s; }
+    .lightbox.active { opacity:1; pointer-events:all; }
+    .lightbox-inner { position:relative; max-width:90vw; max-height:90vh; display:flex; flex-direction:column; align-items:center; }
+    .lightbox-img { max-width:100%; max-height:80vh; object-fit:contain; display:block; }
+    .lightbox-caption { margin-top:16px; text-align:center; }
+    .lightbox-caption-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--white); margin-bottom:4px; }
+    .lightbox-caption-sub { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); }
+    .lightbox-close { position:fixed; top:24px; right:30px; width:44px; height:44px; border:1px solid rgba(255,255,255,0.2); background:none; color:rgba(255,255,255,0.6); font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; z-index:10; }
+    .lightbox-close:hover { border-color:var(--gold); color:var(--gold); }
+    .lightbox-nav { position:fixed; top:50%; transform:translateY(-50%); width:48px; height:48px; border:1px solid rgba(255,255,255,0.2); background:none; color:rgba(255,255,255,0.6); font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; z-index:10; }
+    .lightbox-nav:hover { border-color:var(--gold); color:var(--gold); }
+    .lightbox-prev { left:20px; }
+    .lightbox-next { right:20px; }
+    .lightbox-counter { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); font-size:10px; letter-spacing:0.2em; color:rgba(255,255,255,0.4); text-transform:uppercase; }
+
+    /* ─── HOW TO ADD PHOTOS BANNER ─── */
+    .add-photos-banner { background:var(--near-black); border:1px solid rgba(184,146,42,0.2); margin:0 60px 48px; padding:28px 36px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+    .add-photos-text h3 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--white); margin-bottom:6px; }
+    .add-photos-text p { font-size:12px; color:rgba(255,255,255,0.45); line-height:1.7; max-width:500px; }
+    .add-photos-steps { display:flex; gap:24px; flex-wrap:wrap; }
+    .add-step { display:flex; align-items:flex-start; gap:10px; }
+    .add-step-num { width:24px; height:24px; background:var(--gold); color:var(--black); font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .add-step-text { font-size:11px; color:rgba(255,255,255,0.5); line-height:1.6; max-width:140px; }
+    .add-step-text strong { color:rgba(255,255,255,0.8); display:block; font-size:11px; margin-bottom:2px; }
+    @media (max-width:768px) { .add-photos-banner { margin:0 30px 40px; padding:20px 24px; } .gallery-section { padding:40px 30px 80px; } }
+    @media (max-width:560px) { .gallery-grid { columns:1; } .add-photos-steps { flex-direction:column; } }
+
+    /* ─── FOOTER ─── */
+    footer { background:var(--black); padding:40px 60px; border-top:1px solid rgba(184,146,42,0.15); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .footer-copy { font-size:12px; color:rgba(255,255,255,0.3); }
+    .footer-copy span { color:var(--gold); }
+    @media (max-width:768px) { footer { padding:32px 30px; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="everstone-logo.jpg" alt="EverStone Homes" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="available-homes.html">Available Homes</a></li>
+    <li><a href="index.html#available-homes">Upcoming Communities</a></li>
+    <li><a href="index.html#communities">Communities</a></li>
+    <li><a href="gallery.html" class="nav-active">Gallery</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="available-homes.html">Available Homes</a>
+  <a href="index.html#available-homes">Upcoming Communities</a>
+  <a href="index.html#communities">Communities</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="index.html#contact" class="nav-cta">Contact Us</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-tag">Our Work</div>
+  <h1>Gallery &amp; <em>Progress</em></h1>
+  <div class="gold-divider"></div>
+  <p>Every build documented — from ground breaking to the moment a family gets their keys. Watch EverStone Homes grow.</p>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">
+    All Photos <span class="filter-count" id="count-all">0</span>
+  </button>
+  <button class="filter-btn" data-filter="exterior" onclick="setFilter('exterior',this)">
+    Exterior <span class="filter-count" id="count-exterior">0</span>
+  </button>
+  <button class="filter-btn" data-filter="interior" onclick="setFilter('interior',this)">
+    Interior <span class="filter-count" id="count-interior">0</span>
+  </button>
+  <button class="filter-btn" data-filter="construction" onclick="setFilter('construction',this)">
+    Construction <span class="filter-count" id="count-construction">0</span>
+  </button>
+  <button class="filter-btn" data-filter="community" onclick="setFilter('community',this)">
+    Community <span class="filter-count" id="count-community">0</span>
+  </button>
+  <button class="filter-btn" data-filter="detail" onclick="setFilter('detail',this)">
+    Details <span class="filter-count" id="count-detail">0</span>
+  </button>
+</div>
+
+
+<!-- GALLERY GRID -->
+<div class="gallery-section">
+  <div class="gallery-count" id="galleryCount"></div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="lightboxClickOutside(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#8249;</button>
+  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8250;</button>
+  <div class="lightbox-inner">
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    <div class="lightbox-caption">
+      <div class="lightbox-caption-title" id="lightboxCaption"></div>
+      <div class="lightbox-caption-sub" id="lightboxCommunity"></div>
+    </div>
+  </div>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<footer>
+  <div class="footer-copy">© 2026 <span>EverStone Homes</span>. Ankeny, Iowa. All rights reserved.</div>
+  <div style="font-size:11px; color:rgba(255,255,255,0.25);">EverStoneIowa@gmail.com &nbsp;·&nbsp; 515-771-1924</div>
+</footer>
+
+<script>
+  // ── NAV SCROLL ──
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.height = window.scrollY > 60 ? '64px' : '80px';
+    const mm = document.getElementById('mobileMenu');
+    if (mm) mm.style.top = window.scrollY > 60 ? '64px' : '80px';
+  });
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  // ── CATEGORY LABELS ──
+  const CAT_LABELS = {
+    exterior: 'Exterior', interior: 'Interior',
+    construction: 'Construction', community: 'Community', detail: 'Detail'
+  };
+
+  let currentFilter = 'all';
+  let filteredPhotos = [];
+  let lightboxIndex = 0;
+
+  // ── UPDATE FILTER COUNTS ──
+  function updateCounts() {
+    const cats = ['exterior','interior','construction','community','detail'];
+    document.getElementById('count-all').textContent = EVERSTONE_GALLERY.length;
+    cats.forEach(c => {
+      const el = document.getElementById('count-' + c);
+      if (el) el.textContent = EVERSTONE_GALLERY.filter(p => p.category === c).length;
+    });
+  }
+
+  // ── RENDER GRID ──
+  function renderGrid(filter) {
+    currentFilter = filter;
+    filteredPhotos = filter === 'all'
+      ? [...EVERSTONE_GALLERY]
+      : EVERSTONE_GALLERY.filter(p => p.category === filter);
+
+    const grid = document.getElementById('galleryGrid');
+    const count = document.getElementById('galleryCount');
+
+    count.innerHTML = `Showing <span>${filteredPhotos.length}</span> photo${filteredPhotos.length !== 1 ? 's' : ''}`;
+
+    if (!filteredPhotos.length) {
+      grid.innerHTML = `
+        <div class="gallery-empty">
+          <div class="gallery-empty-title">No Photos Yet</div>
+          <p class="gallery-empty-desc">Photos in this category will appear here once added to gallery-data.js.</p>
+        </div>`;
+      return;
+    }
+
+    grid.innerHTML = filteredPhotos.map((p, i) => `
+      <div class="gallery-item" onclick="openLightbox(${i})">
+        <img src="${p.src}" alt="${p.caption}" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-info">
+            <div class="gallery-item-caption">${p.caption}</div>
+            <div class="gallery-item-community">${p.community}</div>
+          </div>
+        </div>
+        <div class="gallery-item-cat">${CAT_LABELS[p.category] || p.category}</div>
+        ${p.featured ? '<div class="gallery-featured-badge">Featured</div>' : ''}
+      </div>`).join('');
+  }
+
+  function setFilter(filter, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderGrid(filter);
+  }
+
+  // ── LIGHTBOX ──
+  function openLightbox(index) {
+    lightboxIndex = index;
+    showLightboxPhoto();
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showLightboxPhoto() {
+    const p = filteredPhotos[lightboxIndex];
+    document.getElementById('lightboxImg').src = p.src;
+    document.getElementById('lightboxImg').alt = p.caption;
+    document.getElementById('lightboxCaption').textContent = p.caption;
+    document.getElementById('lightboxCommunity').textContent = p.community + ' · ' + (CAT_LABELS[p.category] || p.category);
+    document.getElementById('lightboxCounter').textContent = (lightboxIndex + 1) + ' / ' + filteredPhotos.length;
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function lightboxNav(dir) {
+    lightboxIndex = (lightboxIndex + dir + filteredPhotos.length) % filteredPhotos.length;
+    showLightboxPhoto();
+  }
+
+  function lightboxClickOutside(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+
+  // Keyboard nav
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') lightboxNav(-1);
+    if (e.key === 'ArrowRight') lightboxNav(1);
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // ── INIT ──
+  updateCounts();
+  renderGrid('all');
+</script>
+</body>
+</html>

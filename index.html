@@ -237,6 +237,23 @@
     .community-feat { font-size: 11px; color: rgba(255,255,255,0.4); display: flex; align-items: center; gap: 5px; }
     .community-feat::before { content: '✦'; font-size: 7px; color: var(--gold); }
 
+
+    /* ─── GALLERY GRID (live photos) ─── */
+    .hp-gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .hp-gallery-item { position:relative; overflow:hidden; cursor:pointer; background:var(--charcoal); aspect-ratio:4/3; }
+    .hp-gallery-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease; }
+    .hp-gallery-item:hover img { transform:scale(1.05); }
+    .hp-gallery-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 55%); opacity:0; transition:opacity 0.3s; display:flex; align-items:flex-end; padding:16px; }
+    .hp-gallery-item:hover .hp-gallery-overlay { opacity:1; }
+    .hp-gallery-caption { font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:600; color:#fff; line-height:1.2; }
+    .hp-gallery-sub { font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-top:3px; }
+    .hp-gallery-placeholder { background:linear-gradient(135deg,#e8e4dc 0%,#ddd8ce 100%); display:flex; align-items:center; justify-content:center; aspect-ratio:4/3; }
+    .hp-gallery-placeholder svg { opacity:0.15; }
+    .hp-gallery-placeholder-label { position:absolute; bottom:12px; left:0; right:0; text-align:center; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(0,0,0,0.3); font-weight:600; }
+    .gallery-refresh-note { font-size:11px; color:var(--text-muted); margin-top:16px; text-align:center; }
+    @media (max-width:860px) { .hp-gallery-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:560px) { .hp-gallery-grid { grid-template-columns:1fr; } }
+
     /* ─── GALLERY ─── */
     #gallery { padding: 120px 0; background: var(--off-white); }
     .gallery-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 24px; }
@@ -427,7 +444,7 @@
     <li><a href="available-homes.html">Available Homes</a></li>
     <li><a href="#available-homes">Upcoming Communities</a></li>
     <li><a href="#communities">Communities</a></li>
-    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -441,7 +458,7 @@
   <a href="available-homes.html" onclick="toggleMenu()" style="font-family:'Cormorant Garamond',serif; font-size:32px; color:#b8922a; text-decoration:none;">Available Homes</a>
   <a href="#available-homes" onclick="toggleMenu()" style="font-family:'Cormorant Garamond',serif; font-size:32px; color:white; text-decoration:none;">Upcoming Communities</a>
   <a href="#communities" onclick="toggleMenu()" style="font-family:'Cormorant Garamond',serif; font-size:32px; color:white; text-decoration:none;">Communities</a>
-  <a href="#gallery" onclick="toggleMenu()" style="font-family:'Cormorant Garamond',serif; font-size:32px; color:white; text-decoration:none;">Gallery</a>
+  <a href="gallery.html">Gallery</a>
   <a href="#contact" onclick="toggleMenu()" style="font-family:'Cormorant Garamond',serif; font-size:32px; color:#b8922a; text-decoration:none;">Contact Us</a>
 </div>
 
@@ -496,7 +513,7 @@
       <div class="section-tag">What's Coming</div>
       <h2 class="section-title">Our <em>Upcoming Communities</em></h2>
       <div class="gold-divider"></div>
-      <p class="section-desc">EverStone Homes is in its founding chapter. We're actively building our first homes and securing lots for future communities — follow along as we grow.</p>
+      <p class="section-desc">EverStone Homes is in its founding chapter. We're actively building our first homes and securing lots for future communities.</p>
     </div>
 
     <div class="homes-grid">
@@ -747,44 +764,18 @@
 <!-- ─── GALLERY ─── -->
 <section id="gallery">
   <div class="section-inner">
-    <div class="gallery-header reveal">
+    <div class="gallery-header reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:40px;">
       <div>
         <div class="section-tag">Our Work</div>
         <h2 class="section-title">Gallery &amp; <em>Progress</em></h2>
         <div class="gold-divider"></div>
       </div>
-      <p class="section-desc" style="text-align:right; max-width:320px;">Photos of our builds will appear here as construction progresses. Check back as we document every step of our first homes.</p>
+      <a href="gallery.html" class="btn-card" style="margin-bottom:4px;">View Full Gallery →</a>
     </div>
-
-    <div class="gallery-coming-soon reveal">
-      <div class="gcs-icon">
-        <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-          <path d="M28 6L50 20V44H6V20L28 6Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <rect x="22" y="10" width="12" height="10" fill="currentColor" opacity="0.3"/>
-          <rect x="10" y="28" width="14" height="12" stroke="currentColor" stroke-width="1" fill="none"/>
-          <rect x="32" y="28" width="14" height="12" stroke="currentColor" stroke-width="1" fill="none"/>
-          <rect x="22" y="30" width="12" height="14" fill="currentColor" opacity="0.2"/>
-        </svg>
-      </div>
-      <div class="gcs-title">Photos Coming Soon</div>
-      <p class="gcs-desc">We're a brand new company and our first home is about to break ground at The Crossings at Deer Creek. We'll be documenting the entire build — from lot clearing to the day a family gets their keys. Follow along as EverStone Homes grows.</p>
-      <div class="gcs-badge">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M7 4v4l2.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        Construction Starting Soon — Check Back for Updates
-      </div>
-      <!-- Placeholder grid -->
-      <div class="gallery-placeholder-grid" style="margin-top:36px;">
-        <div class="gallery-placeholder-cell" style="height:200px;">
-          <div class="gpc-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M24 6L42 18V42H6V18L24 6Z" stroke="#b8922a" stroke-width="1.5" fill="none"/></svg></div>
-        </div>
-        <div class="gallery-placeholder-cell" style="height:200px;">
-          <div class="gpc-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="12" width="36" height="26" stroke="#b8922a" stroke-width="1.5" fill="none"/><path d="M6 22L24 14L42 22" stroke="#b8922a" stroke-width="1.5" fill="none"/></svg></div>
-        </div>
-        <div class="gallery-placeholder-cell" style="height:200px;">
-          <div class="gpc-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M8 24L24 10L40 24V40H8V24Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="19" y="28" width="10" height="12" stroke="#b8922a" stroke-width="1" fill="none"/></svg></div>
-        </div>
-      </div>
+    <div class="hp-gallery-grid" id="hpGalleryGrid">
+      <!-- Populated by JS from gallery-data.js -->
     </div>
+    <p class="gallery-refresh-note" id="galleryRefreshNote"></p>
   </div>
 </section>
 
@@ -836,7 +827,7 @@
           </div>
           <div>
             <div class="contact-detail-label">Building In</div>
-            <div class="contact-detail-value">Ankeny, Iowa</div>
+            <div class="contact-detail-value">Central Iowa</div>
             <div class="contact-detail-sub">The Crossings at Deer Creek · Pine Lake Estates</div>
           </div>
         </div>
@@ -899,7 +890,7 @@
         <li><a href="available-homes.html">Available Homes</a></li>
         <li><a href="#upcoming-communities">Upcoming Communities</a></li>
         <li><a href="#communities">Communities</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -1017,7 +1008,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.g
 </script>
 
 <!-- Load shared homes data and render homepage homes grid -->
-<script src="homes-data.js"></script>
+<script src="gallery-data.js"></script>
+  <script src="homes-data.js"></script>
 <script>
 (function() {
   const STATUS_CONFIG = {
@@ -1226,5 +1218,91 @@ function hpCloseModalOnOverlay(e) {
 document.addEventListener('DOMContentLoaded', () => { if (typeof L !== 'undefined') initHpMap(); });
 window.addEventListener('load', () => { if (hpMapInstance) hpMapInstance.invalidateSize(); });
 </script>
+
+<!-- Home Page Gallery JS -->
+<script>
+(function() {
+  const GRID_SIZE = 9; // photos shown on home page at a time
+  const ROTATION_DAYS = 30;
+  const STORAGE_KEY = 'everstone_gallery_seed';
+
+  function getSeed() {
+    // Returns a seed that changes every 30 days
+    const stored = localStorage.getItem(STORAGE_KEY);
+    const now = Date.now();
+    if (stored) {
+      const { seed, timestamp } = JSON.parse(stored);
+      const daysDiff = (now - timestamp) / (1000 * 60 * 60 * 24);
+      if (daysDiff < ROTATION_DAYS) return seed;
+    }
+    // Generate new seed and store it
+    const newSeed = Math.floor(Math.random() * 1000000);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ seed: newSeed, timestamp: now }));
+    return newSeed;
+  }
+
+  function seededShuffle(arr, seed) {
+    // Deterministic shuffle so same seed = same order
+    const a = [...arr];
+    let s = seed;
+    for (let i = a.length - 1; i > 0; i--) {
+      s = (s * 1664525 + 1013904223) & 0xffffffff;
+      const j = Math.abs(s) % (i + 1);
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function renderHpGallery() {
+    const grid = document.getElementById('hpGalleryGrid');
+    const note = document.getElementById('galleryRefreshNote');
+    if (!grid || typeof EVERSTONE_GALLERY === 'undefined') return;
+
+    const photos = EVERSTONE_GALLERY;
+
+    if (!photos.length) {
+      // Show placeholder cells if no photos yet
+      grid.innerHTML = [1,2,3,4,5,6,7,8,9].map(() => `
+        <div class="hp-gallery-placeholder" style="position:relative;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M24 6L42 18V42H6V18L24 6Z" stroke="#b8922a" stroke-width="1.5" fill="none"/></svg>
+          <div class="hp-gallery-placeholder-label">Photo Coming Soon</div>
+        </div>`).join('');
+      return;
+    }
+
+    // Featured photos always included, rest shuffled by 30-day seed
+    const featured = photos.filter(p => p.featured);
+    const others = photos.filter(p => !p.featured);
+    const seed = getSeed();
+    const shuffledOthers = seededShuffle(others, seed);
+    const pool = [...featured, ...shuffledOthers].slice(0, GRID_SIZE);
+
+    grid.innerHTML = pool.map((p, i) => `
+      <div class="hp-gallery-item" onclick="window.location.href='gallery.html'">
+        <img src="${p.src}" alt="${p.caption}" loading="lazy" />
+        <div class="hp-gallery-overlay">
+          <div>
+            <div class="hp-gallery-caption">${p.caption}</div>
+            <div class="hp-gallery-sub">${p.community}</div>
+          </div>
+        </div>
+      </div>`).join('');
+
+    // Show next rotation note if there are more photos than the grid
+    if (photos.length > GRID_SIZE) {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const { timestamp } = JSON.parse(stored);
+        const nextRotation = new Date(timestamp + ROTATION_DAYS * 24 * 60 * 60 * 1000);
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        note.textContent = `Showing ${pool.length} of ${photos.length} photos · Gallery rotates on ${months[nextRotation.getMonth()]} ${nextRotation.getDate()}`;
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', renderHpGallery);
+})();
+</script>
+
 </body>
 </html>
