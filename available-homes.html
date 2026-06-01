@@ -127,7 +127,58 @@
     @media (max-width:1100px) { nav,.filters-bar { padding-left:30px; padding-right:30px; } .homes-section { padding:48px 30px 80px; } footer { padding:40px 30px; } }
     @media (max-width:860px) { .homes-grid { grid-template-columns:repeat(2,1fr); } .empty-state { grid-column:span 2; } }
     @media (max-width:560px) { .homes-grid { grid-template-columns:1fr; } .empty-state { grid-column:span 1; } .modal-specs { grid-template-columns:repeat(2,1fr); } .page-hero { padding:60px 24px 52px; } .filters-bar { padding:0 16px; overflow-x:auto; } }
+
+    /* ─── MAP SECTION ─── */
+    .map-section { background:var(--black); padding:72px 0 0; position:relative; }
+    .map-section-inner { max-width:1400px; margin:0 auto; padding:0 60px 0; }
+    .map-header { margin-bottom:36px; }
+    .map-tag { display:inline-flex; align-items:center; gap:10px; font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:16px; }
+    .map-tag::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+    .map-title { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,4vw,52px); font-weight:300; color:var(--white); line-height:1.08; margin-bottom:12px; }
+    .map-title em { font-style:italic; color:var(--gold); }
+    .map-desc { font-size:13px; line-height:1.8; color:rgba(255,255,255,0.45); max-width:500px; font-weight:300; }
+    .map-divider { width:52px; height:2px; background:var(--gold); margin:20px 0; }
+    .map-layout { display:grid; grid-template-columns:320px 1fr; gap:0; min-height:560px; }
+    .map-sidebar { background:#111; border:1px solid rgba(184,146,42,0.15); overflow-y:auto; max-height:560px; }
+    .map-sidebar-header { padding:18px 20px; border-bottom:1px solid rgba(255,255,255,0.06); font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+    .map-listing { padding:18px 20px; border-bottom:1px solid rgba(255,255,255,0.06); cursor:pointer; transition:background 0.2s; }
+    .map-listing:hover, .map-listing.active { background:rgba(184,146,42,0.08); }
+    .map-listing.active { border-left:2px solid var(--gold); }
+    .map-listing-community { font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:4px; }
+    .map-listing-name { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--white); margin-bottom:6px; line-height:1.2; }
+    .map-listing-price { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:var(--white); }
+    .map-listing-specs { display:flex; gap:14px; margin-top:8px; }
+    .map-listing-spec { font-size:10px; color:rgba(255,255,255,0.45); display:flex; align-items:center; gap:4px; }
+    .map-listing-spec strong { color:rgba(255,255,255,0.75); font-weight:600; }
+    .map-listing-badge { display:inline-block; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; padding:3px 8px; margin-bottom:6px; }
+    .map-container { position:relative; }
+    #everstoneMap { width:100%; height:560px; }
+    .map-zoom-controls { position:absolute; top:16px; right:16px; z-index:500; display:flex; flex-direction:column; gap:2px; }
+    .map-zoom-btn { width:32px; height:32px; background:#111; border:1px solid rgba(184,146,42,0.3); color:var(--gold); font-size:18px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; font-family:monospace; }
+    .map-zoom-btn:hover { background:rgba(184,146,42,0.15); }
+    .map-attribution { font-size:10px; color:rgba(255,255,255,0.2); text-align:right; padding:10px 60px 24px; background:var(--black); }
+    .map-attribution a { color:rgba(184,146,42,0.5); text-decoration:none; }
+
+    /* Custom Leaflet popup */
+    .leaflet-popup-content-wrapper { background:#111 !important; border:1px solid rgba(184,146,42,0.4) !important; border-radius:0 !important; box-shadow:0 8px 32px rgba(0,0,0,0.6) !important; }
+    .leaflet-popup-tip { background:#111 !important; }
+    .leaflet-popup-content { margin:0 !important; }
+    .map-popup { padding:16px 18px; min-width:200px; }
+    .map-popup-community { font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:4px; font-family:'Montserrat',sans-serif; }
+    .map-popup-name { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; color:#fff; margin-bottom:6px; line-height:1.2; }
+    .map-popup-price { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:#fff; margin-bottom:8px; }
+    .map-popup-specs { display:flex; gap:10px; margin-bottom:12px; }
+    .map-popup-spec { font-size:10px; color:rgba(255,255,255,0.5); font-family:'Montserrat',sans-serif; }
+    .map-popup-spec strong { color:rgba(255,255,255,0.8); display:block; font-family:'Cormorant Garamond',serif; font-size:14px; }
+    .map-popup-btn { display:block; text-align:center; background:var(--gold); color:#000; padding:8px 14px; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; font-weight:700; text-decoration:none; font-family:'Montserrat',sans-serif; transition:background 0.2s; cursor:pointer; border:none; width:100%; }
+    .map-popup-btn:hover { background:#d4aa4a; }
+    .leaflet-control-zoom { display:none !important; }
+    .leaflet-control-attribution { display:none !important; }
+
+    @media (max-width:900px) { .map-layout { grid-template-columns:1fr; } .map-sidebar { max-height:220px; } .map-section-inner { padding:0 30px 0; } .map-attribution { padding:10px 30px 20px; } }
+    @media (max-width:560px) { .map-section-inner { padding:0 16px 0; } .map-attribution { padding:10px 16px 16px; } }
   </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -193,6 +244,32 @@
     </div>
   </div>
 </div>
+
+<!-- MAP SECTION -->
+<section class="map-section" id="mapSection">
+  <div class="map-section-inner">
+    <div class="map-header">
+      <div class="map-tag">Find Your Home</div>
+      <h2 class="map-title">Homes on the <em>Map</em></h2>
+      <div class="map-divider"></div>
+      <p class="map-desc">Explore every available EverStone home directly on the map. Click any listing to zoom in and see full details.</p>
+    </div>
+    <div class="map-layout">
+      <div class="map-sidebar">
+        <div class="map-sidebar-header">All Listings</div>
+        <div id="mapSidebar"></div>
+      </div>
+      <div class="map-container">
+        <div id="everstoneMap"></div>
+        <div class="map-zoom-controls">
+          <button class="map-zoom-btn" onclick="mapInstance.zoomIn()">+</button>
+          <button class="map-zoom-btn" onclick="mapInstance.zoomOut()">−</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="map-attribution">Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
@@ -381,6 +458,166 @@
     document.getElementById('navbar').style.height = window.scrollY > 60 ? '64px' : '80px';
   });
 
+</script>
+<!-- Leaflet Map JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  MAP — AUTO-DRIVEN BY homes-data.js
+//  ─────────────────────────────────────────────────────────────
+//  No coordinates are stored here. To put a home on the map,
+//  simply add  lat: 41.000000, lng: -93.000000  to its entry
+//  in homes-data.js. That's it — the map updates itself.
+//
+//  HOW TO GET COORDINATES:
+//    1. Open Google Maps and find the lot/address
+//    2. Right-click the exact spot → click "What's here?"
+//    3. Copy the lat, lng numbers shown at the bottom
+//    4. Paste them into the home's entry in homes-data.js
+// ═══════════════════════════════════════════════════════════════
+
+let mapInstance = null;
+let mapMarkers  = {};
+
+function initMap() {
+  // Only include homes that have lat & lng in homes-data.js
+  const mapped = EVERSTONE_HOMES.filter(h => h.lat != null && h.lng != null);
+
+  const mapSection = document.getElementById('mapSection');
+
+  if (!mapped.length) {
+    // Hide the whole map section gracefully if no homes have coordinates yet
+    if (mapSection) mapSection.style.display = 'none';
+    return;
+  }
+  if (mapSection) mapSection.style.display = '';
+
+  // Center & zoom to fit all pins
+  const avgLat = mapped.reduce((s, h) => s + h.lat, 0) / mapped.length;
+  const avgLng = mapped.reduce((s, h) => s + h.lng, 0) / mapped.length;
+  const zoom   = mapped.length === 1 ? 14 : 12;
+
+  mapInstance = L.map('everstoneMap', {
+    center: [avgLat, avgLng],
+    zoom,
+    zoomControl: false,
+    attributionControl: false
+  });
+
+  // Esri World Imagery — satellite view
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19
+  }).addTo(mapInstance);
+
+  // If multiple homes, fit all markers in view
+  if (mapped.length > 1) {
+    const bounds = L.latLngBounds(mapped.map(h => [h.lat, h.lng]));
+    mapInstance.fitBounds(bounds, { padding: [48, 48] });
+  }
+
+  const sidebar = document.getElementById('mapSidebar');
+  sidebar.innerHTML = '';
+
+  const badgeColors = {
+    'badge-available':    { bg: '#b8922a',           color: '#000' },
+    'badge-construction': { bg: 'rgba(30,90,30,0.9)', color: '#fff' },
+    'badge-coming':       { bg: '#333',               color: 'rgba(255,255,255,0.8)' }
+  };
+
+  mapped.forEach(h => {
+    const sc = STATUS_CONFIG[h.status] || STATUS_CONFIG['coming-soon'];
+    const bc = badgeColors[sc.badgeClass] || badgeColors['badge-coming'];
+
+    // ── Price-bubble marker (Zillow style) ──
+    const markerIcon = L.divIcon({
+      className: '',
+      html: `<div style="
+        background:${bc.bg};color:${bc.color};
+        font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;
+        padding:6px 11px;white-space:nowrap;
+        box-shadow:0 4px 18px rgba(0,0,0,0.6);cursor:pointer;
+        position:relative;letter-spacing:0.03em;
+        transition:transform 0.15s;
+      " onmouseenter="this.style.transform='scale(1.08)'" onmouseleave="this.style.transform='scale(1)'">
+        ${h.price || 'Contact'}
+        <div style="position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);
+          width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;
+          border-top:7px solid ${bc.bg};"></div>
+      </div>`,
+      iconAnchor: [40, 36],
+      popupAnchor: [0, -38]
+    });
+
+    const marker = L.marker([h.lat, h.lng], { icon: markerIcon }).addTo(mapInstance);
+
+    // ── Rich popup ──
+    marker.bindPopup(`
+      <div class="map-popup">
+        <div class="map-popup-community">${h.community}</div>
+        <div class="map-popup-name">${h.name}</div>
+        <div class="map-popup-price">${h.price || 'Contact for Pricing'}</div>
+        <div class="map-popup-specs">
+          <div class="map-popup-spec"><strong>${h.beds}</strong>Beds</div>
+          <div class="map-popup-spec"><strong>${h.baths}</strong>Baths</div>
+          <div class="map-popup-spec"><strong>${h.sqft}</strong>Sq Ft</div>
+          <div class="map-popup-spec"><strong>${h.garage}</strong>Garage</div>
+        </div>
+        <button class="map-popup-btn" onclick="openModal('${h.id}')">View Details →</button>
+      </div>`, { maxWidth: 260, minWidth: 220 });
+
+    mapMarkers[h.id] = marker;
+    marker.on('popupopen', () => setActiveSidebar(h.id, true));
+    marker.on('popupclose', () => {
+      document.querySelectorAll('.map-listing').forEach(el => el.classList.remove('active'));
+    });
+
+    // ── Sidebar listing card ──
+    const card = document.createElement('div');
+    card.className = 'map-listing';
+    card.id = 'sidebar-' + h.id;
+    card.innerHTML = `
+      <div class="map-listing-badge" style="background:${bc.bg};color:${bc.color}">${sc.label}</div>
+      <div class="map-listing-community">${h.community}</div>
+      <div class="map-listing-name">${h.name}</div>
+      <div class="map-listing-price">${h.price || 'Contact for Pricing'}</div>
+      <div class="map-listing-specs">
+        <span class="map-listing-spec"><strong>${h.beds}</strong>&nbsp;bd</span>
+        <span class="map-listing-spec"><strong>${h.baths}</strong>&nbsp;ba</span>
+        <span class="map-listing-spec"><strong>${h.sqft}</strong>&nbsp;sqft</span>
+      </div>`;
+    card.addEventListener('click', () => focusListing(h.id));
+    sidebar.appendChild(card);
+  });
+
+  // Highlight first sidebar entry without scrolling the page
+  if (mapped.length >= 1) {
+    setActiveSidebar(mapped[0].id, false);
+  }
+}
+
+function focusListing(id) {
+  const h = EVERSTONE_HOMES.find(x => x.id === id);
+  if (!h || !mapInstance) return;
+  mapInstance.setView([h.lat, h.lng], 15, { animate: true });
+  setTimeout(() => { if (mapMarkers[id]) mapMarkers[id].openPopup(); }, 350);
+  setActiveSidebar(id, true);
+}
+
+// scroll=true only when the user actively clicks a listing (not on page load)
+function setActiveSidebar(id, scroll) {
+  document.querySelectorAll('.map-listing').forEach(el => el.classList.remove('active'));
+  const card = document.getElementById('sidebar-' + id);
+  if (!card) return;
+  card.classList.add('active');
+  if (scroll) {
+    const sidebar = document.getElementById('mapSidebar');
+    // Scroll only within the sidebar panel, never the whole page
+    sidebar.scrollTo({ top: card.offsetTop - sidebar.offsetTop, behavior: 'smooth' });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => { if (typeof L !== 'undefined') initMap(); });
+window.addEventListener('load', () => { if (mapInstance) mapInstance.invalidateSize(); });
 </script>
 </body>
 </html>

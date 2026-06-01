@@ -27,7 +27,9 @@ const EVERSTONE_HOMES = [
     price: "$549,900",                  // e.g. "$389,000" — leave "" to show "Contact for Pricing"
     image: "deer-creek-home.png",       // filename in same folder, or "" for placeholder
     note: "Select customization options available",
-    communityPage: "crossings-at-deer-creek.html"
+    communityPage: "crossings-at-deer-creek.html",
+    lat: 41.741743,                     // GPS coordinates — home appears on map automatically
+    lng: -93.551448                     // find via Google Maps: right-click the lot → "What's here?"
   },
 
   // ── PINE LAKE ESTATES ─────────────────────────────────────────
@@ -47,7 +49,9 @@ const EVERSTONE_HOMES = [
   //   price: "$420,000",               // or "" for contact pricing
   //   image: "photo-filename.jpg",     // or "" for placeholder
   //   note: "Short description line",
-  //   communityPage: "community-page.html"
+  //   communityPage: "community-page.html",
+  //   lat: 41.000000,                  // GPS latitude  — right-click lot in Google Maps → "What's here?"
+  //   lng: -93.000000                  // GPS longitude — home auto-appears on map, omit to skip map
   // },
 
 ];
