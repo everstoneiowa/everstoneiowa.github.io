@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EverStone Homes – Built to Last</title>
-  <meta name="description" content="EverStone Homes is a locally owned new home builder in Ankeny, Iowa. Now building at The Crossings at Deer Creek. Quality single-family homes built on honesty, punctuality, and craftsmanship." />
+  <meta name="description" content="EverStone Homes is a locally owned new home builder in central Iowa. Now building at The Crossings at Deer Creek in Ankeny. Quality single-family homes built on honesty, punctuality, and craftsmanship." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.everstoneiowa.com/" />
   <!-- Open Graph -->
@@ -310,6 +310,27 @@
     .community-feat::before { content: '✦'; font-size: 7px; color: var(--gold); }
 
 
+    /* ─── WHY EVERSTONE ─── */
+    #why-everstone { padding: 120px 0; background: var(--off-white); }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 64px; }
+    .why-card {
+      background: var(--white); padding: 44px 36px; position: relative; overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06); transition: border-color 0.3s, transform 0.3s;
+    }
+    .why-card:hover { border-color: rgba(184,146,42,0.3); transform: translateY(-4px); }
+    .why-card-number {
+      font-family: 'Cormorant Garamond', serif; font-size: 80px; font-weight: 700;
+      color: rgba(184,146,42,0.08); position: absolute; top: 12px; right: 20px;
+      line-height: 1; pointer-events: none;
+    }
+    .why-card-icon { color: var(--gold); margin-bottom: 22px; }
+    .why-card-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--black); margin-bottom: 14px; line-height: 1.2; }
+    .why-card-desc { font-size: 13px; line-height: 1.85; color: var(--text-muted); font-weight: 300; }
+    .why-bottom { margin-top: 64px; background: var(--black); padding: 48px 56px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .why-bottom-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 32px); font-weight: 300; color: var(--white); line-height: 1.4; max-width: 600px; }
+    .why-bottom-text em { font-style: italic; color: var(--gold); }
+    @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; } .why-bottom { padding: 36px 30px; } }
+
     /* ─── GALLERY GRID (live photos) ─── */
     .hp-gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
     .hp-gallery-item { position:relative; overflow:hidden; cursor:pointer; background:var(--charcoal); aspect-ratio:4/3; }
@@ -528,6 +549,7 @@
     <li><a href="#home">Home</a></li>
     <li><a href="available-homes.html">Available Homes</a></li>
     <li><a href="#communities">Communities</a></li>
+    <li><a href="build-process.html">Our Process</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
@@ -542,6 +564,7 @@
   <a href="#home" onclick="toggleMenu()">Home</a>
   <a href="available-homes.html" onclick="toggleMenu()">Available Homes</a>
   <a href="#communities" onclick="toggleMenu()">Communities</a>
+  <a href="build-process.html" onclick="toggleMenu()">Our Process</a>
   <a href="gallery.html" onclick="toggleMenu()">Gallery</a>
   <a href="about.html" onclick="toggleMenu()">About</a>
   <a href="#contact" onclick="toggleMenu()" class="nav-cta">Contact Us</a>
@@ -750,6 +773,82 @@
   </div>
 </section>
 
+<!-- ─── WHY EVERSTONE ─── -->
+<section id="why-everstone">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag">Why Build With Us</div>
+      <h2 class="section-title">What sets <em>EverStone</em> apart.</h2>
+      <div class="gold-divider"></div>
+      <p class="section-desc">We're not a volume builder. Every home we build gets our full attention — because our name is on it.</p>
+    </div>
+    <div class="why-grid">
+
+      <div class="why-card reveal">
+        <div class="why-card-number">01</div>
+        <div class="why-card-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 3L29 11V21L16 29L3 21V11L16 3Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M16 3V29M3 11L29 11M3 21L29 21" stroke="currentColor" stroke-width="1" opacity="0.4"/></svg>
+        </div>
+        <div class="why-card-title">Locally Owned &amp; Operated</div>
+        <div class="why-card-desc">EverStone Homes is owned and run by someone who grew up in central Iowa and plans to stay here. You're not dealing with a regional sales rep — you're dealing directly with the builder.</div>
+      </div>
+
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-card-number">02</div>
+        <div class="why-card-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M4 12h24M12 12v16" stroke="currentColor" stroke-width="1.5"/><path d="M9 8h2M15 8h2M21 8h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="why-card-title">Generational Construction Knowledge</div>
+        <div class="why-card-desc">Our roots go back to DS Solid Construction — a name Ankeny has trusted for years. That experience doesn't disappear; it shows up in every decision made on your build.</div>
+      </div>
+
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-card-number">03</div>
+        <div class="why-card-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="why-card-title">Direct Communication</div>
+        <div class="why-card-desc">No call centers, no runaround. When you have a question about your home, you reach the person actually building it. We keep you informed at every stage of the process.</div>
+      </div>
+
+      <div class="why-card reveal">
+        <div class="why-card-number">04</div>
+        <div class="why-card-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4L4 12v16h8v-8h8v8h8V12L16 4Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        </div>
+        <div class="why-card-title">Quality Over Volume</div>
+        <div class="why-card-desc">We're not trying to build 50 homes a year. We take on a limited number of projects so that every home gets the attention it deserves — from foundation to final walkthrough.</div>
+      </div>
+
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-card-number">05</div>
+        <div class="why-card-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 26V14L16 6l10 8v12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="none"/><path d="M4 14l12-10 12 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="12" y="18" width="8" height="8" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        </div>
+        <div class="why-card-title">Transparent Pricing</div>
+        <div class="why-card-desc">We walk you through what's included, what's not, and what things cost — before you sign anything. No surprises mid-build, no nickel-and-diming on items that should be standard.</div>
+      </div>
+
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-card-number">06</div>
+        <div class="why-card-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 28C22.627 28 28 22.627 28 16S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M16 10v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="why-card-title">On-Time, Every Time</div>
+        <div class="why-card-desc">Punctuality is one of our three core values — not a talking point. We set realistic timelines and hold our subcontractors to them, because your schedule matters as much as ours.</div>
+      </div>
+
+    </div>
+
+    <div class="why-bottom reveal">
+      <div class="why-bottom-text">
+        "We build homes the way we'd want our own built — <em>with the same materials, the same care, and the same standards</em> we'd hold anyone to."
+      </div>
+      <a href="build-process.html" class="btn-primary">See How We Build →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ─── GALLERY ─── -->
 <section id="gallery">
   <div class="section-inner">
@@ -879,6 +978,7 @@
         <li><a href="available-homes.html">Available Homes</a></li>
         <li><a href="#upcoming-communities">Upcoming Communities</a></li>
         <li><a href="#communities">Communities</a></li>
+        <li><a href="build-process.html">Our Process</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>

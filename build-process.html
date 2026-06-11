@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Build Process – EverStone Homes</title>
+  <meta name="description" content="Learn how EverStone Homes builds your home from first conversation to closing day. A step-by-step look at the new construction process in central Iowa." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.everstoneiowa.com/build-process.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.everstoneiowa.com/build-process.html" />
+  <meta property="og:title" content="Our Build Process – EverStone Homes" />
+  <meta property="og:description" content="A step-by-step look at how EverStone Homes builds your home — from first conversation to closing day." />
+  <meta property="og:image" content="https://www.everstoneiowa.com/deer-creek-home.png" />
+  <meta property="og:site_name" content="EverStone Homes" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Build Process – EverStone Homes" />
+  <meta name="twitter:description" content="A step-by-step look at how EverStone Homes builds your home." />
+  <meta name="twitter:image" content="https://www.everstoneiowa.com/deer-creek-home.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #b8922a; --gold-light: #d4aa4a; --gold-dark: #8a6a1a;
+      --black: #0e0e0e; --near-black: #141414; --dark: #1a1a1a;
+      --charcoal: #2a2a2a; --white: #ffffff; --off-white: #f8f6f2;
+      --text-muted: #888;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--off-white); color: var(--black); overflow-x: hidden; }
+
+    /* ─── NAV ─── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 80px; background: rgba(14,14,14,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(184,146,42,0.2); transition: height 0.3s; }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 52px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a { text-decoration: none; color: rgba(255,255,255,0.75); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.nav-active { color: var(--gold); }
+    .nav-links a.nav-active::after { transform: scaleX(1); }
+    .nav-cta { background: var(--gold); color: var(--black) !important; padding: 10px 24px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; }
+    .nav-cta::after { display: none !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: #fff; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 80px; left: 0; right: 0; background: rgba(14,14,14,0.98); border-bottom: 1px solid rgba(184,146,42,0.2); padding: 24px 30px; flex-direction: column; gap: 0; z-index: 99; }
+    .mobile-menu a { display: block; padding: 14px 0; color: rgba(255,255,255,0.75) !important; text-decoration: none !important; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--gold) !important; }
+    .mobile-menu a.nav-cta { margin-top: 16px; text-align: center; background: var(--gold); color: var(--black) !important; padding: 12px 24px; border-bottom: none; font-weight: 700; }
+    @media (max-width: 900px) { .nav-links { display: none; } .hamburger { display: flex; } nav { padding: 0 30px; } }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 52vh; background: var(--black); display: flex; align-items: center;
+      position: relative; overflow: hidden; padding-top: 80px;
+    }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(184,146,42,0.06) 0%, transparent 70%); }
+    .hero-grid { position: absolute; inset: 0; opacity: 0.03; background-image: linear-gradient(rgba(184,146,42,1) 1px, transparent 1px), linear-gradient(90deg, rgba(184,146,42,1) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-inner { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 80px 60px; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 24px; }
+    .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 6vw, 80px); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 24px; }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-desc { font-size: 14px; line-height: 1.85; color: rgba(255,255,255,0.5); max-width: 520px; font-weight: 300; }
+    @media (max-width: 900px) { .hero-inner { padding: 60px 30px; } }
+    @media (max-width: 560px) { .hero-inner { padding: 60px 20px; } }
+
+    /* ─── SHARED ─── */
+    .section-inner { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
+    .gold-divider { width: 52px; height: 2px; background: var(--gold); margin: 20px 0; }
+    .btn-primary { background: var(--gold); color: var(--black); padding: 15px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.3s; display: inline-block; font-family: 'Montserrat', sans-serif; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(184,146,42,0.3); }
+    .btn-ghost-dark { border: 1px solid rgba(0,0,0,0.2); color: var(--black); padding: 14px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: all 0.3s; display: inline-block; font-family: 'Montserrat', sans-serif; }
+    .btn-ghost-dark:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─── INTRO STRIP ─── */
+    .intro-strip { background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .intro-strip-inner { max-width: 1400px; margin: 0 auto; padding: 52px 60px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    .intro-stat { padding: 0 40px; border-right: 1px solid rgba(0,0,0,0.08); text-align: center; }
+    .intro-stat:first-child { padding-left: 0; }
+    .intro-stat:last-child { border-right: none; padding-right: 0; }
+    .intro-stat-val { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+    .intro-stat-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); font-weight: 500; }
+    @media (max-width: 700px) { .intro-strip-inner { grid-template-columns: 1fr; gap: 32px; } .intro-stat { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 0 0 32px; text-align: left; } .intro-stat:last-child { border-bottom: none; padding-bottom: 0; } .intro-strip-inner { padding: 40px 24px; } }
+
+    /* ─── PROCESS STEPS ─── */
+    .process-section { padding: 120px 0; background: var(--off-white); }
+    .process-header { margin-bottom: 80px; }
+    .section-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; }
+    .section-tag::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.1; color: var(--black); }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-desc { font-size: 14px; line-height: 1.8; color: var(--text-muted); max-width: 540px; margin-top: 16px; font-weight: 300; }
+
+    .process-steps { display: flex; flex-direction: column; gap: 0; }
+    .process-step {
+      display: grid; grid-template-columns: 80px 1fr; gap: 0;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .process-step:last-child { border-bottom: none; }
+    .step-number-col {
+      display: flex; flex-direction: column; align-items: center; padding: 48px 0;
+      position: relative;
+    }
+    .step-number-col::after {
+      content: ''; position: absolute; top: 90px; bottom: -1px; left: 50%;
+      width: 1px; background: linear-gradient(to bottom, rgba(184,146,42,0.4), rgba(184,146,42,0.05));
+    }
+    .process-step:last-child .step-number-col::after { display: none; }
+    .step-num-badge {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--gold); color: var(--black);
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .step-body { padding: 48px 0 48px 48px; }
+    .step-phase { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 10px; }
+    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--black); margin-bottom: 16px; line-height: 1.15; }
+    .step-desc { font-size: 13px; line-height: 1.9; color: var(--text-muted); max-width: 680px; font-weight: 300; margin-bottom: 20px; }
+    .step-details { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    .step-detail-pill {
+      font-size: 11px; color: var(--charcoal); background: var(--white);
+      border: 1px solid rgba(0,0,0,0.1); padding: 6px 14px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .step-detail-pill::before { content: '✦'; font-size: 7px; color: var(--gold); }
+    .step-timeframe { font-size: 11px; color: var(--text-muted); margin-top: 18px; display: flex; align-items: center; gap: 8px; }
+    .step-timeframe::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+
+    @media (max-width: 700px) {
+      .process-step { grid-template-columns: 48px 1fr; }
+      .step-number-col { padding: 32px 0; }
+      .step-num-badge { width: 36px; height: 36px; font-size: 16px; }
+      .step-number-col::after { top: 72px; }
+      .step-body { padding: 32px 0 32px 24px; }
+      .step-title { font-size: 24px; }
+    }
+
+    /* ─── WHAT TO EXPECT BANNER ─── */
+    .expect-section { background: var(--black); padding: 100px 0; }
+    .expect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .expect-left .section-title { color: var(--white); }
+    .expect-left .section-desc { color: rgba(255,255,255,0.45); }
+    .expect-items { display: flex; flex-direction: column; gap: 24px; margin-top: 40px; }
+    .expect-item { display: flex; align-items: flex-start; gap: 18px; }
+    .expect-icon { width: 40px; height: 40px; border: 1px solid rgba(184,146,42,0.3); display: flex; align-items: center; justify-content: center; color: var(--gold); flex-shrink: 0; }
+    .expect-item-title { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .expect-item-desc { font-size: 12px; line-height: 1.75; color: rgba(255,255,255,0.45); font-weight: 300; }
+    .expect-right { background: rgba(184,146,42,0.06); border: 1px solid rgba(184,146,42,0.2); padding: 48px; }
+    .expect-right-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 20px; }
+    .faq-item { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .faq-q { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 8px; line-height: 1.4; }
+    .faq-a { font-size: 12px; line-height: 1.75; color: rgba(255,255,255,0.45); font-weight: 300; }
+    @media (max-width: 900px) { .expect-grid { grid-template-columns: 1fr; gap: 48px; } }
+    @media (max-width: 600px) { .expect-right { padding: 32px 24px; } }
+
+    /* ─── CTA ─── */
+    .cta-section { background: var(--off-white); padding: 100px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.06); }
+    .cta-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 20px; }
+    .cta-tag::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    .cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--black); line-height: 1.1; margin-bottom: 16px; }
+    .cta-title em { font-style: italic; color: var(--gold); }
+    .cta-desc { font-size: 14px; line-height: 1.8; color: var(--text-muted); max-width: 480px; margin: 0 auto 40px; font-weight: 300; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--near-black); border-top: 1px solid rgba(184,146,42,0.15); padding: 60px 0 40px; }
+    .footer-inner { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 40px; margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 24px; }
+    .footer-links { display: flex; gap: 36px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { text-decoration: none; color: rgba(255,255,255,0.5); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); }
+    .footer-copy span { color: var(--gold); }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(184,146,42,0.25); color: rgba(255,255,255,0.45); transition: all 0.25s; text-decoration: none; }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold); background: rgba(184,146,42,0.08); }
+    @media (max-width: 900px) { .footer-inner { padding: 0 30px; } }
+    @media (max-width: 600px) { .footer-top { flex-direction: column; } .footer-bottom { flex-direction: column; } .footer-inner { padding: 0 20px; } }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="everstone-logo.jpg" alt="EverStone Homes" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="available-homes.html">Available Homes</a></li>
+    <li><a href="index.html#communities">Communities</a></li>
+    <li><a href="build-process.html" class="nav-active">Our Process</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="available-homes.html" onclick="toggleMenu()">Available Homes</a>
+  <a href="index.html#communities" onclick="toggleMenu()">Communities</a>
+  <a href="build-process.html" onclick="toggleMenu()">Our Process</a>
+  <a href="gallery.html" onclick="toggleMenu()">Gallery</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="index.html#contact" onclick="toggleMenu()" class="nav-cta">Contact Us</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">How We Build</div>
+    <h1 class="hero-title">From first conversation<br>to <em>closing day.</em></h1>
+    <p class="hero-desc">Building a home is one of the biggest decisions your family will make. Here's exactly what the process looks like when you build with EverStone — no surprises, no runaround.</p>
+  </div>
+</section>
+
+<!-- ─── INTRO STATS ─── -->
+<div class="intro-strip">
+  <div class="intro-strip-inner">
+    <div class="intro-stat">
+      <div class="intro-stat-val">8</div>
+      <div class="intro-stat-label">Steps from start to keys</div>
+    </div>
+    <div class="intro-stat">
+      <div class="intro-stat-val">4–5</div>
+      <div class="intro-stat-label">Months average build time</div>
+    </div>
+    <div class="intro-stat">
+      <div class="intro-stat-val">1</div>
+      <div class="intro-stat-label">Point of contact throughout</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PROCESS STEPS ─── -->
+<section class="process-section">
+  <div class="section-inner">
+    <div class="process-header reveal">
+      <div class="section-tag">The Process</div>
+      <h2 class="section-title">Every step, <em>explained.</em></h2>
+      <div class="gold-divider"></div>
+      <p class="section-desc">We walk you through each phase so you always know where things stand and what comes next.</p>
+    </div>
+
+    <div class="process-steps">
+
+      <!-- Step 1 -->
+      <div class="process-step reveal">
+        <div class="step-number-col">
+          <div class="step-num-badge">1</div>
+        </div>
+        <div class="step-body">
+          <div class="step-phase">Phase One</div>
+          <div class="step-title">Initial Conversation</div>
+          <div class="step-desc">We start with a straightforward conversation — about what you're looking for, your timeline, your budget, and which community interests you. There's no sales pitch and no pressure. We want to understand your situation so we can tell you honestly whether we're a good fit.</div>
+          <div class="step-details">
+            <div class="step-detail-pill">Budget discussion</div>
+            <div class="step-detail-pill">Community overview</div>
+            <div class="step-detail-pill">Timeline expectations</div>
+            <div class="step-detail-pill">Questions answered</div>
+          </div>
+          <div class="step-timeframe">Phone, text, email, or in person</div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="process-step reveal">
+        <div class="step-number-col">
+          <div class="step-num-badge">2</div>
+        </div>
+        <div class="step-body">
+          <div class="step-phase">Phase Two</div>
+          <div class="step-title">Lot Selection &amp; Plan Review</div>
+          <div class="step-desc">Once you decide to move forward, we'll walk the available lots together and review the floor plan options. You'll see what's included as standard, what customization options are available, and what the finished home will look like. We'll also walk through the full spec sheet so there are no surprises about materials or finishes.</div>
+          <div class="step-details">
+            <div class="step-detail-pill">Lot walkthrough</div>
+            <div class="step-detail-pill">Floor plan review</div>
+            <div class="step-detail-pill">Standard inclusions</div>
+            <div class="step-detail-pill">Customization options</div>
+            <div class="step-detail-pill">Spec sheet review</div>
+          </div>
+          <div class="step-timeframe">Typically 1–2 meetings</div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="process-step reveal">
+        <div class="step-number-col">
+          <div class="step-num-badge">3</div>
+        </div>
+        <div class="step-body">
+          <div class="step-phase">Phase Three</div>
+          <div class="step-title">Contract &amp; Financing</div>
+          <div class="step-desc">We'll put together a clear, straightforward purchase agreement that covers the price, included features, any selected upgrades, and the projected timeline. If you need financing, we can point you toward local lenders familiar with new construction loans. Once contracts are signed and financing is in place, your build slot is secured.</div>
+          <div class="step-details">
+            <div class="step-detail-pill">Purchase agreement</div>
+            <div class="step-detail-pill">Upgrade selections finalized</div>
+            <div class="step-detail-pill">Construction loan guidance</div>
+            <div class="step-detail-pill">Build slot confirmed</div>
+          </div>
+          <div class="step-timeframe">1–3 weeks depending on financing</div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="process-step reveal">
+        <div class="step-number-col">
+          <div class="step-num-badge">4</div>
+        </div>
+        <div class="step-body">
+          <div class="step-phase">Phase Four</div>
+          <div class="step-title">Permits &amp; Pre-Construction</div>
+          <div class="step-desc">Before a single shovel hits the ground, we pull all required permits with the city, finalize subcontractor schedules, and confirm material orders. This phase is less visible but important — it's what keeps the build from hitting unnecessary delays once it starts.</div>
+          <div class="step-details">
+            <div class="step-detail-pill">City permits submitted</div>
+            <div class="step-detail-pill">Subcontractors scheduled</div>
+            <div class="step-detail-pill">Materials ordered</div>
+            <div class="step-detail-pill">Site prep begins</div>
+          </div>
+          <div class="step-timeframe">2–6 weeks</div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="process-step reveal">
+        <div class="step-number-col">
+          <div class="step-num-badge">5</div>
+        </div>
+        <div class="step-body">
+          <div class="step-phase">Phase Five</div>
+          <div class="step-title">Foundation &amp; Framing</div>
+          <div class="step-desc">Construction begins with excavation, footings, and foundation. Once the foundation cures and passes inspection, framing goes up — this is the phase where your home starts to take shape and you can walk through it for the first time. We'll keep you updated throughout and welcome you to visit the site.</div>
+          <div class="step-details">
+            <div class="step-detail-pill">Excavation &amp; footings</div>
+            <div class="step-detail-pill">Foundation pour &amp; cure</div>
+            <div class="step-detail-pill">Foundation inspection</div>
+            <div class="step-detail-pill">Framing &amp; roof</div>
+            <div class="step-detail-pill">Windows &amp; exterior doors</div>
+          </div>
+          <div class="step-timeframe">4–8 weeks</div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="process-step reveal">
+        <div class="step-number-col">
+          <div class="step-num-badge">6</div>
+        </div>
+        <div class="step-body">
+          <div class="step-phase">Phase Six</div>
+          <div class="step-title">Mechanical, Insulation &amp; Drywall</div>
+          <div class="step-desc">With the frame up, the mechanical trades move in — plumbing rough-in, electrical rough-in, and HVAC installation. Each goes through inspection before insulation is installed and drywall begins. By the end of this phase your home looks and feels like a real interior space.</div>
+          <div class="step-details">
+            <div class="step-detail-pill">Plumbing rough-in</div>
+            <div class="step-detail-pill">Electrical rough-in</div>
+            <div class="step-detail-pill">HVAC installation</div>
+            <div class="step-detail-pill">Insulation</div>
+            <div class="step-detail-pill">Drywall hang &amp; finish</div>
+          </div>
+          <div class="step-timeframe">6–10 weeks</div>
+        </div>
+      </div>
+
+      <!-- Step 7 -->
+      <div class="process-step reveal">
+        <div class="step-number-col">
+          <div class="step-num-badge">7</div>
+        </div>
+        <div class="step-body">
+          <div class="step-phase">Phase Seven</div>
+          <div class="step-title">Finishes &amp; Final Inspections</div>
+          <div class="step-desc">This is the phase that makes a house a home — flooring, cabinetry, countertops, trim, paint, fixtures, and appliances all go in. It's also the most detail-intensive phase, and the one we pay closest attention to. City inspections are completed, and we do a full walkthrough of our own before we ever ask you to set foot in it.</div>
+          <div class="step-details">
+            <div class="step-detail-pill">Flooring &amp; tile</div>
+            <div class="step-detail-pill">Cabinets &amp; countertops</div>
+            <div class="step-detail-pill">Paint &amp; trim</div>
+            <div class="step-detail-pill">Fixtures &amp; appliances</div>
+            <div class="step-detail-pill">City final inspection</div>
+            <div class="step-detail-pill">Builder walkthrough</div>
+          </div>
+          <div class="step-timeframe">6–10 weeks</div>
+        </div>
+      </div>
+
+      <!-- Step 8 -->
+      <div class="process-step reveal">
+        <div class="step-number-col">
+          <div class="step-num-badge">8</div>
+        </div>
+        <div class="step-body">
+          <div class="step-phase">Phase Eight</div>
+          <div class="step-title">Buyer Walkthrough &amp; Closing</div>
+          <div class="step-desc">Before closing, we walk through the completed home with you. This is your opportunity to inspect everything, ask questions, and note any items you'd like addressed. Once you're satisfied, we close — and you get the keys. We'll also hand you a full welcome package with warranty information and contacts for every major system in the home.</div>
+          <div class="step-details">
+            <div class="step-detail-pill">Pre-closing walkthrough</div>
+            <div class="step-detail-pill">Punch list items resolved</div>
+            <div class="step-detail-pill">Closing day</div>
+            <div class="step-detail-pill">Welcome &amp; warranty packet</div>
+            <div class="step-detail-pill">Keys handed over</div>
+          </div>
+          <div class="step-timeframe">You're home.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT TO EXPECT + FAQ ─── -->
+<section class="expect-section">
+  <div class="section-inner">
+    <div class="expect-grid">
+
+      <div class="expect-left reveal">
+        <div class="section-tag" style="color:var(--gold);">What to Expect</div>
+        <h2 class="section-title" style="color:var(--white);">A few things that<br>set us <em>apart.</em></h2>
+        <div class="gold-divider"></div>
+        <div class="expect-items">
+          <div class="expect-item">
+            <div class="expect-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="expect-item-title">You deal directly with the builder</div>
+              <div class="expect-item-desc">Not a sales agent, not a project manager you've never met. The person you talk to at step one is the same person building your home.</div>
+            </div>
+          </div>
+          <div class="expect-item">
+            <div class="expect-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="expect-item-title">Regular build updates</div>
+              <div class="expect-item-desc">We'll keep you in the loop as each phase completes. You won't have to chase us down to find out what's happening with your home.</div>
+            </div>
+          </div>
+          <div class="expect-item">
+            <div class="expect-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="expect-item-title">Site visits welcome</div>
+              <div class="expect-item-desc">We encourage buyers to visit the site during the build. Seeing the progress firsthand gives peace of mind and keeps everyone aligned.</div>
+            </div>
+          </div>
+          <div class="expect-item">
+            <div class="expect-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="expect-item-title">No hidden costs</div>
+              <div class="expect-item-desc">We go through what's included and what's not before you sign anything. Change orders happen in construction — but they won't catch you off guard.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="expect-right reveal reveal-delay-1">
+        <div class="expect-right-label">Common Questions</div>
+        <div class="faq-item">
+          <div class="faq-q">How long does it take to build a home?</div>
+          <div class="faq-a">Typically 4–5 months from breaking ground to closing, depending on the plan, finish selections, and inspection scheduling. We'll give you a realistic timeline upfront.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I make changes once construction starts?</div>
+          <div class="faq-a">Some changes are possible early in the build — others aren't once certain phases are complete. We'll be upfront about what's feasible and what it costs before anything changes.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do you work with outside lenders?</div>
+          <div class="faq-a">Yes. You're free to use any lender you choose. We can also connect you with local lenders who have experience with new construction financing if that's helpful.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What's covered under warranty?</div>
+          <div class="faq-a">We provide a standard builder's warranty covering workmanship and materials. Iowa also has statutory protections for new construction. We'll walk you through all of it at closing.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What if something comes up after I move in?</div>
+          <div class="faq-a">Call or text us directly. We stand behind our work and will address any legitimate warranty issues promptly. You're not dealing with a warranty department — you're calling the builder.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section">
+  <div class="cta-tag">Ready to Get Started?</div>
+  <h2 class="cta-title">Let's build your <em>next home.</em></h2>
+  <p class="cta-desc">Reach out and we'll have a straightforward conversation about your timeline, budget, and what's available.</p>
+  <div class="cta-buttons">
+    <a href="index.html#contact" class="btn-primary">Contact Us →</a>
+    <a href="available-homes.html" class="btn-ghost-dark">View Available Homes</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="index.html" style="text-decoration:none;">
+        <img src="everstone-logo.jpg" alt="EverStone Homes" style="height:56px; width:auto; display:block;" />
+      </a>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="available-homes.html">Available Homes</a></li>
+        <li><a href="index.html#communities">Communities</a></li>
+        <li><a href="build-process.html">Our Process</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 <span>EverStone Homes</span>. Ankeny, Iowa. All rights reserved.</div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61590327745033" target="_blank" rel="noopener noreferrer" aria-label="EverStone Homes on Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/everstoneiowa/" target="_blank" rel="noopener noreferrer" aria-label="EverStone Homes on Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (nav) nav.style.height = window.scrollY > 60 ? '64px' : '80px';
+    const mm = document.getElementById('mobileMenu');
+    if (mm) mm.style.top = window.scrollY > 60 ? '64px' : '80px';
+  });
+
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('mobileMenu').style.display = 'none'; });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
