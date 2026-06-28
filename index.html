@@ -468,8 +468,8 @@
     .map-title em { font-style:italic; color:var(--gold); }
     .map-desc { font-size:13px; line-height:1.8; color:rgba(255,255,255,0.45); max-width:500px; font-weight:300; }
     .map-divider { width:52px; height:2px; background:var(--gold); margin:20px 0; }
-    .map-layout { display:grid; grid-template-columns:320px 1fr; gap:0; min-height:560px; }
-    .map-sidebar { background:#111; border:1px solid rgba(184,146,42,0.15); overflow-y:auto; max-height:560px; }
+    .map-layout { display:block; }
+    .map-sidebar { display:none; }
     .map-sidebar-header { padding:18px 20px; border-bottom:1px solid rgba(255,255,255,0.06); font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:600; }
     .map-listing { padding:18px 20px; border-bottom:1px solid rgba(255,255,255,0.06); cursor:pointer; transition:background 0.2s; }
     .map-listing:hover, .map-listing.active { background:rgba(184,146,42,0.08); }
@@ -481,8 +481,9 @@
     .map-listing-spec { font-size:10px; color:rgba(255,255,255,0.45); display:flex; align-items:center; gap:4px; }
     .map-listing-spec strong { color:rgba(255,255,255,0.75); font-weight:600; }
     .map-listing-badge { display:inline-block; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; padding:3px 8px; margin-bottom:6px; }
-    .map-container { position:relative; z-index:1; }
-    #hpMap { width:100%; height:560px; }
+    .map-container { position:relative; z-index:1; width:100%; }
+    #hpMap { width:100%; height:600px; }
+    @media (max-width:560px) { #hpMap { height:380px; } }
     #hpMap .leaflet-pane { z-index:4 !important; }
     #hpMap .leaflet-top, #hpMap .leaflet-bottom { z-index:5 !important; }
     #hpMap .leaflet-popup-pane { z-index:6 !important; }
@@ -666,22 +667,13 @@
       <div class="map-tag">Find Your Home</div>
       <h2 class="map-title">Homes on the <em>Map</em></h2>
       <div class="map-divider"></div>
-      <p class="map-desc">Explore every available EverStone home directly on the map. Click any listing to zoom in and see full details.</p>
-    </div>
-    <div class="map-layout">
-      <div class="map-sidebar">
-        <div class="map-sidebar-header">All Listings</div>
-        <div id="hpMapSidebar"></div>
-      </div>
-      <div class="map-container">
-        <div id="hpMap"></div>
-        <div class="map-zoom-controls">
-          <button class="map-zoom-btn" onclick="hpMapInstance.zoomIn()">+</button>
-          <button class="map-zoom-btn" onclick="hpMapInstance.zoomOut()">−</button>
-        </div>
-      </div>
+      <p class="map-desc">Explore every available EverStone home directly on the map. Tap any marker to see the home’s photos, specs and full details.</p>
     </div>
   </div>
+  <div class="map-container">
+    <div id="hpMap"></div>
+  </div>
+  <div id="hpMapSidebar" style="display:none;"></div>
   <div class="map-attribution">Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</div>
 </section>
 
@@ -1189,6 +1181,14 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(t
 let hpMapInstance = null;
 let hpMapMarkers  = {};
 
+function hpShortPrice(p) {
+  if (!p) return 'Contact';
+  const n = parseInt(String(p).replace(/[^0-9]/g, ''), 10);
+  if (!n) return p;
+  if (n >= 1000000) return '$' + (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+  return '$' + (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+}
+
 function initHpMap() {
   const mapped = EVERSTONE_HOMES.filter(h => h.lat != null && h.lng != null);
   const sec = document.getElementById('hpMapSection');
@@ -1230,9 +1230,10 @@ function initHpMap() {
 
     const markerIcon = L.divIcon({
       className: '',
-      html: `<div style="background:${bc.bg};color:${bc.color};font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;padding:6px 11px;white-space:nowrap;box-shadow:0 4px 18px rgba(0,0,0,0.6);cursor:pointer;position:relative;letter-spacing:0.03em;transition:transform 0.15s;" onmouseenter="this.style.transform='scale(1.08)'" onmouseleave="this.style.transform='scale(1)'">${h.price || 'Contact'}<div style="position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:7px solid ${bc.bg};"></div></div>`,
-      iconAnchor: [40, 36],
-      popupAnchor: [0, -38]
+      html: `<div style="transform:translate(-50%,-50%);display:inline-block;"><div style="background:#161616;color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;padding:7px 13px;border-radius:999px;white-space:nowrap;letter-spacing:0.01em;box-shadow:0 3px 14px rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.14);cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;" onmouseenter="this.style.transform='scale(1.07)';this.style.boxShadow='0 5px 20px rgba(0,0,0,0.65)';" onmouseleave="this.style.transform='scale(1)';this.style.boxShadow='0 3px 14px rgba(0,0,0,0.55)';">${hpShortPrice(h.price)}</div></div>`,
+      iconSize: [0, 0],
+      iconAnchor: [0, 0],
+      popupAnchor: [0, -20]
     });
 
     const marker = L.marker([h.lat, h.lng], { icon: markerIcon }).addTo(hpMapInstance);
@@ -1252,7 +1253,9 @@ function initHpMap() {
             <div class="map-popup-spec"><strong>${h.sqft}</strong>Sq Ft</div>
             <div class="map-popup-spec"><strong>${h.garage}</strong>Garage</div>
           </div>
-          <button class="map-popup-btn" onclick="hpOpenModal('${h.id}')">View Details →</button>
+          ${h.zillowUrl
+            ? `<a class="map-popup-btn" href="${h.zillowUrl}" target="_blank" rel="noopener" style="text-decoration:none;">View on Zillow →</a>`
+            : `<button class="map-popup-btn" onclick="hpOpenModal('${h.id}')">View Details →</button>`}
         </div>
       </div>`, { maxWidth: 280, minWidth: 260 });
 

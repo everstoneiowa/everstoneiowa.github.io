@@ -153,8 +153,8 @@
     .map-title em { font-style:italic; color:var(--gold); }
     .map-desc { font-size:13px; line-height:1.8; color:rgba(255,255,255,0.45); max-width:500px; font-weight:300; }
     .map-divider { width:52px; height:2px; background:var(--gold); margin:20px 0; }
-    .map-layout { display:grid; grid-template-columns:320px 1fr; gap:0; min-height:560px; }
-    .map-sidebar { background:#111; border:1px solid rgba(184,146,42,0.15); overflow-y:auto; max-height:560px; }
+    .map-layout { display:block; }
+    .map-sidebar { display:none; }
     .map-sidebar-header { padding:18px 20px; border-bottom:1px solid rgba(255,255,255,0.06); font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:600; }
     .map-listing { padding:18px 20px; border-bottom:1px solid rgba(255,255,255,0.06); cursor:pointer; transition:background 0.2s; }
     .map-listing:hover, .map-listing.active { background:rgba(184,146,42,0.08); }
@@ -166,8 +166,9 @@
     .map-listing-spec { font-size:10px; color:rgba(255,255,255,0.45); display:flex; align-items:center; gap:4px; }
     .map-listing-spec strong { color:rgba(255,255,255,0.75); font-weight:600; }
     .map-listing-badge { display:inline-block; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; padding:3px 8px; margin-bottom:6px; }
-    .map-container { position:relative; }
-    #everstoneMap { width:100%; height:560px; }
+    .map-container { position:relative; width:100%; }
+    #everstoneMap { width:100%; height:600px; }
+    @media (max-width:560px) { #everstoneMap { height:380px; } }
     .map-zoom-controls { position:absolute; top:16px; right:16px; z-index:500; display:flex; flex-direction:column; gap:2px; }
     .map-zoom-btn { width:32px; height:32px; background:#111; border:1px solid rgba(184,146,42,0.3); color:var(--gold); font-size:18px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; font-family:monospace; }
     .map-zoom-btn:hover { background:rgba(184,146,42,0.15); }
@@ -188,8 +189,8 @@
     .map-popup-specs { display:flex; gap:10px; margin-bottom:12px; }
     .map-popup-spec { font-size:10px; color:rgba(255,255,255,0.5); font-family:'Montserrat',sans-serif; }
     .map-popup-spec strong { color:rgba(255,255,255,0.8); display:block; font-family:'Cormorant Garamond',serif; font-size:14px; }
-    .map-popup-btn { display:block; text-align:center; background:var(--gold); color:#000; padding:8px 14px; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; font-weight:700; text-decoration:none; font-family:'Montserrat',sans-serif; transition:background 0.2s; cursor:pointer; border:none; width:100%; }
-    .map-popup-btn:hover { background:#d4aa4a; }
+    .map-popup-btn { display:block; text-align:center; background:var(--gold); color:#000 !important; padding:8px 14px; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; font-weight:700; text-decoration:none !important; font-family:'Montserrat',sans-serif; transition:background 0.2s; cursor:pointer; border:none; width:100%; }
+    .map-popup-btn:hover { background:#d4aa4a; color:#000 !important; }
     .leaflet-control-zoom { display:none !important; }
     .leaflet-control-attribution { display:none !important; }
 
@@ -273,7 +274,10 @@
           <div class="modal-price-label">Pricing</div>
           <div class="modal-price-val" id="modalPrice"></div>
         </div>
-        <a href="index.html#contact" class="btn-primary" onclick="closeModal()">Contact Us →</a>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a id="modalZillow" href="#" target="_blank" rel="noopener" class="btn-details" style="display:none;">View on Zillow →</a>
+          <a href="index.html#contact" class="btn-primary" onclick="closeModal()">Contact Us →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -286,21 +290,17 @@
       <div class="map-tag">Find Your Home</div>
       <h2 class="map-title">Homes on the <em>Map</em></h2>
       <div class="map-divider"></div>
-      <p class="map-desc">Explore every available EverStone home directly on the map. Click any listing to zoom in and see full details.</p>
+      <p class="map-desc">Explore every available EverStone home directly on the map. Tap any marker to see the home’s photos, specs and full details.</p>
     </div>
     <div class="map-layout">
       <div class="map-sidebar">
         <div class="map-sidebar-header">All Listings</div>
         <div id="mapSidebar"></div>
       </div>
-      <div class="map-container">
-        <div id="everstoneMap"></div>
-        <div class="map-zoom-controls">
-          <button class="map-zoom-btn" onclick="mapInstance.zoomIn()">+</button>
-          <button class="map-zoom-btn" onclick="mapInstance.zoomOut()">−</button>
-        </div>
-      </div>
     </div>
+  </div>
+  <div class="map-container">
+    <div id="everstoneMap"></div>
   </div>
   <div class="map-attribution">Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</div>
 </section>
@@ -316,6 +316,14 @@
 <script>
 
   // ── STATUS CONFIG ──────────────────────────────────────────────
+  function ehShortPrice(p) {
+    if (!p) return 'Contact';
+    const n = parseInt(String(p).replace(/[^0-9]/g, ''), 10);
+    if (!n) return p;
+    if (n >= 1000000) return '$' + (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    return '$' + (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+  }
+
   const STATUS_CONFIG = {
     'available':          { label: 'Move-In Ready',      badgeClass: 'badge-available' },
     'under-construction': { label: 'Under Construction', badgeClass: 'badge-construction' },
@@ -438,7 +446,9 @@
               <div class="home-price">${h.city}</div>
               <div class="home-price-sub">${sc.label}</div>
             </div>
-            <button class="btn-details" onclick="openModal('${h.id}'); event.stopPropagation();">Details →</button>
+            ${h.zillowUrl
+              ? `<a class="btn-details" href="${h.zillowUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation();">View on Zillow →</a>`
+              : `<button class="btn-details" onclick="openModal('${h.id}'); event.stopPropagation();">Details →</button>`}
           </div>
         </div>
       </div>`;
@@ -459,6 +469,9 @@
       <div class="modal-spec"><div class="modal-spec-val">${h.garage}</div><div class="modal-spec-label">Garage</div></div>`;
     document.getElementById('modalNote').textContent = h.note || '';
     document.getElementById('modalPrice').textContent = h.price || 'Contact for Pricing';
+    const zEl = document.getElementById('modalZillow');
+    if (h.zillowUrl) { zEl.href = h.zillowUrl; zEl.style.display = 'inline-block'; }
+    else { zEl.style.display = 'none'; }
     document.getElementById('modalImg').innerHTML = h.image
       ? `<img src="${h.image}" alt="${h.name}" />`
       : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#1c1a14,#2a2318);">
@@ -563,24 +576,13 @@ function initMap() {
     const sc = STATUS_CONFIG[h.status] || STATUS_CONFIG['coming-soon'];
     const bc = badgeColors[sc.badgeClass] || badgeColors['badge-coming'];
 
-    // ── Price-bubble marker (Zillow style) ──
+    // ── Clean dark pill marker ──
     const markerIcon = L.divIcon({
       className: '',
-      html: `<div style="
-        background:${bc.bg};color:${bc.color};
-        font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;
-        padding:6px 11px;white-space:nowrap;
-        box-shadow:0 4px 18px rgba(0,0,0,0.6);cursor:pointer;
-        position:relative;letter-spacing:0.03em;
-        transition:transform 0.15s;
-      " onmouseenter="this.style.transform='scale(1.08)'" onmouseleave="this.style.transform='scale(1)'">
-        ${h.price || 'Contact'}
-        <div style="position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);
-          width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;
-          border-top:7px solid ${bc.bg};"></div>
-      </div>`,
-      iconAnchor: [40, 36],
-      popupAnchor: [0, -38]
+      html: `<div style="transform:translate(-50%,-50%);display:inline-block;"><div style="background:#161616;color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;padding:7px 13px;border-radius:999px;white-space:nowrap;letter-spacing:0.01em;box-shadow:0 3px 14px rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.14);cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;" onmouseenter="this.style.transform='scale(1.07)';this.style.boxShadow='0 5px 20px rgba(0,0,0,0.65)';" onmouseleave="this.style.transform='scale(1)';this.style.boxShadow='0 3px 14px rgba(0,0,0,0.55)';">${ehShortPrice(h.price)}</div></div>`,
+      iconSize: [0, 0],
+      iconAnchor: [0, 0],
+      popupAnchor: [0, -20]
     });
 
     const marker = L.marker([h.lat, h.lng], { icon: markerIcon }).addTo(mapInstance);
@@ -603,7 +605,9 @@ function initMap() {
             <div class="map-popup-spec"><strong>${h.sqft}</strong>Sq Ft</div>
             <div class="map-popup-spec"><strong>${h.garage}</strong>Garage</div>
           </div>
-          <button class="map-popup-btn" onclick="openModal('${h.id}')">View Details →</button>
+          ${h.zillowUrl
+            ? `<a class="map-popup-btn" href="${h.zillowUrl}" target="_blank" rel="noopener">View on Zillow →</a>`
+            : `<button class="map-popup-btn" onclick="openModal('${h.id}')">View Details →</button>`}
         </div>
       </div>`, { maxWidth: 280, minWidth: 260 });
 

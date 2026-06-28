@@ -1,14 +1,23 @@
 // ═══════════════════════════════════════════════════════════════
 //  EVERSTONE HOMES — MASTER HOME LISTINGS
 //  ─────────────────────────────────────────────────────────────
-//  To add a new home: copy one entry below and fill in the fields.
-//  It will automatically appear in:
-//    • The Available Homes page (available-homes.html)
-//    • The community detail pages
-//    • Any other page that loads this file
+//  EASIEST WAY TO ADD A HOME:
+//    Paste the home's Zillow listing link into Claude and say
+//    "add this home." Claude pulls the address, price, beds, baths,
+//    sq ft, and map location from the listing, grabs the first
+//    exterior photo, and hands back an updated copy of this file
+//    plus the image file to drop into the repo.
+//
+//  TO ADD ONE BY HAND:
+//    Copy an entry below and fill in the fields. It automatically
+//    appears on the Available Homes page, the home-page map, and
+//    the community detail pages.
 //
 //  STATUS OPTIONS:  "available" | "under-construction" | "coming-soon"
-//  Leave image: "" if you don't have a photo yet — a placeholder shows instead.
+//  zillowUrl:  paste the listing link to turn the home's button into
+//              "View on Zillow." Leave "" and the button opens the
+//              on-site details popup instead.
+//  image:      leave "" if you don't have a photo yet (placeholder shows).
 // ═══════════════════════════════════════════════════════════════
 
 const EVERSTONE_HOMES = [
@@ -24,10 +33,11 @@ const EVERSTONE_HOMES = [
     baths: 3,
     sqft: "1,663",
     garage: 3,
-    price: "$549,900",                  // e.g. "$389,000" — leave "" to show "Contact for Pricing"
+    price: "$549,900",                  // or "" to show "Contact for Pricing"
     image: "deer-creek-home.png",       // filename in same folder, or "" for placeholder
     note: "Select customization options available",
     communityPage: "crossings-at-deer-creek.html",
+    zillowUrl: "",                      // paste Zillow link → button becomes "View on Zillow"
     lat: 41.741743,                     // GPS coordinates — home appears on map automatically
     lng: -93.551448                     // find via Google Maps: right-click the lot → "What's here?"
   },
@@ -35,10 +45,10 @@ const EVERSTONE_HOMES = [
   // ── PINE LAKE ESTATES ─────────────────────────────────────────
   // (No homes yet — add entries here when lots are secured)
 
-  // ── HOW TO ADD A NEW HOME ─────────────────────────────────────
+  // ── HOW TO ADD A NEW HOME BY HAND ─────────────────────────────
   // {
   //   id: "unique-id",                 // no spaces, e.g. "pine-lake-lot1"
-  //   name: "Home Name",               // e.g. "The Maple Plan"
+  //   name: "Home Name or Address",
   //   community: "Community Name",     // must match exactly
   //   city: "City, Iowa",
   //   status: "available",
@@ -50,8 +60,9 @@ const EVERSTONE_HOMES = [
   //   image: "photo-filename.jpg",     // or "" for placeholder
   //   note: "Short description line",
   //   communityPage: "community-page.html",
-  //   lat: 41.000000,                  // GPS latitude  — right-click lot in Google Maps → "What's here?"
-  //   lng: -93.000000                  // GPS longitude — home auto-appears on map, omit to skip map
+  //   zillowUrl: "https://www.zillow.com/homedetails/...",  // or "" to use the on-site popup
+  //   lat: 41.000000,                  // GPS latitude
+  //   lng: -93.000000                  // GPS longitude — omit both to skip the map
   // },
 
 ];

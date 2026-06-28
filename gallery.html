@@ -24,7 +24,7 @@
     body { font-family:'Montserrat',sans-serif; background:var(--off-white); color:var(--black); overflow-x:hidden; }
 
     /* ─── NAV ─── */
-    nav { position:fixed; top:0; left:0; right:0; z-index:201; display:flex; align-items:center; justify-content:space-between; padding:0 60px; height:80px; background:rgba(14,14,14,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(184,146,42,0.2); transition:height 0.3s; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 60px; height:80px; background:rgba(14,14,14,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(184,146,42,0.2); transition:height 0.3s; }
     .nav-logo { display:flex; align-items:center; text-decoration:none; }
     .nav-logo img { height:52px; width:auto; display:block; }
     .nav-links { display:flex; gap:40px; list-style:none; margin:0; padding:0; }
@@ -39,7 +39,7 @@
     .nav-cta::after { display:none !important; }
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
     .hamburger span { display:block; width:24px; height:2px; background:var(--white); transition:all 0.3s; }
-    .mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:#0e0e0e; flex-direction:column; gap:0; z-index:200; overflow-y:auto; padding-top:80px; }
+    .mobile-menu { display:none; position:fixed; top:80px; left:0; right:0; background:rgba(14,14,14,0.98); border-bottom:1px solid rgba(184,146,42,0.2); padding:24px 30px; flex-direction:column; gap:0; z-index:99; }
     .mobile-menu a { display:block; padding:14px 0; color:rgba(255,255,255,0.75) !important; text-decoration:none; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.06); transition:color 0.2s; }
     .mobile-menu a:hover { color:var(--gold) !important; }
     .mobile-menu a.nav-cta { margin-top:16px; text-align:center; background:var(--gold); color:var(--black) !important; padding:12px 24px; border-bottom:none; }
@@ -132,7 +132,6 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="available-homes.html">Available Homes</a></li>
     <li><a href="index.html#communities">Communities</a></li>
-    <li><a href="build-process.html">Our Process</a></li>
     <li><a href="gallery.html" class="nav-active">Gallery</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
@@ -145,7 +144,6 @@
   <a href="index.html">Home</a>
   <a href="available-homes.html">Available Homes</a>
   <a href="index.html#communities">Communities</a>
-  <a href="build-process.html">Our Process</a>
   <a href="gallery.html">Gallery</a>
   <a href="about.html">About</a>
   <a href="index.html#contact" class="nav-cta">Contact Us</a>
@@ -156,7 +154,7 @@
   <div class="hero-tag">Our Work</div>
   <h1>Gallery &amp; <em>Progress</em></h1>
   <div class="gold-divider"></div>
-  <p>Every build documented, from ground breaking to the moment a family gets their keys. Watch EverStone Homes grow.</p>
+  <p>Every build documented — from ground breaking to the moment a family gets their keys. Watch EverStone Homes grow.</p>
 </div>
 
 <!-- FILTER BAR -->

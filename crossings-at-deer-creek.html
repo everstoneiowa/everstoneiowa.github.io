@@ -25,7 +25,7 @@
 
     /* ─── NAV ─── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 201;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 60px; height: 80px;
       background: rgba(14,14,14,0.97);
@@ -46,10 +46,10 @@
     .nav-cta::after { display:none !important; }
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
     .hamburger span { display:block; width:24px; height:2px; background:#fff; transition:all 0.3s; }
-    .mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:#0e0e0e; flex-direction:column; gap:0; z-index:200; overflow-y:auto; padding-top:80px; }
-    .mobile-menu a { display:block; padding:18px 30px; color:rgba(255,255,255,0.8) !important; text-decoration:none !important; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.07); transition:color 0.2s; font-family:'Montserrat',sans-serif; }
+    .mobile-menu { display:none; position:fixed; top:80px; left:0; right:0; background:rgba(14,14,14,0.98); border-bottom:1px solid rgba(184,146,42,0.2); padding:24px 30px; flex-direction:column; gap:0; z-index:99; }
+    .mobile-menu a { display:block; padding:14px 0; color:rgba(255,255,255,0.75) !important; text-decoration:none !important; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.06); transition:color 0.2s; font-family:'Montserrat',sans-serif; }
     .mobile-menu a:hover { color:var(--gold) !important; }
-    .mobile-menu a.nav-cta { margin:24px 30px; text-align:center; background:var(--gold); color:var(--black) !important; padding:16px 24px; border-bottom:none; font-weight:700; }
+    .mobile-menu a.nav-cta { margin-top:16px; text-align:center; background:var(--gold); color:var(--black) !important; padding:12px 24px; border-bottom:none; font-weight:700; }
     @media (max-width:900px) { .nav-links { display:none; } .hamburger { display:flex; } }
 
     /* ─── HERO BANNER ─── */
@@ -229,7 +229,6 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="available-homes.html">Available Homes</a></li>
     <li><a href="index.html#communities" class="nav-active">Communities</a></li>
-    <li><a href="build-process.html">Our Process</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
@@ -242,7 +241,6 @@
   <a href="index.html">Home</a>
   <a href="available-homes.html">Available Homes</a>
   <a href="index.html#communities">Communities</a>
-  <a href="build-process.html">Our Process</a>
   <a href="gallery.html">Gallery</a>
   <a href="about.html">About</a>
   <a href="index.html#contact" class="nav-cta">Contact Us</a>
@@ -258,7 +256,7 @@
       <div class="ch-status"><span class="ch-status-dot"></span>Breaking Ground Soon</div>
       <h1 class="ch-title">The Crossings at<br><em>Deer Creek</em></h1>
       <div class="ch-location">Ankeny, Iowa &nbsp;·&nbsp; Ankeny Community School District</div>
-      <p class="ch-desc">EverStone Homes' first community and a fresh opportunity to build a brand new custom home in one of Ankeny's newest premier developments. We've secured our first lot and construction is beginning soon.</p>
+      <p class="ch-desc">EverStone Homes' first community — a fresh opportunity to build a brand new custom home in one of Ankeny's newest premier developments. We've secured our first lot and construction is beginning soon.</p>
     </div>
     <div class="ch-stats">
       <div class="ch-stat">
@@ -407,7 +405,7 @@
         <div class="info-card-title">About This Community</div>
         <ul class="info-list">
           <li>Located in The Crossings at Deer Creek, Ankeny, Iowa</li>
-          <li>Ankeny Community School District, highly rated schools</li>
+          <li>Ankeny Community School District — highly rated schools</li>
           <li>Minutes from shopping, dining, and major highways</li>
           <li>One of Ankeny's fastest growing and most sought-after developments</li>
           <li>Convenient access to Des Moines metro</li>
@@ -420,7 +418,7 @@
         </div>
         <div class="info-card-title">Build Timeline</div>
         <ul class="info-list">
-          <li>Lot already secured, ready to begin planning</li>
+          <li>Lot already secured — ready to begin planning</li>
           <li>Pre-construction meeting: schedule yours now</li>
           <li>Estimated build time: 4–5 months from groundbreak</li>
           <li>Regular progress updates and site visits for buyers</li>
@@ -448,7 +446,7 @@
 <div class="modal-overlay" id="homeModal" onclick="closeModalOnOverlay(event)">
   <div class="modal">
     <div class="modal-header">
-      <div class="modal-title">Spec Home at The Crossings at Deer Creek</div>
+      <div class="modal-title">Spec Home — The Crossings at Deer Creek</div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
