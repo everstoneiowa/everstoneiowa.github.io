@@ -31,9 +31,9 @@ const EVERSTONE_HOMES = [
     status: "under-construction",       // "available" | "under-construction" | "coming-soon"
     beds: 5,
     baths: 3,
-    sqft: "1,663",
+    sqft: "2,861",
     garage: 3,
-    price: "$549,900",                  // or "" to show "Contact for Pricing"
+    price: "$565,000",                  // or "" to show "Contact for Pricing"
     image: "deer-creek-home.png",       // filename in same folder, or "" for placeholder
     note: "Select customization options available",
     communityPage: "crossings-at-deer-creek.html",
