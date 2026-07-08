@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>EverStone Homes – Built to Last</title>
   <meta name="description" content="EverStone Homes is a locally owned new home builder in central Iowa. Now building at The Crossings at Deer Creek in Ankeny. Quality single-family homes built on honesty, punctuality, and craftsmanship." />
   <meta name="format-detection" content="telephone=no" />
@@ -32,7 +33,7 @@
     "image": "https://www.everstoneiowa.com/deer-creek-home.png",
     "description": "Locally owned home builder in Ankeny, Iowa specializing in quality single-family residential construction.",
     "telephone": "+15157711924",
-    "email": "info@everstoneiowa.com",
+    "email": "everstoneiowa@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Ankeny",
@@ -52,13 +53,12 @@
   </script>
   <!-- ─── Content Security Policy ─────────────────────────────────────────
        Restricts what scripts, styles, and resources the browser will load.
-       Only trusted origins are whitelisted — everything else is blocked.
+       Only trusted origins are whitelisted - everything else is blocked.
   ──────────────────────────────────────────────────────────────────────── -->
   <meta http-equiv="Content-Security-Policy"
     content="
       default-src 'self';
       script-src  'self' 'unsafe-inline'
-                  https://cdn.jsdelivr.net
                   https://unpkg.com
                   https://api.emailjs.com;
       style-src   'self' 'unsafe-inline'
@@ -81,11 +81,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="manifest" href="site.webmanifest" />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,600&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- EmailJS — pinned to 4.4.1 so the SRI hash never drifts -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"
-          integrity="sha384-cGXhMfEwAVUBjmcNzBnCEBMSMaCPnZj5pGZB+/wFaqBfZ1A2RMXI7p9jMpsCGS/"
-          crossorigin="anonymous"></script>
-  <script>emailjs.init('0VR79h-0rXc02KbzC');</script>
+  <!-- EmailJS 4.4.1 - self-hosted (official npm package) so no third-party CDN can tamper with it -->
+  <script src="emailjs-4.4.1.min.js"></script>
+  <script>if (typeof emailjs !== 'undefined') emailjs.init('0VR79h-0rXc02KbzC');</script>
   <style>
     :root {
       --gold: #b8922a;
@@ -161,7 +159,7 @@
     .founding-badge-text { font-size: 11px; line-height: 1.5; color: rgba(255,255,255,0.5); }
     .founding-badge-text strong { color: var(--gold-light); display: block; font-size: 12px; margin-bottom: 2px; }
 
-    /* Hero right — community preview cards */
+    /* Hero right - community preview cards */
     .hero-right { position: relative; display: flex; flex-direction: column; gap: 16px; }
     .hero-community-card {
       border: 1px solid rgba(184,146,42,0.28); background: rgba(13,18,15,0.62);
@@ -194,7 +192,7 @@
     .section-title em { font-style: italic; color: var(--gold); }
     .section-desc { font-size: 14px; line-height: 1.8; color: var(--text-muted); max-width: 540px; margin-top: 16px; font-weight: 300; }
     .section-desc.light { color: rgba(255,255,255,0.5); }
-    /* Stone-coursing strata mark — stacked like ledger stone */
+    /* Stone-coursing strata mark - stacked like ledger stone */
     .gold-divider { width: 68px; height: 12px; background: none; position: relative; margin: 20px 0; }
     .gold-divider::before { content: ''; position: absolute; top: 0; left: 0; width: 68px; height: 2px; background: var(--gold); }
     .gold-divider::after { content: ''; position: absolute; top: 5px; left: 12px; width: 42px; height: 2px; background: rgba(184,146,42,0.55);
@@ -560,7 +558,7 @@
     .modal-price-val { font-family:'Newsreader',serif; font-size:28px; font-weight:700; color:#fff; }
     @media (max-width:560px) { .modal-specs { grid-template-columns:repeat(2,1fr); } }
   </style>
-  <!-- Leaflet CSS — integrity hash sourced from official leafletjs.com download page -->
+  <!-- Leaflet CSS - integrity hash sourced from official leafletjs.com download page -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin="" />
@@ -951,6 +949,11 @@
           <label>Tell Us About Your Dream Home</label>
           <textarea placeholder="Budget range, timeline, must-haves, questions, we want to hear it all..." id="message"></textarea>
         </div>
+        <!-- Honeypot: invisible to humans, bots fill it and get silently dropped -->
+        <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+          <label>Leave this field empty</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
         <div id="formSuccess" style="display:none; background:rgba(255,255,255,0.04); border:1px solid rgba(184,146,42,0.3); padding:18px 20px; margin-bottom:16px;"></div>
         <button class="form-submit" onclick="submitForm()">Send Message →</button>
         <p style="font-size:11px; color:rgba(255,255,255,0.3); margin-top:14px; line-height:1.6;">
@@ -1009,7 +1012,16 @@ function scrollToContact(community) {
   }, 700);
 }
 
+const _formLoadedAt = Date.now();
 function submitForm() {
+  // Spam guards: honeypot filled, or submitted in under 3 seconds = bot
+  const hp = document.getElementById('website');
+  if ((hp && hp.value.trim() !== '') || (Date.now() - _formLoadedAt < 3000)) {
+    const btn0 = document.querySelector('.form-submit');
+    btn0.textContent = '✓ Message Sent!';   // pretend success so bots move on
+    setTimeout(() => { btn0.textContent = 'Send Message →'; }, 4000);
+    return;
+  }
   const fname = document.getElementById('fname').value.trim();
   const lname = document.getElementById('lname').value.trim();
   const email = document.getElementById('email').value.trim();
@@ -1051,7 +1063,7 @@ function submitForm() {
           <div style="display:flex; align-items:flex-start; gap:14px;">
             <div style="color:#2a6a2a; font-size:22px; margin-top:2px;">✓</div>
             <div>
-              <div style="font-size:13px; font-weight:600; color:var(--gold-light); margin-bottom:4px;">Message received — thank you, ${fname}!</div>
+              <div style="font-size:13px; font-weight:600; color:var(--gold-light); margin-bottom:4px;">Message received. Thank you, ${fname}!</div>
               <div style="font-size:12px; color:rgba(255,255,255,0.5); line-height:1.7;">We'll be in touch soon. For immediate assistance, call or text us at <strong style="color:rgba(255,255,255,0.8);"><span style="color:inherit;text-decoration:none;">515-771-1924</span></strong>.</div>
             </div>
           </div>`;
@@ -1103,7 +1115,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Sticky nav — transparent over hero, solid after scrolling
+// Sticky nav - transparent over hero, solid after scrolling
 const navEl = document.getElementById('navbar');
 function updateNav() { navEl.classList.toggle('scrolled', window.scrollY > 60); }
 window.addEventListener('scroll', updateNav, { passive: true });
@@ -1176,7 +1188,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(t
 </script>
 
 <!-- Home Page Map JS -->
-<!-- Leaflet JS — integrity hash sourced from official leafletjs.com download page -->
+<!-- Leaflet JS - integrity hash sourced from official leafletjs.com download page -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>

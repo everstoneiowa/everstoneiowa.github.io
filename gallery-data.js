@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-//  EVERSTONE HOMES — GALLERY PHOTOS
+//  EVERSTONE HOMES - GALLERY PHOTOS
 //  ─────────────────────────────────────────────────────────────
 //  Add photos here and they will automatically appear on:
 //    • The Gallery page (gallery.html)
@@ -18,7 +18,7 @@
 //  HOW TO ADD A PHOTO:
 //    1. Upload the image file to your GitHub repo
 //    2. Copy an entry below and fill in the fields
-//    3. Save — photo appears on both pages automatically
+//    3. Save - photo appears on both pages automatically
 // ═══════════════════════════════════════════════════════════════
 
 const EVERSTONE_GALLERY = [
@@ -26,7 +26,7 @@ const EVERSTONE_GALLERY = [
   {
     id: "gallery-001",
     src: "deer-creek-home.png",
-    caption: "1203 NE Meadow Crossing Drive — 3D Rendering",
+    caption: "1203 NE Meadow Crossing Drive · 3D Rendering",
     community: "The Crossings at Deer Creek",
     category: "exterior",
     featured: true
@@ -35,7 +35,7 @@ const EVERSTONE_GALLERY = [
   {
     id: "gallery-002",
     src: "community-deer-creek.jpg",
-    caption: "1203 NE Meadow Crossing Drive — Lot",
+    caption: "1203 NE Meadow Crossing Drive · Lot",
     community: "The Crossings at Deer Creek",
     category: "construction",
     featured: true

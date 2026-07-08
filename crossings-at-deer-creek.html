@@ -3,6 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      script-src  'self' 'unsafe-inline'
+                  https://unpkg.com
+                  https://api.emailjs.com;
+      style-src   'self' 'unsafe-inline'
+                  https://fonts.googleapis.com
+                  https://fonts.gstatic.com
+                  https://unpkg.com;
+      font-src    'self'
+                  https://fonts.gstatic.com;
+      img-src     'self' data: https:
+                  https://*.tile.openstreetmap.org;
+      connect-src 'self'
+                  https://api.emailjs.com;
+      frame-src   'none';
+      object-src  'none';
+    ">
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>The Crossings at Deer Creek – EverStone Homes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -256,7 +276,7 @@
       <div class="ch-status"><span class="ch-status-dot"></span>Breaking Ground Soon</div>
       <h1 class="ch-title">The Crossings at<br><em>Deer Creek</em></h1>
       <div class="ch-location">Ankeny, Iowa &nbsp;·&nbsp; Ankeny Community School District</div>
-      <p class="ch-desc">EverStone Homes' first community — a fresh opportunity to build a brand new custom home in one of Ankeny's newest premier developments. We've secured our first lot and construction is beginning soon.</p>
+      <p class="ch-desc">EverStone Homes' first community: a fresh opportunity to build a brand new custom home in one of Ankeny's newest premier developments. We've secured our first lot and construction is beginning soon.</p>
     </div>
     <div class="ch-stats">
       <div class="ch-stat">
@@ -331,10 +351,10 @@
           <div class="home-card-name">More Lots Coming</div>
           <div class="home-card-lot">Additional lots being evaluated</div>
           <div class="home-card-specs">
-            <div class="home-spec"><div class="home-spec-val">—</div><div class="home-spec-label">Beds</div></div>
-            <div class="home-spec"><div class="home-spec-val">—</div><div class="home-spec-label">Baths</div></div>
-            <div class="home-spec"><div class="home-spec-val">—</div><div class="home-spec-label">Sq Ft</div></div>
-            <div class="home-spec"><div class="home-spec-val">—</div><div class="home-spec-label">Garage</div></div>
+            <div class="home-spec"><div class="home-spec-val">–</div><div class="home-spec-label">Beds</div></div>
+            <div class="home-spec"><div class="home-spec-val">–</div><div class="home-spec-label">Baths</div></div>
+            <div class="home-spec"><div class="home-spec-val">–</div><div class="home-spec-label">Sq Ft</div></div>
+            <div class="home-spec"><div class="home-spec-val">–</div><div class="home-spec-label">Garage</div></div>
           </div>
           <div class="home-card-footer">
             <div>
@@ -360,10 +380,10 @@
           <div class="home-card-name">More Lots Coming</div>
           <div class="home-card-lot">Additional lots being evaluated</div>
           <div class="home-card-specs">
-            <div class="home-spec"><div class="home-spec-val">—</div><div class="home-spec-label">Beds</div></div>
-            <div class="home-spec"><div class="home-spec-val">—</div><div class="home-spec-label">Baths</div></div>
-            <div class="home-spec"><div class="home-spec-val">—</div><div class="home-spec-label">Sq Ft</div></div>
-            <div class="home-spec"><div class="home-spec-val">—</div><div class="home-spec-label">Garage</div></div>
+            <div class="home-spec"><div class="home-spec-val">–</div><div class="home-spec-label">Beds</div></div>
+            <div class="home-spec"><div class="home-spec-val">–</div><div class="home-spec-label">Baths</div></div>
+            <div class="home-spec"><div class="home-spec-val">–</div><div class="home-spec-label">Sq Ft</div></div>
+            <div class="home-spec"><div class="home-spec-val">–</div><div class="home-spec-label">Garage</div></div>
           </div>
           <div class="home-card-footer">
             <div>
@@ -405,7 +425,7 @@
         <div class="info-card-title">About This Community</div>
         <ul class="info-list">
           <li>Located in The Crossings at Deer Creek, Ankeny, Iowa</li>
-          <li>Ankeny Community School District — highly rated schools</li>
+          <li>Ankeny Community School District - highly rated schools</li>
           <li>Minutes from shopping, dining, and major highways</li>
           <li>One of Ankeny's fastest growing and most sought-after developments</li>
           <li>Convenient access to Des Moines metro</li>
@@ -418,7 +438,7 @@
         </div>
         <div class="info-card-title">Build Timeline</div>
         <ul class="info-list">
-          <li>Lot already secured — ready to begin planning</li>
+          <li>Lot already secured - ready to begin planning</li>
           <li>Pre-construction meeting: schedule yours now</li>
           <li>Estimated build time: 4–5 months from groundbreak</li>
           <li>Regular progress updates and site visits for buyers</li>
@@ -446,7 +466,7 @@
 <div class="modal-overlay" id="homeModal" onclick="closeModalOnOverlay(event)">
   <div class="modal">
     <div class="modal-header">
-      <div class="modal-title">Spec Home — The Crossings at Deer Creek</div>
+      <div class="modal-title">Spec Home - The Crossings at Deer Creek</div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">

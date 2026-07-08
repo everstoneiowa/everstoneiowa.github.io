@@ -1,0 +1,19 @@
+# ═══════════════════════════════════════════════════════════════
+#  EVERSTONE HOMES — SECURITY HEADERS
+#  ─────────────────────────────────────────────────────────────
+#  NOTE: GitHub Pages IGNORES this file (it cannot set custom
+#  HTTP headers). It becomes active automatically if the site
+#  is ever hosted on Netlify or Cloudflare Pages instead.
+#
+#  Until then, the same values should be applied via Cloudflare
+#  (free plan) in front of GitHub Pages:
+#  Rules → Transform Rules → Modify Response Header.
+# ═══════════════════════════════════════════════════════════════
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://api.emailjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.emailjs.com; frame-src 'none'; object-src 'none'; frame-ancestors 'self'

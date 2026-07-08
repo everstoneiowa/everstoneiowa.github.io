@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-//  EVERSTONE HOMES — MASTER HOME LISTINGS
+//  EVERSTONE HOMES - MASTER HOME LISTINGS
 //  ─────────────────────────────────────────────────────────────
 //  EASIEST WAY TO ADD A HOME:
 //    Paste the home's Zillow listing link into Claude and say
@@ -38,12 +38,12 @@ const EVERSTONE_HOMES = [
     note: "Select customization options available",
     communityPage: "crossings-at-deer-creek.html",
     zillowUrl: "",                      // paste Zillow link → button becomes "View on Zillow"
-    lat: 41.741743,                     // GPS coordinates — home appears on map automatically
+    lat: 41.741743,                     // GPS coordinates - home appears on map automatically
     lng: -93.551448                     // find via Google Maps: right-click the lot → "What's here?"
   },
 
   // ── PINE LAKE ESTATES ─────────────────────────────────────────
-  // (No homes yet — add entries here when lots are secured)
+  // (No homes yet - add entries here when lots are secured)
 
   // ── HOW TO ADD A NEW HOME BY HAND ─────────────────────────────
   // {
@@ -62,7 +62,7 @@ const EVERSTONE_HOMES = [
   //   communityPage: "community-page.html",
   //   zillowUrl: "https://www.zillow.com/homedetails/...",  // or "" to use the on-site popup
   //   lat: 41.000000,                  // GPS latitude
-  //   lng: -93.000000                  // GPS longitude — omit both to skip the map
+  //   lng: -93.000000                  // GPS longitude - omit both to skip the map
   // },
 
 ];

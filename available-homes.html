@@ -3,6 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      script-src  'self' 'unsafe-inline'
+                  https://unpkg.com
+                  https://api.emailjs.com;
+      style-src   'self' 'unsafe-inline'
+                  https://fonts.googleapis.com
+                  https://fonts.gstatic.com
+                  https://unpkg.com;
+      font-src    'self'
+                  https://fonts.gstatic.com;
+      img-src     'self' data: https:
+                  https://*.tile.openstreetmap.org;
+      connect-src 'self'
+                  https://api.emailjs.com;
+      frame-src   'none';
+      object-src  'none';
+    ">
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Available Homes – EverStone Homes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -511,11 +531,11 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 // ═══════════════════════════════════════════════════════════════
-//  MAP — AUTO-DRIVEN BY homes-data.js
+//  MAP - AUTO-DRIVEN BY homes-data.js
 //  ─────────────────────────────────────────────────────────────
 //  No coordinates are stored here. To put a home on the map,
 //  simply add  lat: 41.000000, lng: -93.000000  to its entry
-//  in homes-data.js. That's it — the map updates itself.
+//  in homes-data.js. That's it - the map updates itself.
 //
 //  HOW TO GET COORDINATES:
 //    1. Open Google Maps and find the lot/address
@@ -552,7 +572,7 @@ function initMap() {
     attributionControl: false
   });
 
-  // Esri World Imagery — satellite view
+  // Esri World Imagery - satellite view
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 19
   }).addTo(mapInstance);
