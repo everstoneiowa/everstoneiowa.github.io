@@ -34,7 +34,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-002",
-    src: "DJI_0089.JPG",
+    src: "community-deer-creek.jpg",
     caption: "1203 NE Meadow Crossing Drive — Lot",
     community: "The Crossings at Deer Creek",
     category: "construction",
@@ -43,7 +43,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-003",
-    src: "DJI_0094.JPG",
+    src: "hero-aerial.jpg",
     caption: "Aerial View of the Community",
     community: "The Crossings at Deer Creek",
     category: "community",
@@ -52,7 +52,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-004",
-    src: "DJI_0099.JPG",
+    src: "community-pine-lake.jpg",
     caption: "Aerial View of the Community",
     community: "Pine Lake Estates",
     category: "community",
