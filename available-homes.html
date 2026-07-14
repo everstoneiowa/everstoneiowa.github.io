@@ -22,6 +22,7 @@
       frame-src   'none';
       object-src  'none';
     ">
+  <meta name="theme-color" content="#121613" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Available Homes – EverStone Homes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,8 +57,8 @@
     .nav-cta:hover { background:var(--gold-light); color:var(--black) !important; }
     .nav-cta::after { display:none !important; }
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-    .hamburger span { display:block; width:24px; height:2px; background:var(--white); transition:all 0.3s; }
-    .mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:#121814613; flex-direction:column; gap:0; z-index:200; overflow-y:auto; padding-top:80px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--white); transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
+    .mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:#121613; flex-direction:column; gap:0; z-index:200; overflow-y:auto; padding-top:80px; }
     .mobile-menu a { display:block; padding:14px 0; color:rgba(255,255,255,0.75) !important; text-decoration:none; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.06); transition:color 0.2s; }
     .mobile-menu a:hover { color:var(--gold) !important; }
     .mobile-menu a.nav-cta { margin-top:16px; text-align:center; background:var(--gold); color:var(--black) !important; padding:12px 24px; border-bottom:none; }
@@ -77,7 +78,7 @@
 
     /* ─── FILTERS ─── */
     .filters-bar { background:var(--white); border-bottom:1px solid rgba(0,0,0,0.07); padding:0 60px; position:static; z-index:90; display:flex; align-items:center; gap:0; }
-    .filter-btn { padding:18px 24px; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; cursor:pointer; background:transparent; border:none; border-bottom:2px solid transparent; color:var(--text-muted); transition:all 0.25s; font-family:'Hanken Grotesk',sans-serif; }
+    .filter-btn { padding:18px 24px; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; cursor:pointer; background:transparent; border:none; border-bottom:2px solid transparent; color:var(--text-muted); transition: background-color 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s, opacity 0.25s; font-family:'Hanken Grotesk',sans-serif; }
     .filter-btn:hover { color:var(--black); }
     .filter-btn.active { color:var(--gold); border-bottom-color:var(--gold); }
     .filter-count { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; background:var(--gold); color:var(--black); font-size:9px; font-weight:700; border-radius:50%; margin-left:6px; }
@@ -93,12 +94,12 @@
     .cg-name { font-family:'Newsreader',serif; font-size:28px; font-weight:600; color:var(--black); }
     .cg-loc { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); }
     .cg-count { margin-left:auto; font-size:11px; color:var(--text-muted); }
-    .cg-view-all { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; color:var(--gold); text-decoration:none; border:1px solid rgba(184,146,42,0.3); padding:8px 16px; transition:all 0.2s; }
+    .cg-view-all { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; color:var(--gold); text-decoration:none; border:1px solid rgba(184,146,42,0.3); padding:8px 16px; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s; }
     .cg-view-all:hover { background:var(--gold); color:var(--black); }
 
     /* Home card */
     .homes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-    .home-card { background:var(--white); border:1px solid rgba(0,0,0,0.07); overflow:hidden; transition:all 0.35s; cursor:pointer; }
+    .home-card { position:relative; background:var(--white); border:1px solid rgba(0,0,0,0.07); overflow:hidden; transition: background-color 0.35s, color 0.35s, border-color 0.35s, box-shadow 0.35s, transform 0.35s, opacity 0.35s; cursor:pointer; }
     .home-card:hover { transform:translateY(-5px); box-shadow:0 20px 50px rgba(0,0,0,0.11); border-color:rgba(184,146,42,0.3); }
     .home-card-img { height:220px; position:relative; overflow:hidden; background:var(--charcoal); display:flex; align-items:center; justify-content:center; }
     .home-card-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease; }
@@ -110,7 +111,14 @@
     .badge-coming { background:rgba(40,40,40,0.85); color:rgba(255,255,255,0.8); }
     .home-card-body { padding:22px; }
     .home-card-community { font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:5px; }
-    .home-card-name { font-family:'Newsreader',serif; font-size:24px; font-weight:600; color:var(--black); margin-bottom:4px; }
+    .home-card-name { font-family:'Newsreader',serif; font-size:24px; font-weight:600; color:var(--black); margin:0 0 4px; }
+    /* Stretched link: the address is the real button, its ::after covers the whole card */
+    .home-card-link { background:none; border:0; padding:0; margin:0; font:inherit; color:inherit; text-align:left; cursor:pointer; }
+    .home-card-link::after { content:''; position:absolute; inset:0; z-index:1; }
+    .home-card-link:focus-visible { outline:none; }
+    .home-card:focus-within { outline:2px solid var(--gold); outline-offset:2px; }
+    .home-card .btn-details[href] { position:relative; z-index:2; }
+    .homes-empty { grid-column:1/-1; padding:60px 20px; text-align:center; color:var(--text-muted); font-size:14px; }
     .home-card-note { font-size:11px; color:var(--text-muted); margin-bottom:16px; }
     .home-card-specs { display:flex; padding:12px 0; border-top:1px solid rgba(0,0,0,0.07); border-bottom:1px solid rgba(0,0,0,0.07); margin-bottom:16px; }
     .home-spec { flex:1; text-align:center; border-right:1px solid rgba(0,0,0,0.07); }
@@ -120,7 +128,7 @@
     .home-card-footer { display:flex; align-items:center; justify-content:space-between; }
     .home-price { font-family:'Newsreader',serif; font-size:22px; font-weight:700; color:var(--black); }
     .home-price-sub { font-size:10px; color:var(--text-muted); margin-top:1px; }
-    .btn-details { background:var(--black); color:var(--gold); padding:10px 18px; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; border:none; cursor:pointer; transition:all 0.25s; font-family:'Hanken Grotesk',sans-serif; text-decoration:none; display:inline-block; }
+    .btn-details { background:var(--black); color:var(--gold); padding:10px 18px; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; border:none; cursor:pointer; transition: background-color 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s, opacity 0.25s; font-family:'Hanken Grotesk',sans-serif; text-decoration:none; display:inline-block; }
     .btn-details:hover { background:var(--gold); color:var(--black); }
 
     /* ─── EMPTY STATE ─── */
@@ -139,8 +147,8 @@
     .modal-header { padding:28px 36px; border-bottom:1px solid rgba(255,255,255,0.07); display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
     .modal-header-left { }
     .modal-community-label { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:6px; }
-    .modal-title { font-family:'Newsreader',serif; font-size:28px; font-weight:600; color:var(--white); }
-    .modal-close { width:34px; height:34px; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); cursor:pointer; background:none; font-size:16px; transition:all 0.2s; flex-shrink:0; }
+    .modal-title { font-family:'Newsreader',serif; font-size:28px; font-weight:600; color:var(--white); margin:0; }
+    .modal-close { width:34px; height:34px; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); cursor:pointer; background:none; font-size:16px; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s; flex-shrink:0; }
     .modal-close:hover { border-color:var(--gold); color:var(--gold); }
     .modal-body { padding:32px 36px; }
     .modal-specs { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:24px; }
@@ -151,7 +159,7 @@
     .modal-footer { display:flex; align-items:center; justify-content:space-between; padding:20px; background:rgba(184,146,42,0.07); border:1px solid rgba(184,146,42,0.2); }
     .modal-price-label { font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
     .modal-price-val { font-family:'Newsreader',serif; font-size:28px; font-weight:700; color:var(--white); }
-    .btn-primary { background:var(--gold); color:var(--black); padding:14px 28px; font-size:11px; letter-spacing:0.15em; text-transform:uppercase; font-weight:700; border:none; cursor:pointer; font-family:'Hanken Grotesk',sans-serif; transition:all 0.3s; text-decoration:none; display:inline-block; }
+    .btn-primary { background:var(--gold); color:var(--black); padding:14px 28px; font-size:11px; letter-spacing:0.15em; text-transform:uppercase; font-weight:700; border:none; cursor:pointer; font-family:'Hanken Grotesk',sans-serif; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; text-decoration:none; display:inline-block; }
     .btn-primary:hover { background:var(--gold-light); }
 
     /* ─── FOOTER ─── */
@@ -190,7 +198,7 @@
     #everstoneMap { width:100%; height:600px; }
     @media (max-width:560px) { #everstoneMap { height:380px; } }
     .map-zoom-controls { position:absolute; top:16px; right:16px; z-index:500; display:flex; flex-direction:column; gap:2px; }
-    .map-zoom-btn { width:32px; height:32px; background:#121814; border:1px solid rgba(184,146,42,0.3); color:var(--gold); font-size:18px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; font-family:monospace; }
+    .map-zoom-btn { width:32px; height:32px; background:#121814; border:1px solid rgba(184,146,42,0.3); color:var(--gold); font-size:18px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s; font-family:monospace; }
     .map-zoom-btn:hover { background:rgba(184,146,42,0.15); }
     .map-attribution { font-size:10px; color:rgba(255,255,255,0.2); text-align:right; padding:10px 60px 24px; background:var(--black); }
     .map-attribution a { color:rgba(184,146,42,0.5); text-decoration:none; }
@@ -216,15 +224,33 @@
 
     @media (max-width:900px) { .map-layout { grid-template-columns:1fr; } .map-sidebar { max-height:220px; } .map-section-inner { padding:0 30px 0; } .map-attribution { padding:10px 30px 20px; } }
     @media (max-width:560px) { .map-section-inner { padding:0 16px 0; } .map-attribution { padding:10px 16px 16px; } }
+  
+    /* ─── ACCESSIBILITY FLOOR ─── */
+    html { color-scheme: dark; }
+    a, button, input, select, textarea, summary, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: rgba(184,146,42,0.15); }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    :is(h1,h2,h3,section,[id]) { scroll-margin-top: 110px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 999; background: var(--gold); color: #111; padding: 12px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+    .skip-link:focus { left: 12px; top: 12px; }
+    .modal-overlay, .lightbox, .mobile-menu { overscroll-behavior: contain; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    h1, h2, h3, .hero-title, .section-title { text-wrap: balance; }
+    .home-spec-val, .modal-price-val, .price, .filter-count, .stat-num { font-variant-numeric: tabular-nums; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
   </style>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="everstone-logo.jpg" alt="EverStone Homes" />
+    <img src="everstone-logo.jpg" alt="EverStone Homes" width="1254" height="1254" />
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -235,7 +261,7 @@
     <li><a href="about.html">About</a></li>
     <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -250,7 +276,7 @@
 </div>
 
 <!-- PAGE HERO -->
-<div class="page-hero">
+<div class="page-hero" id="main-content">
   <div class="page-hero-grid"></div>
   <div class="page-hero-glow"></div>
   <div class="page-hero-inner">
@@ -263,11 +289,11 @@
 
 <!-- FILTERS -->
 <div class="filters-bar" id="filtersBar">
-  <button class="filter-btn active" onclick="setFilter('all', this)">All Homes <span class="filter-count" id="count-all">0</span></button>
-  <button class="filter-btn" onclick="setFilter('under-construction', this)">Under Construction <span class="filter-count" id="count-under-construction">0</span></button>
-  <button class="filter-btn" onclick="setFilter('available', this)">Move-In Ready <span class="filter-count" id="count-available">0</span></button>
-  <button class="filter-btn" onclick="setFilter('coming-soon', this)">Coming Soon <span class="filter-count" id="count-coming-soon">0</span></button>
-  <div class="filters-right">Showing <span id="showing-count">0</span> homes</div>
+  <button class="filter-btn active" type="button" aria-pressed="true" onclick="setFilter('all', this)">All Homes <span class="filter-count" id="count-all">0</span></button>
+  <button class="filter-btn" type="button" aria-pressed="false" onclick="setFilter('under-construction', this)">Under Construction <span class="filter-count" id="count-under-construction">0</span></button>
+  <button class="filter-btn" type="button" aria-pressed="false" onclick="setFilter('available', this)">Move-In Ready <span class="filter-count" id="count-available">0</span></button>
+  <button class="filter-btn" type="button" aria-pressed="false" onclick="setFilter('coming-soon', this)">Coming Soon <span class="filter-count" id="count-coming-soon">0</span></button>
+  <div class="filters-right" role="status" aria-live="polite">Showing <span id="showing-count">0</span> homes</div>
 </div>
 
 <!-- HOMES -->
@@ -277,14 +303,14 @@
 
 <!-- MODAL -->
 <div class="modal-overlay" id="homeModal" onclick="closeModalOnOverlay(event)">
-  <div class="modal" id="modalInner">
+  <div class="modal" id="modalInner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-img" id="modalImg"></div>
     <div class="modal-header">
       <div class="modal-header-left">
         <div class="modal-community-label" id="modalCommunity"></div>
-        <div class="modal-title" id="modalTitle"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
       </div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" type="button" onclick="closeModal()" aria-label="Close home details">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-specs" id="modalSpecs"></div>
@@ -333,6 +359,39 @@
 
 <!-- Load the shared homes data, then render -->
 <script src="homes-data.js"></script>
+<!-- Shared dialog focus management -->
+<script>
+(function () {
+  const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  let lastFocused = null;
+  let trapped = null;
+
+  function onKey(e) {
+    if (!trapped || e.key !== 'Tab') return;
+    const items = [...trapped.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
+    if (!items.length) return;
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  window.trapFocus = function (el) {
+    lastFocused = document.activeElement;
+    trapped = el;
+    document.addEventListener('keydown', onKey, true);
+    const target = el.querySelector('[data-autofocus]') || el.querySelector(FOCUSABLE);
+    if (target) target.focus();
+  };
+
+  window.releaseFocus = function () {
+    document.removeEventListener('keydown', onKey, true);
+    trapped = null;
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    lastFocused = null;
+  };
+})();
+</script>
+
 <script>
 
   // ── STATUS CONFIG ──────────────────────────────────────────────
@@ -387,7 +446,7 @@
         <div class="homes-grid">
           <div class="empty-state">
             <div class="empty-icon">
-              <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M26 6L48 20V44H4V20L26 6Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="20" y="10" width="12" height="10" fill="#b8922a" opacity="0.3"/></svg>
+              <svg aria-hidden="true" width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M26 6L48 20V44H4V20L26 6Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="20" y="10" width="12" height="10" fill="#b8922a" opacity="0.3"/></svg>
             </div>
             <div class="empty-title">No homes in this category yet</div>
             <p class="empty-desc">Check back soon. We're actively securing lots and will list new homes as they become available.</p>
@@ -433,9 +492,9 @@
   function cardHTML(h) {
     const sc = STATUS_CONFIG[h.status] || STATUS_CONFIG['coming-soon'];
     const imgHTML = h.image
-      ? `<img src="${h.image}" alt="${h.name}" />`
+      ? `<img src="${h.image}" alt="${h.name}" width="800" height="600" loading="lazy" />`
       : `<div class="home-card-placeholder">
-           <svg width="160" height="120" viewBox="0 0 160 120" fill="none" style="opacity:0.18">
+           <svg aria-hidden="true" width="160" height="120" viewBox="0 0 160 120" fill="none" style="opacity:0.18">
              <path d="M80 10L150 55V110H10V55L80 10Z" stroke="#b8922a" stroke-width="1.5" fill="rgba(184,146,42,0.05)"/>
              <rect x="64" y="20" width="32" height="26" fill="rgba(184,146,42,0.25)"/>
              <rect x="18" y="68" width="30" height="30" stroke="#b8922a" stroke-width="1" fill="none"/>
@@ -446,14 +505,14 @@
     const priceDisplay = h.price || 'Contact for Pricing';
 
     return `
-      <div class="home-card" onclick="openModal('${h.id}')">
+      <article class="home-card">
         <div class="home-card-img">
           ${imgHTML}
           <span class="status-badge ${sc.badgeClass}">${sc.label}</span>
         </div>
         <div class="home-card-body">
           <div class="home-card-community">${h.community}</div>
-          <div class="home-card-name">${h.name}</div>
+          <h3 class="home-card-name"><button type="button" class="home-card-link" onclick="openModal('${h.id}')">${h.name}</button></h3>
           <div class="home-card-note">${h.price || 'Contact for Pricing'}</div>
           <div class="home-card-specs">
             <div class="home-spec"><div class="home-spec-val">${h.beds}</div><div class="home-spec-label">Beds</div></div>
@@ -467,11 +526,11 @@
               <div class="home-price-sub">${sc.label}</div>
             </div>
             ${h.zillowUrl
-              ? `<a class="btn-details" href="${h.zillowUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation();">View on Zillow →</a>`
-              : `<button class="btn-details" onclick="openModal('${h.id}'); event.stopPropagation();">Details →</button>`}
+              ? `<a class="btn-details" href="${h.zillowUrl}" target="_blank" rel="noopener">View on Zillow<span class="sr-only"> for ${h.name} (opens in a new tab)</span> →</a>`
+              : `<span class="btn-details" aria-hidden="true">Details →</span>`}
           </div>
         </div>
-      </div>`;
+      </article>`;
   }
 
   // ── MODAL ──────────────────────────────────────────────────────
@@ -493,17 +552,22 @@
     if (h.zillowUrl) { zEl.href = h.zillowUrl; zEl.style.display = 'inline-block'; }
     else { zEl.style.display = 'none'; }
     document.getElementById('modalImg').innerHTML = h.image
-      ? `<img src="${h.image}" alt="${h.name}" />`
+      ? `<img src="${h.image}" alt="${h.name}" width="1200" height="800" />`
       : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#1c1a14,#2a2318);">
-           <svg width="160" height="120" viewBox="0 0 160 120" fill="none" style="opacity:0.2"><path d="M80 10L150 55V110H10V55L80 10Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="64" y="20" width="32" height="26" fill="#b8922a" opacity="0.3"/></svg>
+           <svg aria-hidden="true" width="160" height="120" viewBox="0 0 160 120" fill="none" style="opacity:0.2"><path d="M80 10L150 55V110H10V55L80 10Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="64" y="20" width="32" height="26" fill="#b8922a" opacity="0.3"/></svg>
          </div>`;
-    document.getElementById('homeModal').classList.add('active');
+    const overlay = document.getElementById('homeModal');
+    overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    trapFocus(overlay.querySelector('.modal'));
   }
 
   function closeModal() {
-    document.getElementById('homeModal').classList.remove('active');
+    const overlay = document.getElementById('homeModal');
+    if (!overlay.classList.contains('active')) return;
+    overlay.classList.remove('active');
     document.body.style.overflow = '';
+    releaseFocus();
   }
   function closeModalOnOverlay(e) {
     if (e.target === document.getElementById('homeModal')) closeModal();
@@ -511,14 +575,38 @@
 
   // ── FILTER ─────────────────────────────────────────────────────
   function setFilter(status, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
+    render(status);
+
+    // Keep the URL in sync so filtered views are shareable and back/forward work
+    const url = new URL(window.location);
+    if (status === 'all') url.searchParams.delete('status');
+    else url.searchParams.set('status', status);
+    history.pushState({ status }, '', url);
+  }
+
+  function applyFilterFromUrl(push) {
+    const status = new URLSearchParams(window.location.search).get('status') || 'all';
+    const btn = document.querySelector(`.filter-btn[onclick*="'${status}'"]`) || document.querySelector('.filter-btn');
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
     render(status);
   }
 
+  window.addEventListener('popstate', () => applyFilterFromUrl(false));
+
   // ── INIT ───────────────────────────────────────────────────────
   updateCounts(EVERSTONE_HOMES);
-  render('all');
+  applyFilterFromUrl(false);
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   window.addEventListener('scroll', () => {
@@ -609,7 +697,7 @@ function initMap() {
 
     // ── Rich popup ──
     const imgHTML = h.image
-      ? `<div class="map-popup-img"><img src="${h.image}" alt="${h.name}" /></div>`
+      ? `<div class="map-popup-img"><img src="${h.image}" alt="${h.name}" width="400" height="260" loading="lazy" /></div>`
       : '';
 
     marker.bindPopup(`
@@ -627,7 +715,7 @@ function initMap() {
           </div>
           ${h.zillowUrl
             ? `<a class="map-popup-btn" href="${h.zillowUrl}" target="_blank" rel="noopener">View on Zillow →</a>`
-            : `<button class="map-popup-btn" onclick="openModal('${h.id}')">View Details →</button>`}
+            : `<button type="button" class="map-popup-btn" onclick="openModal('${h.id}')">View Details for ${h.name} →</button>`}
         </div>
       </div>`, { maxWidth: 280, minWidth: 260 });
 
@@ -663,6 +751,15 @@ function initMap() {
 
 
 function toggleMenu(forceClose) {
+  const _btn = document.querySelector('.hamburger');
+  const _syncAria = () => {
+    if (!_btn) return;
+    const mm = document.getElementById('mobileMenu');
+    const open = mm.classList.contains('active') || getComputedStyle(mm).display !== 'none';
+    _btn.setAttribute('aria-expanded', String(open));
+    _btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  setTimeout(_syncAria, 0);
   const m = document.getElementById('mobileMenu');
   const isOpen = m.style.display === 'flex';
   if (forceClose || isOpen) {

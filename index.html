@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121613" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>EverStone Homes – Built to Last</title>
   <meta name="description" content="EverStone Homes is a locally owned new home builder in central Iowa. Now building at The Crossings at Deer Creek in Ankeny. Quality single-family homes built on honesty, punctuality, and craftsmanship." />
@@ -83,7 +84,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,600&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <!-- EmailJS 4.4.1 - self-hosted (official npm package) so no third-party CDN can tamper with it -->
   <script src="emailjs-4.4.1.min.js"></script>
-  <script>if (typeof emailjs !== 'undefined') emailjs.init('0VR79h-0rXc02KbzC');</script>
+  <!-- Shared dialog focus management -->
+<script>
+(function () {
+  const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  let lastFocused = null;
+  let trapped = null;
+
+  function onKey(e) {
+    if (!trapped || e.key !== 'Tab') return;
+    const items = [...trapped.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
+    if (!items.length) return;
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  window.trapFocus = function (el) {
+    lastFocused = document.activeElement;
+    trapped = el;
+    document.addEventListener('keydown', onKey, true);
+    const target = el.querySelector('[data-autofocus]') || el.querySelector(FOCUSABLE);
+    if (target) target.focus();
+  };
+
+  window.releaseFocus = function () {
+    document.removeEventListener('keydown', onKey, true);
+    trapped = null;
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    lastFocused = null;
+  };
+})();
+</script>
+
+<script>if (typeof emailjs !== 'undefined') emailjs.init('0VR79h-0rXc02KbzC');</script>
   <style>
     :root {
       --gold: #b8922a;
@@ -109,7 +143,7 @@
       padding: 0 60px; height: 88px;
       background: transparent;
       border-bottom: 1px solid transparent;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
     }
     nav.scrolled {
       height: 64px;
@@ -144,9 +178,9 @@
     .hero-title strong { font-weight: 700; }
     .hero-desc { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.55); max-width: 440px; margin-bottom: 44px; font-weight: 300; }
     .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--gold); color: var(--black); padding: 15px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
+    .btn-primary { background: var(--gold); color: var(--black); padding: 15px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; border: none; cursor: pointer; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
     .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(184,146,42,0.3); }
-    .btn-ghost { border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.75); padding: 14px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: all 0.3s; display: inline-block; }
+    .btn-ghost { border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.75); padding: 14px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; display: inline-block; }
     .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
     /* Founding badge */
@@ -243,7 +277,7 @@
     .chb-lot-icon { color: var(--gold); flex-shrink: 0; }
     .chb-lot-text { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
     .chb-lot-text strong { color: var(--black); }
-    .btn-card { background: var(--black); color: var(--gold); padding: 12px 24px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
+    .btn-card { background: var(--black); color: var(--gold); padding: 12px 24px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; transition: background-color 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s, opacity 0.25s; text-decoration: none; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
     .btn-card:hover { background: var(--gold); color: var(--black); }
 
     /* No homes yet state */
@@ -261,7 +295,7 @@
     /* ─── HOMEPAGE AVAILABLE HOMES ─── */
     #homepage-homes { padding: 120px 0; background: var(--white); }
     .hp-homes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .hp-home-card { background: var(--off-white); border: 1px solid rgba(0,0,0,0.07); overflow: hidden; transition: all 0.35s; cursor: pointer; }
+    .hp-home-card { display: block; text-decoration: none; color: inherit; background: var(--off-white); border: 1px solid rgba(0,0,0,0.07); overflow: hidden; transition: background-color 0.35s, color 0.35s, border-color 0.35s, box-shadow 0.35s, transform 0.35s, opacity 0.35s; cursor: pointer; }
     .hp-home-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-color: rgba(184,146,42,0.3); }
     .hp-home-card-img { height: 210px; position: relative; overflow: hidden; background: var(--charcoal); display: flex; align-items: center; justify-content: center; }
     .hp-home-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
@@ -291,6 +325,7 @@
     .community-card {
       position: relative; overflow: hidden; cursor: pointer;
       min-height: 520px; display: flex; flex-direction: column; justify-content: flex-end;
+      text-decoration: none; color: inherit;
     }
     .community-bg-art {
       position: absolute; inset: 0;
@@ -313,7 +348,7 @@
     .community-loc { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 18px; }
     .community-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 24px; font-weight: 300; max-width: 380px; }
     .community-cta-row { display: flex; align-items: center; gap: 20px; }
-    .community-arrow { width: 44px; height: 44px; border: 1px solid rgba(184,146,42,0.35); display: flex; align-items: center; justify-content: center; color: var(--gold); transition: all 0.3s; }
+    .community-arrow { width: 44px; height: 44px; border: 1px solid rgba(184,146,42,0.35); display: flex; align-items: center; justify-content: center; color: var(--gold); transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
     .community-card:hover .community-arrow { background: var(--gold); color: var(--black); }
     .community-cta-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); transition: color 0.3s; }
     .community-card:hover .community-cta-label { color: rgba(255,255,255,0.7); }
@@ -347,7 +382,7 @@
 
     /* ─── GALLERY GRID (live photos) ─── */
     .hp-gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-    .hp-gallery-item { position:relative; overflow:hidden; cursor:pointer; background:var(--charcoal); aspect-ratio:4/3; }
+    .hp-gallery-item { display:block; text-decoration:none; color:inherit; position:relative; overflow:hidden; cursor:pointer; background:var(--charcoal); aspect-ratio:4/3; }
     .hp-gallery-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease; }
     .hp-gallery-item:hover img { transform:scale(1.05); }
     .hp-gallery-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 55%); opacity:0; transition:opacity 0.3s; display:flex; align-items:flex-end; padding:16px; }
@@ -404,11 +439,14 @@
     .form-group { margin-bottom: 24px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .form-group label { display: block; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: 600; margin-bottom: 10px; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: var(--white); font-family: 'Hanken Grotesk', sans-serif; font-size: 14px; font-weight: 300; padding: 14px 18px; outline: none; transition: border-color 0.3s; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: var(--white); font-family: 'Hanken Grotesk', sans-serif; font-size: 14px; font-weight: 300; padding: 14px 18px; transition: border-color 0.3s; }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(184,146,42,0.5); }
     .form-group textarea { resize: vertical; min-height: 120px; }
     .form-group select option { background: var(--dark); }
-    .form-submit { width: 100%; background: var(--gold); color: var(--black); padding: 16px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; font-family: 'Hanken Grotesk', sans-serif; transition: all 0.3s; margin-top: 8px; }
+    .form-group input[aria-invalid="true"], .form-group textarea[aria-invalid="true"] { border-color: #c65b52; }
+    .field-error { display: none; font-size: 11px; color: #e08a82; margin-top: 7px; letter-spacing: 0.02em; }
+    .field-error.show { display: block; }
+    .form-submit { width: 100%; background: var(--gold); color: var(--black); padding: 16px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; font-family: 'Hanken Grotesk', sans-serif; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; margin-top: 8px; }
     .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
 
     /* ─── FOOTER ─── */
@@ -422,16 +460,9 @@
     .footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); }
     .footer-copy span { color: var(--gold); }
     .footer-social { display: flex; gap: 12px; align-items: center; }
-    .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(184,146,42,0.25); color: rgba(255,255,255,0.45); transition: all 0.25s; text-decoration: none; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(184,146,42,0.25); color: rgba(255,255,255,0.45); transition: background-color 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s, opacity 0.25s; text-decoration: none; }
     .footer-social a:hover { border-color: var(--gold); color: var(--gold); background: rgba(184,146,42,0.08); }
 
-    /* ─── ACCESSIBILITY FLOOR ─── */
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
-    }
 
     /* ─── SCROLL ANIMATIONS ─── */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -441,8 +472,8 @@
 
     /* ─── HAMBURGER ─── */
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s; }
-    .mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:#121814613; flex-direction:column; gap:0; z-index:200; overflow-y:auto; padding-top:80px; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
+    .mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:#121613; flex-direction:column; gap:0; z-index:200; overflow-y:auto; padding-top:80px; }
     .mobile-menu a { display:block; padding:18px 30px; color:rgba(255,255,255,0.8) !important; text-decoration:none !important; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.07); transition:color 0.2s; font-family:'Hanken Grotesk',sans-serif; }
     .mobile-menu a:hover { color:var(--gold) !important; }
     .mobile-menu a.nav-cta { margin:24px 30px; text-align:center; background:var(--gold); color:var(--black) !important; padding:16px 24px; border-bottom:none; font-weight:700; }
@@ -511,7 +542,7 @@
     #hpMap .leaflet-top, #hpMap .leaflet-bottom { z-index:5 !important; }
     #hpMap .leaflet-popup-pane { z-index:6 !important; }
     .map-zoom-controls { position:absolute; top:16px; right:16px; z-index:7; display:flex; flex-direction:column; gap:2px; }
-    .map-zoom-btn { width:32px; height:32px; background:#121814; border:1px solid rgba(184,146,42,0.3); color:var(--gold); font-size:18px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; font-family:monospace; }
+    .map-zoom-btn { width:32px; height:32px; background:#121814; border:1px solid rgba(184,146,42,0.3); color:var(--gold); font-size:18px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s; font-family:monospace; }
     .map-zoom-btn:hover { background:rgba(184,146,42,0.15); }
     .map-attribution { font-size:10px; color:rgba(255,255,255,0.2); text-align:right; padding:10px 60px 24px; background:var(--black); }
     .map-attribution a { color:rgba(184,146,42,0.5); text-decoration:none; }
@@ -545,7 +576,7 @@
     .modal-header { padding:28px 36px; border-bottom:1px solid rgba(255,255,255,0.07); display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
     .modal-community-label { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#b8922a; font-weight:600; margin-bottom:6px; }
     .modal-title { font-family:'Newsreader',serif; font-size:28px; font-weight:600; color:#fff; }
-    .modal-close { width:34px; height:34px; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); cursor:pointer; background:none; font-size:16px; transition:all 0.2s; flex-shrink:0; }
+    .modal-close { width:34px; height:34px; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); cursor:pointer; background:none; font-size:16px; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s; flex-shrink:0; }
     .modal-close:hover { border-color:#b8922a; color:#b8922a; }
     .modal-body { padding:32px 36px; }
     .modal-specs { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:24px; }
@@ -557,6 +588,23 @@
     .modal-price-label { font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:#b8922a; margin-bottom:4px; }
     .modal-price-val { font-family:'Newsreader',serif; font-size:28px; font-weight:700; color:#fff; }
     @media (max-width:560px) { .modal-specs { grid-template-columns:repeat(2,1fr); } }
+  
+    /* ─── ACCESSIBILITY FLOOR ─── */
+    html { color-scheme: dark; }
+    a, button, input, select, textarea, summary, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: rgba(184,146,42,0.15); }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    :is(h1,h2,h3,section,[id]) { scroll-margin-top: 110px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 999; background: var(--gold); color: #111; padding: 12px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+    .skip-link:focus { left: 12px; top: 12px; }
+    .modal-overlay, .lightbox, .mobile-menu { overscroll-behavior: contain; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    h1, h2, h3, .hero-title, .section-title { text-wrap: balance; }
+    .home-spec-val, .modal-price-val, .price, .filter-count, .stat-num { font-variant-numeric: tabular-nums; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
   </style>
   <!-- Leaflet CSS - integrity hash sourced from official leafletjs.com download page -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -564,11 +612,12 @@
         crossorigin="" />
 </head>
 <body>
+<a class="skip-link" href="#home">Skip to main content</a>
 
 <!-- ─── NAV ─── -->
 <nav id="navbar">
   <a href="#home" class="nav-logo">
-    <img src="everstone-logo.jpg" alt="EverStone Homes" />
+    <img src="everstone-logo.jpg" alt="EverStone Homes" width="1254" height="1254" />
   </a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
@@ -579,7 +628,7 @@
     <li><a href="about.html">About</a></li>
     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -598,7 +647,7 @@
 <!-- ─── HERO ─── -->
 <section id="home">
   <div class="hero-photo">
-    <img src="hero-interior.jpg" alt="Sunlit dining space inside a finished EverStone home in Ankeny, Iowa, with a natural wood table and views to the deck" fetchpriority="high" />
+    <img src="hero-interior.jpg" alt="Sunlit dining space inside a finished EverStone home in Ankeny, Iowa, with a natural wood table and views to the deck" width="2400" height="1599" fetchpriority="high" />
   </div>
   <div class="hero-scrim"></div>
   <div class="hero-content">
@@ -621,7 +670,7 @@
       <!-- Community preview cards -->
       <div class="hero-community-card">
         <div class="hcc-art">
-          <svg width="120" height="100" viewBox="0 0 120 100" fill="none"><path d="M60 8L112 42V92H8V42L60 8Z" stroke="#b8922a" stroke-width="2" fill="none"/><rect x="46" y="16" width="28" height="22" fill="#b8922a"/></svg>
+          <svg aria-hidden="true" width="120" height="100" viewBox="0 0 120 100" fill="none"><path d="M60 8L112 42V92H8V42L60 8Z" stroke="#b8922a" stroke-width="2" fill="none"/><rect x="46" y="16" width="28" height="22" fill="#b8922a"/></svg>
         </div>
         <div class="hcc-status active">Breaking Ground Soon</div>
         <div class="hcc-name">The Crossings<br>at Deer Creek</div>
@@ -630,7 +679,7 @@
       </div>
       <div class="hero-community-card">
         <div class="hcc-art">
-          <svg width="120" height="100" viewBox="0 0 120 100" fill="none"><path d="M60 8L112 42V92H8V42L60 8Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="46" y="16" width="28" height="22" stroke="#b8922a" stroke-width="1" fill="none"/></svg>
+          <svg aria-hidden="true" width="120" height="100" viewBox="0 0 120 100" fill="none"><path d="M60 8L112 42V92H8V42L60 8Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="46" y="16" width="28" height="22" stroke="#b8922a" stroke-width="1" fill="none"/></svg>
         </div>
         <div class="hcc-status coming">Coming Soon</div>
         <div class="hcc-name">Pine Lake<br>Estates</div>
@@ -662,14 +711,14 @@
 
 <!-- HOME PAGE MODAL -->
 <div class="modal-overlay" id="hpHomeModal" onclick="hpCloseModalOnOverlay(event)">
-  <div class="modal" id="hpModalInner">
+  <div class="modal" id="hpModalInner" role="dialog" aria-modal="true" aria-labelledby="hpModalTitle">
     <div class="modal-img" id="hpModalImg"></div>
     <div class="modal-header">
       <div>
         <div class="modal-community-label" id="hpModalCommunity"></div>
         <div class="modal-title" id="hpModalTitle"></div>
       </div>
-      <button class="modal-close" onclick="hpCloseModal()">✕</button>
+      <button class="modal-close" type="button" onclick="hpCloseModal()" aria-label="Close home details">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-specs" id="hpModalSpecs"></div>
@@ -717,7 +766,7 @@
     <div class="communities-two-col">
 
       <!-- Crossings at Deer Creek -->
-      <div class="community-card reveal" onclick="window.location.href='crossings-at-deer-creek.html'" style="cursor:pointer;">
+      <a class="community-card reveal" href="crossings-at-deer-creek.html" aria-label="The Crossings at Deer Creek: view community">
         <div class="community-bg-art" style="background:url('community-deer-creek.jpg') center 35%/cover no-repeat; filter:saturate(0.85);"></div>
         <div class="community-overlay"></div>
         <div class="community-content">
@@ -732,15 +781,15 @@
           <p class="community-desc">We are actively securing lots at The Crossings at Deer Creek and construction will begin soon. Reach out today to learn more and get ahead of the process.</p>
           <div class="community-cta-row">
             <div class="community-arrow">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
             <span class="community-cta-label">View Community</span>
           </div>
         </div>
-      </div>
+      </a>
 
       <!-- Pine Lake Estates -->
-      <div class="community-card reveal reveal-delay-1" onclick="scrollToContact('Pine Lake Estates')">
+      <a class="community-card reveal reveal-delay-1" href="#contact" onclick="presetCommunity('Pine Lake Estates')" aria-label="Pine Lake Estates: join the interest list">
         <div class="community-bg-art" style="background:url('community-pine-lake.jpg') center 45%/cover no-repeat; filter:grayscale(0.55) saturate(0.8) brightness(0.85);"></div>
         <div class="community-overlay"></div>
         <div class="community-content">
@@ -755,12 +804,12 @@
           <p class="community-desc">Our second planned community in Ankeny. We're evaluating lots at Pine Lake Estates and expect to begin securing land soon. Join the interest list today to be among the first contacted when homes become available.</p>
           <div class="community-cta-row">
             <div class="community-arrow">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
             <span class="community-cta-label">Join Interest List</span>
           </div>
         </div>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -780,7 +829,7 @@
       <div class="why-card reveal">
         <div class="why-card-number">01</div>
         <div class="why-card-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 3L29 11V21L16 29L3 21V11L16 3Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M16 3V29M3 11L29 11M3 21L29 21" stroke="currentColor" stroke-width="1" opacity="0.4"/></svg>
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 3L29 11V21L16 29L3 21V11L16 3Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M16 3V29M3 11L29 11M3 21L29 21" stroke="currentColor" stroke-width="1" opacity="0.4"/></svg>
         </div>
         <div class="why-card-title">Locally Owned &amp; Operated</div>
         <div class="why-card-desc">EverStone Homes is owned and run by someone who grew up in central Iowa and plans to stay here. You're not dealing with a regional sales rep. You're dealing directly with the builder.</div>
@@ -789,7 +838,7 @@
       <div class="why-card reveal reveal-delay-1">
         <div class="why-card-number">02</div>
         <div class="why-card-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M4 12h24M12 12v16" stroke="currentColor" stroke-width="1.5"/><path d="M9 8h2M15 8h2M21 8h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M4 12h24M12 12v16" stroke="currentColor" stroke-width="1.5"/><path d="M9 8h2M15 8h2M21 8h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div class="why-card-title">Generational Construction Knowledge</div>
         <div class="why-card-desc">Our roots go back to DS Solid Construction, a name Ankeny has trusted for years. That experience doesn't disappear; it shows up in every decision made on your build.</div>
@@ -798,7 +847,7 @@
       <div class="why-card reveal reveal-delay-2">
         <div class="why-card-number">03</div>
         <div class="why-card-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div class="why-card-title">Direct Communication</div>
         <div class="why-card-desc">No call centers, no runaround. When you have a question about your home, you reach the person actually building it. We keep you informed at every stage of the process.</div>
@@ -807,7 +856,7 @@
       <div class="why-card reveal">
         <div class="why-card-number">04</div>
         <div class="why-card-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4L4 12v16h8v-8h8v8h8V12L16 4Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4L4 12v16h8v-8h8v8h8V12L16 4Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
         </div>
         <div class="why-card-title">Quality Over Volume</div>
         <div class="why-card-desc">We're not trying to build 50 homes a year. We take on a limited number of projects so that every home gets the attention it deserves, from foundation to final walkthrough.</div>
@@ -816,7 +865,7 @@
       <div class="why-card reveal reveal-delay-1">
         <div class="why-card-number">05</div>
         <div class="why-card-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 26V14L16 6l10 8v12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="none"/><path d="M4 14l12-10 12 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="12" y="18" width="8" height="8" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 26V14L16 6l10 8v12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="none"/><path d="M4 14l12-10 12 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="12" y="18" width="8" height="8" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
         </div>
         <div class="why-card-title">Transparent Pricing</div>
         <div class="why-card-desc">We walk you through what's included, what's not, and what things cost, before you sign anything. No surprises mid-build, no nickel-and-diming on items that should be standard.</div>
@@ -825,7 +874,7 @@
       <div class="why-card reveal reveal-delay-2">
         <div class="why-card-number">06</div>
         <div class="why-card-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 28C22.627 28 28 22.627 28 16S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M16 10v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 28C22.627 28 28 22.627 28 16S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M16 10v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div class="why-card-title">On-Time, Every Time</div>
         <div class="why-card-desc">Punctuality is one of our three core values, not a talking point. We set realistic timelines and hold our subcontractors to them, because your schedule matters as much as ours.</div>
@@ -874,7 +923,7 @@
       <div class="reveal">
         <div class="contact-detail">
           <div class="contact-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M2 7l8 5 8-5" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M2 7l8 5 8-5" stroke="currentColor" stroke-width="1.5"/></svg>
           </div>
           <div>
             <div class="contact-detail-label">Email Us</div>
@@ -884,7 +933,7 @@
         </div>
         <div class="contact-detail">
           <div class="contact-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 3h3l1.5 4-2 1.5a9 9 0 004 4L12 10.5l4 1.5v3a1 1 0 01-1 1A15 15 0 013 4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 3h3l1.5 4-2 1.5a9 9 0 004 4L12 10.5l4 1.5v3a1 1 0 01-1 1A15 15 0 013 4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/></svg>
           </div>
           <div>
             <div class="contact-detail-label">Call or Text</div>
@@ -894,7 +943,7 @@
         </div>
         <div class="contact-detail">
           <div class="contact-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M2 10h16M10 3a9.5 9.5 0 000 14M10 3a9.5 9.5 0 010 14" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M2 10h16M10 3a9.5 9.5 0 000 14M10 3a9.5 9.5 0 010 14" stroke="currentColor" stroke-width="1.5"/></svg>
           </div>
           <div>
             <div class="contact-detail-label">Website</div>
@@ -904,7 +953,7 @@
         </div>
         <div class="contact-detail" style="border-bottom:none;">
           <div class="contact-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2C7 2 4 4.686 4 8c0 5.25 6 10 6 10s6-4.75 6-10c0-3.314-3-6-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2C7 2 4 4.686 4 8c0 5.25 6 10 6 10s6-4.75 6-10c0-3.314-3-6-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
           </div>
           <div>
             <div class="contact-detail-label">Building In</div>
@@ -917,28 +966,30 @@
       <div class="reveal reveal-delay-1">
         <div class="form-row">
           <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="John" id="fname" />
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" autocomplete="given-name" placeholder="John" aria-describedby="fname-error" />
+            <p class="field-error" id="fname-error"></p>
           </div>
           <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Smith" id="lname" />
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" autocomplete="family-name" placeholder="Smith" />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="john@email.com" id="email" />
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="john@email.com" aria-describedby="email-error" />
+            <p class="field-error" id="email-error"></p>
           </div>
           <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="(515) 000-0000" id="phone" />
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" spellcheck="false" placeholder="(515) 000-0000" />
           </div>
         </div>
         <div class="form-group">
-          <label>Community of Interest</label>
-          <select id="community">
-            <option value="">Select a community...</option>
+          <label for="community">Community of Interest</label>
+          <select id="community" name="community" autocomplete="off" style="background-color: rgba(255,255,255,0.04); color: var(--white);">
+            <option value="">Select a community…</option>
             <option>The Crossings at Deer Creek: Express Interest</option>
             <option>Pine Lake Estates: Join Interest List</option>
             <option>Both Communities</option>
@@ -946,16 +997,16 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Tell Us About Your Dream Home</label>
-          <textarea placeholder="Budget range, timeline, must-haves, questions, we want to hear it all..." id="message"></textarea>
+          <label for="message">Tell Us About Your Dream Home</label>
+          <textarea id="message" name="message" placeholder="Budget range, timeline, must-haves, questions, we want to hear it all…"></textarea>
         </div>
         <!-- Honeypot: invisible to humans, bots fill it and get silently dropped -->
         <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
-          <label>Leave this field empty</label>
+          <label for="website">Leave this field empty</label>
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
         </div>
-        <div id="formSuccess" style="display:none; background:rgba(255,255,255,0.04); border:1px solid rgba(184,146,42,0.3); padding:18px 20px; margin-bottom:16px;"></div>
-        <button class="form-submit" onclick="submitForm()">Send Message →</button>
+        <div id="formSuccess" role="status" aria-live="polite" style="display:none; background:rgba(255,255,255,0.04); border:1px solid rgba(184,146,42,0.3); padding:18px 20px; margin-bottom:16px;"></div>
+        <button class="form-submit" type="button" onclick="submitForm()">Send Message →</button>
         <p style="font-size:11px; color:rgba(255,255,255,0.3); margin-top:14px; line-height:1.6;">
           By submitting, you agree to be contacted by EverStone Homes. We respect your privacy and will never share your information.
         </p>
@@ -969,7 +1020,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <a href="#home" style="text-decoration:none;">
-        <img src="everstone-logo.jpg" alt="EverStone Homes" style="height:56px; width:auto; display:block;" />
+        <img src="everstone-logo.jpg" alt="EverStone Homes" width="1254" height="1254" style="height:56px; width:auto; display:block;" />
       </a>
       <ul class="footer-links">
         <li><a href="#home">Home</a></li>
@@ -985,12 +1036,12 @@
       <div class="footer-copy">© 2026 <span>EverStone Homes</span>. Ankeny, Iowa. All rights reserved.</div>
       <div class="footer-social">
         <a href="https://www.facebook.com/profile.php?id=61590327745033" target="_blank" rel="noopener noreferrer" aria-label="EverStone Homes on Facebook">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
           </svg>
         </a>
         <a href="https://www.instagram.com/everstoneiowa/" target="_blank" rel="noopener noreferrer" aria-label="EverStone Homes on Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
             <circle cx="12" cy="12" r="4"/>
             <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
@@ -1002,6 +1053,16 @@
 </footer>
 
 <script>
+function presetCommunity(community) {
+  // href="#contact" handles the navigation natively (Cmd/middle-click still work).
+  setTimeout(() => {
+    const sel = document.getElementById('community');
+    for (let i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].text.includes(community)) { sel.selectedIndex = i; break; }
+    }
+  }, 500);
+}
+
 function scrollToContact(community) {
   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
   setTimeout(() => {
@@ -1029,13 +1090,36 @@ function submitForm() {
   const community = document.getElementById('community').value;
   const message = document.getElementById('message').value.trim();
 
-  if (!fname || !email) {
-    alert('Please fill in your name and email address.');
+  // Inline validation: mark fields, focus the first invalid one
+  const setError = (id, msg) => {
+    const input = document.getElementById(id);
+    const err = document.getElementById(id + '-error');
+    if (msg) { input.setAttribute('aria-invalid', 'true'); err.textContent = msg; err.classList.add('show'); }
+    else { input.removeAttribute('aria-invalid'); err.textContent = ''; err.classList.remove('show'); }
+  };
+
+  setError('fname', null);
+  setError('email', null);
+
+  let firstInvalid = null;
+  if (!fname) {
+    setError('fname', 'Enter your first name so we know who to reply to.');
+    firstInvalid = firstInvalid || 'fname';
+  }
+  if (!email) {
+    setError('email', 'Enter your email address so we can get back to you.');
+    firstInvalid = firstInvalid || 'email';
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    setError('email', 'That email does not look right. Check for a typo, e.g. john@email.com');
+    firstInvalid = firstInvalid || 'email';
+  }
+  if (firstInvalid) {
+    document.getElementById(firstInvalid).focus();
     return;
   }
 
   const btn = document.querySelector('.form-submit');
-  btn.textContent = 'Sending...';
+  btn.textContent = 'Sending…';
   btn.disabled = true;
   btn.style.background = 'rgba(255,255,255,0.15)';
 
@@ -1098,6 +1182,15 @@ function submitForm() {
 }
 
 function toggleMenu(forceClose) {
+  const _btn = document.querySelector('.hamburger');
+  const _syncAria = () => {
+    if (!_btn) return;
+    const mm = document.getElementById('mobileMenu');
+    const open = mm.classList.contains('active') || getComputedStyle(mm).display !== 'none';
+    _btn.setAttribute('aria-expanded', String(open));
+    _btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  setTimeout(_syncAria, 0);
   const m = document.getElementById('mobileMenu');
   const isOpen = m.style.display === 'flex';
   if (forceClose || isOpen) {
@@ -1121,7 +1214,11 @@ function updateNav() { navEl.classList.toggle('scrolled', window.scrollY > 60); 
 window.addEventListener('scroll', updateNav, { passive: true });
 updateNav();
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(true); });
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  toggleMenu(true);
+  if (typeof hpCloseModal === 'function') hpCloseModal();
+});
 </script>
 
 <!-- Load shared homes data and render homepage homes grid -->
@@ -1154,15 +1251,15 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(t
   grid.innerHTML = homes.map(h => {
     const sc = STATUS_CONFIG[h.status] || STATUS_CONFIG['coming-soon'];
     const imgHTML = h.image
-      ? `<img src="${h.image}" alt="${h.name}" />`
+      ? `<img src="${h.image}" alt="${h.name}" width="800" height="600" loading="lazy" />`
       : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#1c1a14,#2a2318);">
-           <svg width="140" height="110" viewBox="0 0 140 110" fill="none" style="opacity:0.2">
+           <svg aria-hidden="true" width="140" height="110" viewBox="0 0 140 110" fill="none" style="opacity:0.2">
              <path d="M70 8L132 48V100H8V48L70 8Z" stroke="#b8922a" stroke-width="1.5" fill="none"/>
              <rect x="55" y="16" width="30" height="24" fill="#b8922a" opacity="0.3"/>
            </svg>
          </div>`;
     return `
-      <div class="hp-home-card" onclick="window.location='${h.communityPage || 'available-homes.html'}'">
+      <a class="hp-home-card" href="${h.communityPage || 'available-homes.html'}" aria-label="${h.name}, ${h.community}. View home.">
         <div class="hp-home-card-img">
           ${imgHTML}
           <span class="hp-status-badge ${sc.badgeClass}">${sc.label}</span>
@@ -1179,10 +1276,10 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(t
           </div>
           <div class="hp-home-footer">
             <div class="hp-home-city">${h.city}</div>
-            <a href="${h.communityPage || 'available-homes.html'}" class="btn-card" onclick="event.stopPropagation()">View Home →</a>
+            <span class="btn-card" aria-hidden="true">View Home →</span>
           </div>
         </div>
-      </div>`;
+      </a>`;
   }).join('');
 })();
 </script>
@@ -1333,14 +1430,19 @@ function hpOpenModal(id) {
   document.getElementById('hpModalImg').innerHTML = h.image
     ? `<img src="${h.image}" alt="${h.name}" />`
     : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#1c1a14,#2a2318);">
-         <svg width="160" height="120" viewBox="0 0 160 120" fill="none" style="opacity:0.2"><path d="M80 10L150 55V110H10V55L80 10Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="64" y="20" width="32" height="26" fill="#b8922a" opacity="0.3"/></svg>
+         <svg aria-hidden="true" width="160" height="120" viewBox="0 0 160 120" fill="none" style="opacity:0.2"><path d="M80 10L150 55V110H10V55L80 10Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="64" y="20" width="32" height="26" fill="#b8922a" opacity="0.3"/></svg>
        </div>`;
-  document.getElementById('hpHomeModal').classList.add('active');
+  const overlay = document.getElementById('hpHomeModal');
+  overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+  trapFocus(document.getElementById('hpModalInner'));
 }
 function hpCloseModal() {
-  document.getElementById('hpHomeModal').classList.remove('active');
+  const overlay = document.getElementById('hpHomeModal');
+  if (!overlay.classList.contains('active')) return;
+  overlay.classList.remove('active');
   document.body.style.overflow = '';
+  releaseFocus();
 }
 function hpCloseModalOnOverlay(e) {
   if (e.target === document.getElementById('hpHomeModal')) hpCloseModal();
@@ -1395,7 +1497,7 @@ window.addEventListener('load', () => { if (hpMapInstance) hpMapInstance.invalid
       // Show placeholder cells if no photos yet
       grid.innerHTML = [1,2,3,4,5,6,7,8,9].map(() => `
         <div class="hp-gallery-placeholder" style="position:relative;">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M24 6L42 18V42H6V18L24 6Z" stroke="#b8922a" stroke-width="1.5" fill="none"/></svg>
+          <svg aria-hidden="true" width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M24 6L42 18V42H6V18L24 6Z" stroke="#b8922a" stroke-width="1.5" fill="none"/></svg>
           <div class="hp-gallery-placeholder-label">Photo Coming Soon</div>
         </div>`).join('');
       return;
@@ -1409,15 +1511,15 @@ window.addEventListener('load', () => { if (hpMapInstance) hpMapInstance.invalid
     const pool = [...featured, ...shuffledOthers].slice(0, GRID_SIZE);
 
     grid.innerHTML = pool.map((p, i) => `
-      <div class="hp-gallery-item" onclick="window.location.href='gallery.html'">
-        <img src="${p.src}" alt="${p.caption}" loading="lazy" />
+      <a class="hp-gallery-item" href="gallery.html" aria-label="${p.caption}, ${p.community}. Open the full gallery.">
+        <img src="${p.src}" alt="${p.caption}"${p.width && p.height ? ` width="${p.width}" height="${p.height}"` : ''} loading="lazy" />
         <div class="hp-gallery-overlay">
           <div>
             <div class="hp-gallery-caption">${p.caption}</div>
             <div class="hp-gallery-sub">${p.community}</div>
           </div>
         </div>
-      </div>`).join('');
+      </a>`).join('');
 
     // Show next rotation note if there are more photos than the grid
     if (photos.length > GRID_SIZE) {

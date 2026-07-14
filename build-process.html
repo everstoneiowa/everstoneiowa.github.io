@@ -22,6 +22,7 @@
       frame-src   'none';
       object-src  'none';
     ">
+  <meta name="theme-color" content="#121613" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Our Build Process – EverStone Homes</title>
   <meta name="description" content="Learn how EverStone Homes builds your home from first conversation to closing day. A step-by-step look at the new construction process in central Iowa." />
@@ -71,7 +72,7 @@
     .nav-cta:hover { background: var(--gold-light) !important; }
     .nav-cta::after { display: none !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 1.5px; background: #fff; transition: all 0.3s; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: #fff; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
     .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #111613; flex-direction: column; gap: 0; z-index: 200; overflow-y: auto; padding-top: 80px; }
     .mobile-menu a { display: block; padding: 18px 30px; color: rgba(255,255,255,0.8) !important; text-decoration: none !important; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.07); transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--gold) !important; }
@@ -97,9 +98,9 @@
     /* ─── SHARED ─── */
     .section-inner { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
     .gold-divider { width: 52px; height: 2px; background: var(--gold); margin: 20px 0; }
-    .btn-primary { background: var(--gold); color: var(--black); padding: 15px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.3s; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
+    .btn-primary { background: var(--gold); color: var(--black); padding: 15px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
     .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(184,146,42,0.3); }
-    .btn-ghost-dark { border: 1px solid rgba(0,0,0,0.2); color: var(--black); padding: 14px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: all 0.3s; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
+    .btn-ghost-dark { border: 1px solid rgba(0,0,0,0.2); color: var(--black); padding: 14px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
     .btn-ghost-dark:hover { border-color: var(--gold); color: var(--gold); }
 
     /* ─── INTRO STRIP ─── */
@@ -205,7 +206,7 @@
     .footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); }
     .footer-copy span { color: var(--gold); }
     .footer-social { display: flex; gap: 12px; }
-    .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(184,146,42,0.25); color: rgba(255,255,255,0.45); transition: all 0.25s; text-decoration: none; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(184,146,42,0.25); color: rgba(255,255,255,0.45); transition: background-color 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s, opacity 0.25s; text-decoration: none; }
     .footer-social a:hover { border-color: var(--gold); color: var(--gold); background: rgba(184,146,42,0.08); }
     @media (max-width: 900px) { .footer-inner { padding: 0 30px; } }
     @media (max-width: 600px) { .footer-top { flex-direction: column; } .footer-bottom { flex-direction: column; } .footer-inner { padding: 0 20px; } }
@@ -215,14 +216,32 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.15s; }
     .reveal-delay-2 { transition-delay: 0.3s; }
+  
+    /* ─── ACCESSIBILITY FLOOR ─── */
+    html { color-scheme: dark; }
+    a, button, input, select, textarea, summary, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: rgba(184,146,42,0.15); }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    :is(h1,h2,h3,section,[id]) { scroll-margin-top: 110px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 999; background: var(--gold); color: #111; padding: 12px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+    .skip-link:focus { left: 12px; top: 12px; }
+    .modal-overlay, .lightbox, .mobile-menu { overscroll-behavior: contain; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    h1, h2, h3, .hero-title, .section-title { text-wrap: balance; }
+    .home-spec-val, .modal-price-val, .price, .filter-count, .stat-num { font-variant-numeric: tabular-nums; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- ─── NAV ─── -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="everstone-logo.jpg" alt="EverStone Homes" />
+    <img src="everstone-logo.jpg" alt="EverStone Homes" width="1254" height="1254" />
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -233,7 +252,7 @@
     <li><a href="about.html">About</a></li>
     <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -249,7 +268,7 @@
 </div>
 
 <!-- ─── HERO ─── -->
-<section class="hero">
+<section class="hero" id="main-content">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
@@ -455,7 +474,7 @@
         <div class="expect-items">
           <div class="expect-item">
             <div class="expect-icon">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div>
               <div class="expect-item-title">You deal directly with the builder</div>
@@ -464,7 +483,7 @@
           </div>
           <div class="expect-item">
             <div class="expect-icon">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div>
               <div class="expect-item-title">Regular build updates</div>
@@ -473,7 +492,7 @@
           </div>
           <div class="expect-item">
             <div class="expect-icon">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div>
               <div class="expect-item-title">Site visits welcome</div>
@@ -482,7 +501,7 @@
           </div>
           <div class="expect-item">
             <div class="expect-icon">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div>
               <div class="expect-item-title">No hidden costs</div>
@@ -536,7 +555,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <a href="index.html" style="text-decoration:none;">
-        <img src="everstone-logo.jpg" alt="EverStone Homes" style="height:56px; width:auto; display:block;" />
+        <img src="everstone-logo.jpg" alt="EverStone Homes" width="1254" height="1254" style="height:56px; width:auto; display:block;" />
       </a>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
@@ -552,10 +571,10 @@
       <div class="footer-copy">© 2026 <span>EverStone Homes</span>. Ankeny, Iowa. All rights reserved.</div>
       <div class="footer-social">
         <a href="https://www.facebook.com/profile.php?id=61590327745033" target="_blank" rel="noopener noreferrer" aria-label="EverStone Homes on Facebook">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
         <a href="https://www.instagram.com/everstoneiowa/" target="_blank" rel="noopener noreferrer" aria-label="EverStone Homes on Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         </a>
       </div>
     </div>
@@ -571,6 +590,14 @@
   });
 
   function toggleMenu() {
+  const _btn = document.querySelector('.hamburger');
+  setTimeout(() => {
+    if (!_btn) return;
+    const mm = document.getElementById('mobileMenu');
+    const open = mm.classList.contains('active') || getComputedStyle(mm).display !== 'none';
+    _btn.setAttribute('aria-expanded', String(open));
+    _btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }, 0);
     const m = document.getElementById('mobileMenu');
     m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
   }

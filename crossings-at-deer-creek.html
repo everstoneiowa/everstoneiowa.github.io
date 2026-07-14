@@ -22,6 +22,7 @@
       frame-src   'none';
       object-src  'none';
     ">
+  <meta name="theme-color" content="#121613" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>The Crossings at Deer Creek – EverStone Homes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,7 +66,7 @@
     .nav-cta:hover { background:var(--gold-light); color:var(--black) !important; }
     .nav-cta::after { display:none !important; }
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-    .hamburger span { display:block; width:24px; height:2px; background:#fff; transition:all 0.3s; }
+    .hamburger span { display:block; width:24px; height:2px; background:#fff; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
     .mobile-menu { display:none; position:fixed; top:80px; left:0; right:0; background:rgba(14,14,14,0.98); border-bottom:1px solid rgba(184,146,42,0.2); padding:24px 30px; flex-direction:column; gap:0; z-index:99; }
     .mobile-menu a { display:block; padding:14px 0; color:rgba(255,255,255,0.75) !important; text-decoration:none !important; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.06); transition:color 0.2s; font-family:'Hanken Grotesk',sans-serif; }
     .mobile-menu a:hover { color:var(--gold) !important; }
@@ -119,8 +120,9 @@
     .homes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 
     .home-card {
+      position: relative;
       background: var(--white); border: 1px solid rgba(0,0,0,0.07); overflow: hidden;
-      transition: all 0.35s; cursor: pointer;
+      transition: background-color 0.35s, color 0.35s, border-color 0.35s, box-shadow 0.35s, transform 0.35s, opacity 0.35s; cursor: pointer;
     }
     .home-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.12); border-color: rgba(184,146,42,0.3); }
 
@@ -139,7 +141,12 @@
 
     .home-card-body { padding: 24px; }
     .home-card-plan { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px; }
-    .home-card-name { font-family: 'Newsreader', serif; font-size: 26px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+    .home-card-name { font-family: 'Newsreader', serif; font-size: 26px; font-weight: 600; color: var(--black); margin: 0 0 4px; }
+    /* Stretched link: the address is the real button, its ::after covers the whole card */
+    .home-card-link { background:none; border:0; padding:0; margin:0; font:inherit; color:inherit; text-align:left; cursor:pointer; }
+    .home-card-link::after { content:''; position:absolute; inset:0; z-index:1; }
+    .home-card-link:focus-visible { outline:none; }
+    .home-card:focus-within { outline:2px solid var(--gold); outline-offset:2px; }
     .home-card-lot { font-size: 12px; color: var(--text-muted); margin-bottom: 18px; }
     .home-card-specs {
       display: flex; gap: 0; padding: 14px 0;
@@ -153,7 +160,7 @@
     .home-card-footer { display: flex; align-items: center; justify-content: space-between; }
     .home-price { font-family: 'Newsreader', serif; font-size: 28px; font-weight: 700; color: var(--black); }
     .home-price-note { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
-    .btn-inquire { background: var(--black); color: var(--gold); padding: 11px 20px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; transition: all 0.25s; font-family: 'Hanken Grotesk', sans-serif; }
+    .btn-inquire { background: var(--black); color: var(--gold); padding: 11px 20px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; transition: background-color 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s, opacity 0.25s; font-family: 'Hanken Grotesk', sans-serif; }
     .btn-inquire:hover { background: var(--gold); color: var(--black); }
 
     /* ─── NO HOMES YET / COMING SOON PLACEHOLDER ─── */
@@ -167,7 +174,7 @@
     .csc-desc { font-size: 14px; color: var(--text-muted); line-height: 1.8; max-width: 560px; margin: 0 auto 32px; font-weight: 300; }
     .csc-features { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
     .csc-feat { border: 1px solid rgba(184,146,42,0.25); padding: 8px 18px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
-    .btn-primary { background: var(--gold); color: var(--black); padding: 15px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
+    .btn-primary { background: var(--gold); color: var(--black); padding: 15px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; border: none; cursor: pointer; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
     .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(184,146,42,0.3); }
 
     /* ─── COMMUNITY INFO ─── */
@@ -191,8 +198,8 @@
     .modal { background: var(--dark); width: 90%; max-width: 680px; max-height: 88vh; overflow-y: auto; border: 1px solid rgba(184,146,42,0.2); transform: translateY(20px); transition: transform 0.3s; }
     .modal-overlay.active .modal { transform: translateY(0); }
     .modal-header { padding: 28px 36px; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: space-between; }
-    .modal-title { font-family: 'Newsreader', serif; font-size: 26px; font-weight: 600; color: var(--white); }
-    .modal-close { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); cursor: pointer; background: none; font-size: 16px; transition: all 0.2s; }
+    .modal-title { font-family: 'Newsreader', serif; font-size: 26px; font-weight: 600; color: var(--white); margin: 0; }
+    .modal-close { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); cursor: pointer; background: none; font-size: 16px; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s; }
     .modal-close:hover { border-color: var(--gold); color: var(--gold); }
     .modal-body { padding: 36px; }
     .modal-specs { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 24px; }
@@ -236,14 +243,32 @@
       .modal-specs { grid-template-columns: repeat(2,1fr); }
       nav { padding: 0 20px; }
     }
+  
+    /* ─── ACCESSIBILITY FLOOR ─── */
+    html { color-scheme: dark; }
+    a, button, input, select, textarea, summary, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: rgba(184,146,42,0.15); }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    :is(h1,h2,h3,section,[id]) { scroll-margin-top: 110px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 999; background: var(--gold); color: #111; padding: 12px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+    .skip-link:focus { left: 12px; top: 12px; }
+    .modal-overlay, .lightbox, .mobile-menu { overscroll-behavior: contain; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    h1, h2, h3, .hero-title, .section-title { text-wrap: balance; }
+    .home-spec-val, .modal-price-val, .price, .filter-count, .stat-num { font-variant-numeric: tabular-nums; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- ─── NAV ─── -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="everstone-logo.jpg" alt="EverStone Homes" />
+    <img src="everstone-logo.jpg" alt="EverStone Homes" width="1254" height="1254" />
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -253,7 +278,7 @@
     <li><a href="about.html">About</a></li>
     <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -267,7 +292,7 @@
 </div>
 
 <!-- ─── HERO BANNER ─── -->
-<div class="community-hero">
+<div class="community-hero" id="main-content">
   <div class="community-hero-bg"></div>
   <div class="community-hero-grid"></div>
   <div class="community-hero-inner">
@@ -310,14 +335,14 @@
     <div class="homes-grid">
 
       <!-- The Crossings at Deer Creek home -->
-      <div class="home-card reveal" onclick="openModal()">
+      <article class="home-card reveal">
         <div class="home-card-img" style="background:#1a211c; padding:0;">
-          <img src="deer-creek-home.png" alt="EverStone Home at The Crossings at Deer Creek" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          <img src="deer-creek-home.png" alt="EverStone Home at The Crossings at Deer Creek" width="1448" height="1086" style="width:100%; height:100%; object-fit:cover; display:block;" />
           <span class="home-badge badge-presale">The Crossings at Deer Creek</span>
         </div>
         <div class="home-card-body">
           <div class="home-card-plan">Ankeny, Iowa</div>
-          <div class="home-card-name">1203 NE Meadow Crossing Drive</div>
+          <h3 class="home-card-name"><button type="button" class="home-card-link" onclick="openModal()">1203 NE Meadow Crossing Drive</button></h3>
           <div class="home-card-lot">$565,000</div>
           <div class="home-card-specs">
             <div class="home-spec"><div class="home-spec-val">5</div><div class="home-spec-label">Beds</div></div>
@@ -330,16 +355,16 @@
               <div class="home-price">Contact Us</div>
               <div class="home-price-note">For pricing information</div>
             </div>
-            <button class="btn-inquire" onclick="openModal(); event.stopPropagation();">Learn More →</button>
+            <span class="btn-inquire" aria-hidden="true">Learn More →</span>
           </div>
         </div>
-      </div>
+      </article>
 
       <!-- Future lots / coming soon placeholders -->
       <div class="home-card reveal reveal-delay-1" style="opacity:0.6; cursor:default;" onmouseover="this.style.transform='none'" onmouseout="">
         <div class="home-card-img" style="background: linear-gradient(155deg, #161614 0%, #1e1e18 100%);">
           <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
-            <svg width="180" height="140" viewBox="0 0 180 140" fill="none" style="opacity:0.1">
+            <svg aria-hidden="true" width="180" height="140" viewBox="0 0 180 140" fill="none" style="opacity:0.1">
               <path d="M90 10L170 58V130H10V58L90 10Z" stroke="#b8922a" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
               <path d="M80 70 L90 60 L100 70 M90 60 L90 80" stroke="#b8922a" stroke-width="1.5" opacity="0.5"/>
             </svg>
@@ -369,7 +394,7 @@
       <div class="home-card reveal reveal-delay-2" style="opacity:0.4; cursor:default;" onmouseover="this.style.transform='none'">
         <div class="home-card-img" style="background: linear-gradient(155deg, #151b17 0%, #1a1a18 100%);">
           <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
-            <svg width="180" height="140" viewBox="0 0 180 140" fill="none" style="opacity:0.07">
+            <svg aria-hidden="true" width="180" height="140" viewBox="0 0 180 140" fill="none" style="opacity:0.07">
               <path d="M90 10L170 58V130H10V58L90 10Z" stroke="#b8922a" stroke-width="1.5" stroke-dasharray="4 5" fill="none"/>
             </svg>
           </div>
@@ -406,7 +431,7 @@
 
       <div class="info-card">
         <div class="info-card-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 3L29 11V27H3V11L16 3Z" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="12" y="5" width="8" height="8" fill="currentColor" opacity="0.4"/></svg>
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 3L29 11V27H3V11L16 3Z" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="12" y="5" width="8" height="8" fill="currentColor" opacity="0.4"/></svg>
         </div>
         <div class="info-card-title">Why Build with EverStone?</div>
         <ul class="info-list">
@@ -420,7 +445,7 @@
 
       <div class="info-card light">
         <div class="info-card-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 3C10 3 5 8 5 14c0 8 11 16 11 16s11-8 11-16c0-6-5-11-11-11z" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="16" cy="14" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 3C10 3 5 8 5 14c0 8 11 16 11 16s11-8 11-16c0-6-5-11-11-11z" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="16" cy="14" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
         </div>
         <div class="info-card-title">About This Community</div>
         <ul class="info-list">
@@ -434,7 +459,7 @@
 
       <div class="info-card light" style="background: var(--off-white);">
         <div class="info-card-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="24" height="20" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M4 12h24" stroke="currentColor" stroke-width="1.5"/><path d="M10 4v4M22 4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="24" height="20" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M4 12h24" stroke="currentColor" stroke-width="1.5"/><path d="M10 4v4M22 4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div class="info-card-title">Build Timeline</div>
         <ul class="info-list">
@@ -464,10 +489,10 @@
 
 <!-- ─── HOME DETAIL MODAL ─── -->
 <div class="modal-overlay" id="homeModal" onclick="closeModalOnOverlay(event)">
-  <div class="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="crossingsModalTitle">
     <div class="modal-header">
-      <div class="modal-title">Spec Home - The Crossings at Deer Creek</div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h2 class="modal-title" id="crossingsModalTitle">Spec Home &mdash; The Crossings at Deer Creek</h2>
+      <button class="modal-close" type="button" onclick="closeModal()" aria-label="Close home details">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-specs">
@@ -489,20 +514,58 @@
         <div>
           <div class="modal-price-label">For more information, contact us.</div>
         </div>
-        <button class="btn-primary" onclick="closeModal(); window.location='index.html#contact';">Contact Us →</button>
+        <a class="btn-primary" href="index.html#contact" onclick="closeModal()">Contact Us →</a>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Shared dialog focus management -->
+<script>
+(function () {
+  const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  let lastFocused = null;
+  let trapped = null;
+
+  function onKey(e) {
+    if (!trapped || e.key !== 'Tab') return;
+    const items = [...trapped.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
+    if (!items.length) return;
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  window.trapFocus = function (el) {
+    lastFocused = document.activeElement;
+    trapped = el;
+    document.addEventListener('keydown', onKey, true);
+    const target = el.querySelector('[data-autofocus]') || el.querySelector(FOCUSABLE);
+    if (target) target.focus();
+  };
+
+  window.releaseFocus = function () {
+    document.removeEventListener('keydown', onKey, true);
+    trapped = null;
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    lastFocused = null;
+  };
+})();
+</script>
+
 <script>
 function openModal() {
-  document.getElementById('homeModal').classList.add('active');
+  const overlay = document.getElementById('homeModal');
+  overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+  trapFocus(overlay.querySelector('.modal'));
 }
 function closeModal() {
-  document.getElementById('homeModal').classList.remove('active');
+  const overlay = document.getElementById('homeModal');
+  if (!overlay.classList.contains('active')) return;
+  overlay.classList.remove('active');
   document.body.style.overflow = '';
+  releaseFocus();
 }
 function closeModalOnOverlay(e) {
   if (e.target === document.getElementById('homeModal')) closeModal();
@@ -523,6 +586,14 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     if (mm) mm.style.top = window.scrollY > 60 ? '64px' : '80px';
   });
   function toggleMenu() {
+  const _btn = document.querySelector('.hamburger');
+  setTimeout(() => {
+    if (!_btn) return;
+    const mm = document.getElementById('mobileMenu');
+    const open = mm.classList.contains('active') || getComputedStyle(mm).display !== 'none';
+    _btn.setAttribute('aria-expanded', String(open));
+    _btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }, 0);
     const m = document.getElementById('mobileMenu');
     m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
   }

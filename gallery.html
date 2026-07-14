@@ -22,6 +22,7 @@
       frame-src   'none';
       object-src  'none';
     ">
+  <meta name="theme-color" content="#121613" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Gallery – EverStone Homes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,7 +59,7 @@
     .nav-cta:hover { background:var(--gold-light); color:var(--black) !important; }
     .nav-cta::after { display:none !important; }
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-    .hamburger span { display:block; width:24px; height:2px; background:var(--white); transition:all 0.3s; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--white); transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
     .mobile-menu { display:none; position:fixed; top:80px; left:0; right:0; background:rgba(14,14,14,0.98); border-bottom:1px solid rgba(184,146,42,0.2); padding:24px 30px; flex-direction:column; gap:0; z-index:99; }
     .mobile-menu a { display:block; padding:14px 0; color:rgba(255,255,255,0.75) !important; text-decoration:none; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.06); transition:color 0.2s; }
     .mobile-menu a:hover { color:var(--gold) !important; }
@@ -78,7 +79,7 @@
 
     /* ─── FILTER BAR ─── */
     .filter-bar { background:var(--white); border-bottom:1px solid rgba(0,0,0,0.07); padding:0 60px; display:flex; align-items:center; gap:0; position:static; }
-    .filter-btn { padding:20px 24px; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; color:var(--text-muted); cursor:pointer; background:none; border:none; border-bottom:2px solid transparent; transition:all 0.2s; white-space:nowrap; }
+    .filter-btn { padding:20px 24px; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; color:var(--text-muted); cursor:pointer; background:none; border:none; border-bottom:2px solid transparent; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s; white-space:nowrap; }
     .filter-btn:hover { color:var(--black); }
     .filter-btn.active { color:var(--gold); border-bottom-color:var(--gold); }
     .filter-count { display:inline-block; background:rgba(184,146,42,0.15); color:var(--gold); font-size:9px; font-weight:700; padding:2px 6px; margin-left:6px; border-radius:0; }
@@ -90,7 +91,7 @@
     .gallery-count span { color:var(--black); font-weight:600; }
 
     .gallery-grid { columns:3 300px; gap:16px; }
-    .gallery-item { break-inside:avoid; margin-bottom:16px; position:relative; overflow:hidden; cursor:pointer; background:var(--charcoal); display:block; }
+    .gallery-item { break-inside:avoid; margin-bottom:16px; position:relative; overflow:hidden; cursor:pointer; background:var(--charcoal); display:block; width:100%; padding:0; border:0; font:inherit; color:inherit; text-align:left; }
     .gallery-item img { width:100%; height:auto; display:block; transition:transform 0.5s ease; }
     .gallery-item:hover img { transform:scale(1.04); }
     .gallery-item-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%); opacity:0; transition:opacity 0.3s; display:flex; align-items:flex-end; padding:20px; }
@@ -114,9 +115,9 @@
     .lightbox-caption { margin-top:16px; text-align:center; }
     .lightbox-caption-title { font-family:'Newsreader',serif; font-size:22px; font-weight:600; color:var(--white); margin-bottom:4px; }
     .lightbox-caption-sub { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); }
-    .lightbox-close { position:fixed; top:24px; right:30px; width:44px; height:44px; border:1px solid rgba(255,255,255,0.2); background:none; color:rgba(255,255,255,0.6); font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; z-index:10; }
+    .lightbox-close { position:fixed; top:24px; right:30px; width:44px; height:44px; border:1px solid rgba(255,255,255,0.2); background:none; color:rgba(255,255,255,0.6); font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s; z-index:10; }
     .lightbox-close:hover { border-color:var(--gold); color:var(--gold); }
-    .lightbox-nav { position:fixed; top:50%; transform:translateY(-50%); width:48px; height:48px; border:1px solid rgba(255,255,255,0.2); background:none; color:rgba(255,255,255,0.6); font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; z-index:10; }
+    .lightbox-nav { position:fixed; top:50%; transform:translateY(-50%); width:48px; height:48px; border:1px solid rgba(255,255,255,0.2); background:none; color:rgba(255,255,255,0.6); font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s; z-index:10; }
     .lightbox-nav:hover { border-color:var(--gold); color:var(--gold); }
     .lightbox-prev { left:20px; }
     .lightbox-next { right:20px; }
@@ -139,14 +140,32 @@
     .footer-copy { font-size:12px; color:rgba(255,255,255,0.3); }
     .footer-copy span { color:var(--gold); }
     @media (max-width:768px) { footer { padding:32px 30px; } }
+  
+    /* ─── ACCESSIBILITY FLOOR ─── */
+    html { color-scheme: dark; }
+    a, button, input, select, textarea, summary, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: rgba(184,146,42,0.15); }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    :is(h1,h2,h3,section,[id]) { scroll-margin-top: 110px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 999; background: var(--gold); color: #111; padding: 12px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+    .skip-link:focus { left: 12px; top: 12px; }
+    .modal-overlay, .lightbox, .mobile-menu { overscroll-behavior: contain; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    h1, h2, h3, .hero-title, .section-title { text-wrap: balance; }
+    .home-spec-val, .modal-price-val, .price, .filter-count, .stat-num { font-variant-numeric: tabular-nums; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="everstone-logo.jpg" alt="EverStone Homes" />
+    <img src="everstone-logo.jpg" alt="EverStone Homes" width="1254" height="1254" />
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -156,7 +175,7 @@
     <li><a href="about.html">About</a></li>
     <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -170,7 +189,7 @@
 </div>
 
 <!-- HERO -->
-<div class="page-hero">
+<div class="page-hero" id="main-content">
   <div class="hero-tag">Our Work</div>
   <h1>Gallery &amp; <em>Progress</em></h1>
   <div class="gold-divider"></div>
@@ -179,22 +198,22 @@
 
 <!-- FILTER BAR -->
 <div class="filter-bar" id="filterBar">
-  <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">
+  <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true" onclick="setFilter('all',this)">
     All Photos <span class="filter-count" id="count-all">0</span>
   </button>
-  <button class="filter-btn" data-filter="exterior" onclick="setFilter('exterior',this)">
+  <button class="filter-btn" type="button" data-filter="exterior" aria-pressed="false" onclick="setFilter('exterior',this)">
     Exterior <span class="filter-count" id="count-exterior">0</span>
   </button>
-  <button class="filter-btn" data-filter="interior" onclick="setFilter('interior',this)">
+  <button class="filter-btn" type="button" data-filter="interior" aria-pressed="false" onclick="setFilter('interior',this)">
     Interior <span class="filter-count" id="count-interior">0</span>
   </button>
-  <button class="filter-btn" data-filter="construction" onclick="setFilter('construction',this)">
+  <button class="filter-btn" type="button" data-filter="construction" aria-pressed="false" onclick="setFilter('construction',this)">
     Construction <span class="filter-count" id="count-construction">0</span>
   </button>
-  <button class="filter-btn" data-filter="community" onclick="setFilter('community',this)">
+  <button class="filter-btn" type="button" data-filter="community" aria-pressed="false" onclick="setFilter('community',this)">
     Community <span class="filter-count" id="count-community">0</span>
   </button>
-  <button class="filter-btn" data-filter="detail" onclick="setFilter('detail',this)">
+  <button class="filter-btn" type="button" data-filter="detail" aria-pressed="false" onclick="setFilter('detail',this)">
     Details <span class="filter-count" id="count-detail">0</span>
   </button>
 </div>
@@ -202,15 +221,15 @@
 
 <!-- GALLERY GRID -->
 <div class="gallery-section">
-  <div class="gallery-count" id="galleryCount"></div>
+  <div class="gallery-count" id="galleryCount" role="status" aria-live="polite"></div>
   <div class="gallery-grid" id="galleryGrid"></div>
 </div>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="lightboxClickOutside(event)">
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#8249;</button>
-  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8250;</button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onclick="lightboxClickOutside(event)">
+  <button class="lightbox-close" type="button" data-autofocus onclick="closeLightbox()" aria-label="Close photo viewer">✕</button>
+  <button class="lightbox-nav lightbox-prev" type="button" onclick="lightboxNav(-1)" aria-label="Previous photo">&#8249;</button>
+  <button class="lightbox-nav lightbox-next" type="button" onclick="lightboxNav(1)" aria-label="Next photo">&#8250;</button>
   <div class="lightbox-inner">
     <img class="lightbox-img" id="lightboxImg" src="" alt="" />
     <div class="lightbox-caption">
@@ -226,6 +245,39 @@
   <div style="font-size:11px; color:rgba(255,255,255,0.25);">EverStoneIowa@gmail.com &nbsp;·&nbsp; 515-771-1924</div>
 </footer>
 
+<!-- Shared dialog focus management -->
+<script>
+(function () {
+  const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  let lastFocused = null;
+  let trapped = null;
+
+  function onKey(e) {
+    if (!trapped || e.key !== 'Tab') return;
+    const items = [...trapped.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
+    if (!items.length) return;
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  window.trapFocus = function (el) {
+    lastFocused = document.activeElement;
+    trapped = el;
+    document.addEventListener('keydown', onKey, true);
+    const target = el.querySelector('[data-autofocus]') || el.querySelector(FOCUSABLE);
+    if (target) target.focus();
+  };
+
+  window.releaseFocus = function () {
+    document.removeEventListener('keydown', onKey, true);
+    trapped = null;
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    lastFocused = null;
+  };
+})();
+</script>
+
 <script>
   // ── NAV SCROLL ──
   window.addEventListener('scroll', () => {
@@ -234,6 +286,14 @@
     if (mm) mm.style.top = window.scrollY > 60 ? '64px' : '80px';
   });
   function toggleMenu() {
+  const _btn = document.querySelector('.hamburger');
+  setTimeout(() => {
+    if (!_btn) return;
+    const mm = document.getElementById('mobileMenu');
+    const open = mm.classList.contains('active') || getComputedStyle(mm).display !== 'none';
+    _btn.setAttribute('aria-expanded', String(open));
+    _btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }, 0);
     const m = document.getElementById('mobileMenu');
     m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
   }
@@ -280,8 +340,8 @@
     }
 
     grid.innerHTML = filteredPhotos.map((p, i) => `
-      <div class="gallery-item" onclick="openLightbox(${i})">
-        <img src="${p.src}" alt="${p.caption}" loading="lazy" />
+      <button type="button" class="gallery-item" onclick="openLightbox(${i})" aria-label="Open photo: ${p.caption}, ${p.community}">
+        <img src="${p.src}" alt="${p.caption}"${p.width && p.height ? ` width="${p.width}" height="${p.height}"` : ''} loading="lazy" />
         <div class="gallery-item-overlay">
           <div class="gallery-item-info">
             <div class="gallery-item-caption">${p.caption}</div>
@@ -290,21 +350,43 @@
         </div>
         <div class="gallery-item-cat">${CAT_LABELS[p.category] || p.category}</div>
         ${p.featured ? '<div class="gallery-featured-badge">Featured</div>' : ''}
-      </div>`).join('');
+      </button>`).join('');
   }
 
   function setFilter(filter, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+    activateFilter(filter, btn);
+    const url = new URL(window.location);
+    if (filter === 'all') url.searchParams.delete('category');
+    else url.searchParams.set('category', filter);
+    history.pushState({ filter }, '', url);
+  }
+
+  function activateFilter(filter, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
+    const target = btn || document.querySelector(`.filter-btn[data-filter="${filter}"]`) || document.querySelector('.filter-btn');
+    target.classList.add('active');
+    target.setAttribute('aria-pressed', 'true');
     renderGrid(filter);
   }
+
+  function applyFilterFromUrl() {
+    const filter = new URLSearchParams(window.location.search).get('category') || 'all';
+    activateFilter(filter, null);
+  }
+
+  window.addEventListener('popstate', applyFilterFromUrl);
 
   // ── LIGHTBOX ──
   function openLightbox(index) {
     lightboxIndex = index;
     showLightboxPhoto();
-    document.getElementById('lightbox').classList.add('active');
+    const lb = document.getElementById('lightbox');
+    lb.classList.add('active');
     document.body.style.overflow = 'hidden';
+    trapFocus(lb);
   }
 
   function showLightboxPhoto() {
@@ -317,8 +399,11 @@
   }
 
   function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
+    const lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('active')) return;
+    lb.classList.remove('active');
     document.body.style.overflow = '';
+    releaseFocus();
   }
 
   function lightboxNav(dir) {
@@ -340,7 +425,7 @@
 
   // ── INIT ──
   updateCounts();
-  renderGrid('all');
+  applyFilterFromUrl();
 </script>
 </body>
 </html>

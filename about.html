@@ -22,6 +22,7 @@
       frame-src   'none';
       object-src  'none';
     ">
+  <meta name="theme-color" content="#121613" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>About Us – EverStone Homes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,7 +58,7 @@
     .nav-cta:hover { background:var(--gold-light) !important; }
     .nav-cta::after { display:none !important; }
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-    .hamburger span { display:block; width:24px; height:2px; background:#fff; transition:all 0.3s; }
+    .hamburger span { display:block; width:24px; height:2px; background:#fff; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
     .mobile-menu { display:none; position:fixed; top:80px; left:0; right:0; background:rgba(14,14,14,0.98); border-bottom:1px solid rgba(184,146,42,0.2); padding:24px 30px; flex-direction:column; gap:0; z-index:99; }
     .mobile-menu a { display:block; padding:14px 0; color:rgba(255,255,255,0.75) !important; text-decoration:none !important; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; border-bottom:1px solid rgba(255,255,255,0.06); transition:color 0.2s; }
     .mobile-menu a:hover { color:var(--gold) !important; }
@@ -174,7 +175,7 @@
     .promise-ctas { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
     .btn-primary { display:inline-block; background:var(--gold); color:var(--black); padding:14px 36px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:background 0.2s; }
     .btn-primary:hover { background:var(--gold-light); }
-    .btn-secondary { display:inline-block; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); padding:14px 36px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:600; text-decoration:none; transition:all 0.2s; }
+    .btn-secondary { display:inline-block; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); padding:14px 36px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:600; text-decoration:none; transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s; }
     .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
     @media (max-width:768px) { .promise { padding:80px 30px; } }
 
@@ -190,14 +191,32 @@
     .reveal-delay-1 { transition-delay:0.15s; }
     .reveal-delay-2 { transition-delay:0.3s; }
     .reveal-delay-3 { transition-delay:0.45s; }
+  
+    /* ─── ACCESSIBILITY FLOOR ─── */
+    html { color-scheme: dark; }
+    a, button, input, select, textarea, summary, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: rgba(184,146,42,0.15); }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    :is(h1,h2,h3,section,[id]) { scroll-margin-top: 110px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 999; background: var(--gold); color: #111; padding: 12px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+    .skip-link:focus { left: 12px; top: 12px; }
+    .modal-overlay, .lightbox, .mobile-menu { overscroll-behavior: contain; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    h1, h2, h3, .hero-title, .section-title { text-wrap: balance; }
+    .home-spec-val, .modal-price-val, .price, .filter-count, .stat-num { font-variant-numeric: tabular-nums; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="everstone-logo.jpg" alt="EverStone Homes" />
+    <img src="everstone-logo.jpg" alt="EverStone Homes" width="1254" height="1254" />
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -207,7 +226,7 @@
     <li><a href="about.html" class="nav-active">About</a></li>
     <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -221,7 +240,7 @@
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="main-content">
   <div class="hero-bg-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-glow-2"></div>
@@ -298,28 +317,28 @@
     <div class="legacy-grid">
       <div class="legacy-cell reveal">
         <div class="legacy-cell-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 9L12 3L21 9V21H3V9Z" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="9" y="14" width="6" height="7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 9L12 3L21 9V21H3V9Z" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="9" y="14" width="6" height="7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
         </div>
         <div class="legacy-cell-title">Raised on the Job Site</div>
         <div class="legacy-cell-text">Long before EverStone Homes existed, its founder was learning the trade firsthand, watching his parents build homes from the ground up, understanding that every detail matters and every deadline is a promise to a family waiting to move in.</div>
       </div>
       <div class="legacy-cell reveal reveal-delay-1">
         <div class="legacy-cell-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5"/></svg>
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5"/></svg>
         </div>
         <div class="legacy-cell-title">Generational Knowledge</div>
         <div class="legacy-cell-text">There's a difference between someone who learned construction in a classroom and someone who grew up inside it. The standards, the instincts, the eye for quality. Those come from years of watching experienced builders do the work with integrity.</div>
       </div>
       <div class="legacy-cell reveal reveal-delay-2">
         <div class="legacy-cell-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M4 20C4 16.686 7.582 14 12 14C16.418 14 20 16.686 20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M4 20C4 16.686 7.582 14 12 14C16.418 14 20 16.686 20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div class="legacy-cell-title">A Name People Know</div>
         <div class="legacy-cell-text">DS Solid Construction built a reputation in this community over many years. That legacy isn't something we carry as pressure. It's something we carry as pride. EverStone Homes is the next generation of that same commitment to the people of Ankeny.</div>
       </div>
       <div class="legacy-cell reveal reveal-delay-3">
         <div class="legacy-cell-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 12H22M12 2C9.5 6.5 9.5 17.5 12 22M12 2C14.5 6.5 14.5 17.5 12 22" stroke="currentColor" stroke-width="1.5"/></svg>
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 12H22M12 2C9.5 6.5 9.5 17.5 12 22M12 2C14.5 6.5 14.5 17.5 12 22" stroke="currentColor" stroke-width="1.5"/></svg>
         </div>
         <div class="legacy-cell-title">Rooted in Ankeny</div>
         <div class="legacy-cell-text">We're not a company that showed up to capitalize on a growing market. We've been here. We went to school here. We know this community: its neighborhoods, its families, and the standard of living its residents deserve.</div>
@@ -395,6 +414,14 @@
   });
 
   function toggleMenu() {
+  const _btn = document.querySelector('.hamburger');
+  setTimeout(() => {
+    if (!_btn) return;
+    const mm = document.getElementById('mobileMenu');
+    const open = mm.classList.contains('active') || getComputedStyle(mm).display !== 'none';
+    _btn.setAttribute('aria-expanded', String(open));
+    _btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }, 0);
     const m = document.getElementById('mobileMenu');
     m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
   }

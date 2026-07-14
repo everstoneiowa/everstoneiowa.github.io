@@ -26,6 +26,8 @@ const EVERSTONE_GALLERY = [
   {
     id: "gallery-001",
     src: "deer-creek-home.png",
+    width: 1448,
+    height: 1086,
     caption: "1203 NE Meadow Crossing Drive · 3D Rendering",
     community: "The Crossings at Deer Creek",
     category: "exterior",
@@ -35,6 +37,8 @@ const EVERSTONE_GALLERY = [
   {
     id: "gallery-002",
     src: "community-deer-creek.jpg",
+    width: 1400,
+    height: 787,
     caption: "1203 NE Meadow Crossing Drive · Lot",
     community: "The Crossings at Deer Creek",
     category: "construction",
@@ -44,6 +48,8 @@ const EVERSTONE_GALLERY = [
   {
     id: "gallery-003",
     src: "hero-aerial.jpg",
+    width: 1920,
+    height: 1080,
     caption: "Aerial View of the Community",
     community: "The Crossings at Deer Creek",
     category: "community",
@@ -53,6 +59,8 @@ const EVERSTONE_GALLERY = [
   {
     id: "gallery-004",
     src: "community-pine-lake.jpg",
+    width: 1400,
+    height: 787,
     caption: "Aerial View of the Community",
     community: "Pine Lake Estates",
     category: "community",
@@ -63,6 +71,8 @@ const EVERSTONE_GALLERY = [
   // {
   //   id: "gallery-002",          // unique id, no spaces
   //   src: "your-photo.jpg",      // filename in same folder as this file
+  //   width: 1600,                // pixel width  (prevents layout shift while loading)
+  //   height: 1067,               // pixel height (right-click the file → Get Info / Properties)
   //   caption: "Photo caption",   // short description shown in gallery
   //   community: "Community Name",
   //   category: "exterior",       // exterior | interior | construction | community | detail
