@@ -170,7 +170,7 @@
       linear-gradient(100deg, rgba(13,18,15,0.94) 0%, rgba(13,18,15,0.82) 34%, rgba(13,18,15,0.42) 62%, rgba(13,18,15,0.28) 100%),
       linear-gradient(to top, rgba(13,18,15,0.9) 0%, transparent 32%),
       linear-gradient(to bottom, rgba(13,18,15,0.72) 0%, transparent 22%); }
-    .hero-content { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 120px 60px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%; }
+    .hero-content { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 120px 60px 80px; display: grid; grid-template-columns: 1fr; align-items: center; width: 100%; }
     .hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 28px; }
     .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
     .hero-title { font-family: 'Newsreader', serif; font-size: clamp(52px, 6vw, 88px); font-weight: 300; line-height: 1.0; color: var(--white); margin-bottom: 28px; }
@@ -178,42 +178,6 @@
     .hero-title strong { font-weight: 700; }
     .hero-desc { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.55); max-width: 440px; margin-bottom: 44px; font-weight: 300; }
     .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--gold); color: var(--black); padding: 15px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; border: none; cursor: pointer; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(184,146,42,0.3); }
-    .btn-ghost { border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.75); padding: 14px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; display: inline-block; }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-
-    /* Founding badge */
-    .founding-badge {
-      display: inline-flex; align-items: center; gap: 12px;
-      border: 1px solid rgba(184,146,42,0.3); padding: 14px 20px;
-      margin-top: 48px; background: rgba(184,146,42,0.05);
-    }
-    .founding-badge-icon { color: var(--gold); }
-    .founding-badge-text { font-size: 11px; line-height: 1.5; color: rgba(255,255,255,0.5); }
-    .founding-badge-text strong { color: var(--gold-light); display: block; font-size: 12px; margin-bottom: 2px; }
-
-    /* Hero right - community preview cards */
-    .hero-right { position: relative; display: flex; flex-direction: column; gap: 16px; }
-    .hero-community-card {
-      border: 1px solid rgba(184,146,42,0.28); background: rgba(13,18,15,0.62);
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      padding: 24px 28px; position: relative; overflow: hidden;
-      transition: border-color 0.3s, background 0.3s;
-    }
-    .hero-community-card:hover { background: rgba(13,18,15,0.78); }
-    .hero-community-card:hover { border-color: rgba(184,146,42,0.5); }
-    .hero-community-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(184,146,42,0.04) 0%, transparent 60%); }
-    .hcc-status { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; display: inline-flex; align-items: center; gap: 6px; }
-    .hcc-status.active { color: var(--gold); }
-    .hcc-status.coming { color: rgba(255,255,255,0.4); }
-    .hcc-status::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; }
-    .hcc-status.active::before { background: var(--gold); box-shadow: 0 0 8px rgba(184,146,42,0.6); }
-    .hcc-status.coming::before { background: rgba(255,255,255,0.3); }
-    .hcc-name { font-family: 'Newsreader', serif; font-size: 26px; font-weight: 600; color: var(--white); line-height: 1.1; margin-bottom: 6px; }
-    .hcc-loc { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; margin-bottom: 14px; }
-    .hcc-detail { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; font-weight: 300; }
-    .hcc-art { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); opacity: 0.07; }
 
     /* ─── SECTION SHARED ─── */
     section { position: relative; }
@@ -247,36 +211,21 @@
 
     .homes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
 
-    /* Community section card - large */
-    .community-homes-block {
-      border: 1px solid rgba(0,0,0,0.08); background: var(--white); overflow: hidden;
+    .btn-primary { background: var(--gold); color: var(--black); padding: 15px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; border: none; cursor: pointer; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(184,146,42,0.3); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.75); padding: 14px 36px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; display: inline-block; }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Founding badge */
+    .founding-badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      border: 1px solid rgba(184,146,42,0.3); padding: 14px 20px;
+      margin-top: 48px; background: rgba(184,146,42,0.05);
     }
-    .chb-header {
-      padding: 28px 32px; border-bottom: 1px solid rgba(0,0,0,0.06);
-      display: flex; align-items: center; justify-content: space-between;
-      background: var(--black);
-    }
-    .chb-community-name { font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: var(--white); }
-    .chb-community-loc { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 3px; }
-    .chb-status-pill {
-      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;
-      padding: 6px 14px; border: 1px solid;
-    }
-    .chb-status-pill.breaking-ground { color: var(--gold); border-color: rgba(184,146,42,0.4); }
-    .chb-status-pill.future { color: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.15); }
-    .chb-body { padding: 28px 32px; }
-    .chb-desc { font-size: 13px; line-height: 1.8; color: var(--text-muted); margin-bottom: 24px; font-weight: 300; }
-    .chb-details { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
-    .chb-detail-item { }
-    .chb-detail-label { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
-    .chb-detail-value { font-family: 'Newsreader', serif; font-size: 20px; font-weight: 600; color: var(--black); }
-    .chb-lot-visual {
-      background: var(--off-white); border: 1px solid rgba(0,0,0,0.06);
-      padding: 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
-    }
-    .chb-lot-icon { color: var(--gold); flex-shrink: 0; }
-    .chb-lot-text { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
-    .chb-lot-text strong { color: var(--black); }
+    .founding-badge-icon { color: var(--gold); }
+    .founding-badge-text { font-size: 11px; line-height: 1.5; color: rgba(255,255,255,0.5); }
+    .founding-badge-text strong { color: var(--gold-light); display: block; font-size: 12px; margin-bottom: 2px; }
+
     .btn-card { background: var(--black); color: var(--gold); padding: 12px 24px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; transition: background-color 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s, opacity 0.25s; text-decoration: none; display: inline-block; font-family: 'Hanken Grotesk', sans-serif; }
     .btn-card:hover { background: var(--gold); color: var(--black); }
 
@@ -288,9 +237,6 @@
     .no-homes-icon { color: var(--gold); margin-bottom: 20px; }
     .no-homes-title { font-family: 'Newsreader', serif; font-size: 32px; font-weight: 300; color: var(--black); margin-bottom: 12px; }
     .no-homes-desc { font-size: 14px; color: var(--text-muted); max-width: 480px; margin: 0 auto 28px; line-height: 1.8; font-weight: 300; }
-
-    /* ─── COMMUNITIES ─── */
-    #communities { padding: 120px 0; background: var(--black); }
 
     /* ─── HOMEPAGE AVAILABLE HOMES ─── */
     #homepage-homes { padding: 120px 0; background: var(--white); }
@@ -318,46 +264,6 @@
     .hp-no-homes { text-align: center; padding: 64px 40px; border: 2px dashed rgba(0,0,0,0.09); grid-column: span 3; background: var(--off-white); }
     .hp-no-homes p { font-size: 14px; color: var(--text-muted); line-height: 1.8; font-weight: 300; max-width: 420px; margin: 12px auto 24px; }
     .hp-no-homes-title { font-family: 'Newsreader', serif; font-size: 28px; font-weight: 300; color: var(--black); }
-
-    .communities-two-col {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 64px;
-    }
-    .community-card {
-      position: relative; overflow: hidden; cursor: pointer;
-      min-height: 520px; display: flex; flex-direction: column; justify-content: flex-end;
-      text-decoration: none; color: inherit;
-    }
-    .community-bg-art {
-      position: absolute; inset: 0;
-      transition: transform 0.6s ease;
-    }
-    .community-card:hover .community-bg-art { transform: scale(1.04); }
-    .community-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%); }
-    .community-content { position: relative; z-index: 2; padding: 44px; }
-    .community-status-pill {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700;
-      margin-bottom: 14px;
-    }
-    .community-status-pill.active { color: var(--gold); }
-    .community-status-pill.future { color: rgba(255,255,255,0.45); }
-    .community-status-pill .dot { width: 6px; height: 6px; border-radius: 50%; display: block; flex-shrink: 0; }
-    .community-status-pill.active .dot { background: var(--gold); box-shadow: 0 0 10px rgba(184,146,42,0.7); }
-    .community-status-pill.future .dot { background: rgba(255,255,255,0.3); }
-    .community-name { font-family: 'Newsreader', serif; font-size: 38px; font-weight: 600; color: var(--white); line-height: 1.1; margin-bottom: 8px; }
-    .community-loc { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 18px; }
-    .community-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 24px; font-weight: 300; max-width: 380px; }
-    .community-cta-row { display: flex; align-items: center; gap: 20px; }
-    .community-arrow { width: 44px; height: 44px; border: 1px solid rgba(184,146,42,0.35); display: flex; align-items: center; justify-content: center; color: var(--gold); transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
-    .community-card:hover .community-arrow { background: var(--gold); color: var(--black); }
-    .community-cta-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); transition: color 0.3s; }
-    .community-card:hover .community-cta-label { color: rgba(255,255,255,0.7); }
-
-    /* Community detail feature list */
-    .community-features { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 22px; }
-    .community-feat { font-size: 11px; color: rgba(255,255,255,0.4); display: flex; align-items: center; gap: 5px; }
-    .community-feat::before { content: '✦'; font-size: 7px; color: var(--gold); }
-
 
     /* ─── WHY EVERSTONE ─── */
     #why-everstone { padding: 120px 0; background: var(--white); }
@@ -487,8 +393,6 @@
     }
     @media (max-width: 900px) {
       .hero-content { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
-      .communities-two-col { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 60px; }
       .homes-grid { grid-template-columns: 1fr; }
       .no-homes-state { grid-column: span 1; }
@@ -622,7 +526,6 @@
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="available-homes.html">Available Homes</a></li>
-    <li><a href="#communities">Communities</a></li>
     <li><a href="build-process.html">Our Process</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="about.html">About</a></li>
@@ -637,7 +540,6 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#home" onclick="toggleMenu(true)">Home</a>
   <a href="available-homes.html" onclick="toggleMenu(true)">Available Homes</a>
-  <a href="#communities" onclick="toggleMenu(true)">Communities</a>
   <a href="build-process.html" onclick="toggleMenu(true)">Our Process</a>
   <a href="gallery.html" onclick="toggleMenu(true)">Gallery</a>
   <a href="about.html" onclick="toggleMenu(true)">About</a>
@@ -662,29 +564,8 @@
         EverStone Homes is a locally owned home builder committed to quality single-family construction in central Iowa. Built on the values of quality, punctuality, and honesty. We'd love to build your family's next home.
       </p>
       <div class="hero-actions">
-        <a href="#communities" class="btn-primary">Explore Our Communities</a>
+        <a href="#homepage-homes" class="btn-primary">View Available Homes</a>
         <a href="#contact" class="btn-ghost">Get In Touch</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <!-- Community preview cards -->
-      <div class="hero-community-card">
-        <div class="hcc-art">
-          <svg aria-hidden="true" width="120" height="100" viewBox="0 0 120 100" fill="none"><path d="M60 8L112 42V92H8V42L60 8Z" stroke="#b8922a" stroke-width="2" fill="none"/><rect x="46" y="16" width="28" height="22" fill="#b8922a"/></svg>
-        </div>
-        <div class="hcc-status active">Breaking Ground Soon</div>
-        <div class="hcc-name">The Crossings<br>at Deer Creek</div>
-        <div class="hcc-loc">Ankeny, Iowa</div>
-        <div class="hcc-detail">Lot secured. Construction starting soon. Reach out today to learn more and discuss your new home.</div>
-      </div>
-      <div class="hero-community-card">
-        <div class="hcc-art">
-          <svg aria-hidden="true" width="120" height="100" viewBox="0 0 120 100" fill="none"><path d="M60 8L112 42V92H8V42L60 8Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="46" y="16" width="28" height="22" stroke="#b8922a" stroke-width="1" fill="none"/></svg>
-        </div>
-        <div class="hcc-status coming">Coming Soon</div>
-        <div class="hcc-name">Pine Lake<br>Estates</div>
-        <div class="hcc-loc">Ankeny, Iowa</div>
-        <div class="hcc-detail">A future EverStone community. Interest list now open. Register to be notified when lots become available.</div>
       </div>
     </div>
   </div>
@@ -698,7 +579,7 @@
         <div class="section-tag">Now Available</div>
         <h2 class="section-title">Available <em>Homes</em></h2>
         <div class="gold-divider"></div>
-        <p class="section-desc">Every available home across all EverStone communities, updated automatically as new homes are listed.</p>
+        <p class="section-desc">Every available EverStone home, updated automatically as new homes are listed.</p>
       </div>
       <a href="available-homes.html" class="btn-card" style="margin-bottom:4px;">View All Homes →</a>
     </div>
@@ -749,70 +630,6 @@
   </div>
   <div id="hpMapSidebar" style="display:none;"></div>
   <div class="map-attribution">Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</div>
-</section>
-
-<!-- ─── COMMUNITIES ─── -->
-<section id="communities">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-tag">Where We Build</div>
-      <h2 class="section-title light">Our <em>Communities</em></h2>
-      <div class="gold-divider"></div>
-      <p class="section-desc light">EverStone Homes is currently building in Ankeny, Iowa, with plans to expand throughout central Iowa. Our goal is to bring quality single-family home construction to the communities and neighborhoods families love most.</p>
-    </div>
-  </div>
-
-  <div style="max-width:1400px; margin:0 auto; padding:0 60px;">
-    <div class="communities-two-col">
-
-      <!-- Crossings at Deer Creek -->
-      <a class="community-card reveal" href="crossings-at-deer-creek.html" aria-label="The Crossings at Deer Creek: view community">
-        <div class="community-bg-art" style="background:url('community-deer-creek.jpg') center 35%/cover no-repeat; filter:saturate(0.85);"></div>
-        <div class="community-overlay"></div>
-        <div class="community-content">
-          <div class="community-status-pill active"><span class="dot"></span>Breaking Ground Soon</div>
-          <div class="community-name">The Crossings<br>at Deer Creek</div>
-          <div class="community-loc">Ankeny, Iowa</div>
-          <div class="community-features">
-            <span class="community-feat">Ankeny School District</span>
-            <span class="community-feat">New Development</span>
-            <span class="community-feat">1 Lot Secured</span>
-          </div>
-          <p class="community-desc">We are actively securing lots at The Crossings at Deer Creek and construction will begin soon. Reach out today to learn more and get ahead of the process.</p>
-          <div class="community-cta-row">
-            <div class="community-arrow">
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
-            </div>
-            <span class="community-cta-label">View Community</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Pine Lake Estates -->
-      <a class="community-card reveal reveal-delay-1" href="#contact" onclick="presetCommunity('Pine Lake Estates')" aria-label="Pine Lake Estates: join the interest list">
-        <div class="community-bg-art" style="background:url('community-pine-lake.jpg') center 45%/cover no-repeat; filter:grayscale(0.55) saturate(0.8) brightness(0.85);"></div>
-        <div class="community-overlay"></div>
-        <div class="community-content">
-          <div class="community-status-pill future"><span class="dot"></span>Coming Soon · Interest List Open</div>
-          <div class="community-name">Pine Lake<br>Estates</div>
-          <div class="community-loc">Ankeny, Iowa</div>
-          <div class="community-features">
-            <span class="community-feat">Ankeny School District</span>
-            <span class="community-feat">Future Development</span>
-            <span class="community-feat">Interest List Open</span>
-          </div>
-          <p class="community-desc">Our second planned community in Ankeny. We're evaluating lots at Pine Lake Estates and expect to begin securing land soon. Join the interest list today to be among the first contacted when homes become available.</p>
-          <div class="community-cta-row">
-            <div class="community-arrow">
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
-            </div>
-            <span class="community-cta-label">Join Interest List</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-  </div>
 </section>
 
 <!-- ─── WHY EVERSTONE ─── -->
@@ -987,16 +804,6 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="community">Community of Interest</label>
-          <select id="community" name="community" autocomplete="off" style="background-color: rgba(255,255,255,0.04); color: var(--white);">
-            <option value="">Select a community…</option>
-            <option>The Crossings at Deer Creek: Express Interest</option>
-            <option>Pine Lake Estates: Join Interest List</option>
-            <option>Both Communities</option>
-            <option>Not sure yet, just exploring</option>
-          </select>
-        </div>
-        <div class="form-group">
           <label for="message">Tell Us About Your Dream Home</label>
           <textarea id="message" name="message" placeholder="Budget range, timeline, must-haves, questions, we want to hear it all…"></textarea>
         </div>
@@ -1025,8 +832,6 @@
       <ul class="footer-links">
         <li><a href="#home">Home</a></li>
         <li><a href="available-homes.html">Available Homes</a></li>
-        <li><a href="#upcoming-communities">Upcoming Communities</a></li>
-        <li><a href="#communities">Communities</a></li>
         <li><a href="build-process.html">Our Process</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1053,26 +858,6 @@
 </footer>
 
 <script>
-function presetCommunity(community) {
-  // href="#contact" handles the navigation natively (Cmd/middle-click still work).
-  setTimeout(() => {
-    const sel = document.getElementById('community');
-    for (let i = 0; i < sel.options.length; i++) {
-      if (sel.options[i].text.includes(community)) { sel.selectedIndex = i; break; }
-    }
-  }, 500);
-}
-
-function scrollToContact(community) {
-  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-  setTimeout(() => {
-    const sel = document.getElementById('community');
-    for (let i = 0; i < sel.options.length; i++) {
-      if (sel.options[i].text.includes(community)) { sel.selectedIndex = i; break; }
-    }
-  }, 700);
-}
-
 const _formLoadedAt = Date.now();
 function submitForm() {
   // Spam guards: honeypot filled, or submitted in under 3 seconds = bot
@@ -1087,7 +872,6 @@ function submitForm() {
   const lname = document.getElementById('lname').value.trim();
   const email = document.getElementById('email').value.trim();
   const phone = document.getElementById('phone').value.trim();
-  const community = document.getElementById('community').value;
   const message = document.getElementById('message').value.trim();
 
   // Inline validation: mark fields, focus the first invalid one
@@ -1127,7 +911,7 @@ function submitForm() {
     from_name: fname + ' ' + lname,
     from_email: email,
     phone: phone || 'Not provided',
-    community: community || 'Not specified',
+    community: 'Not specified',
     message: message || 'No message provided',
     to_email: 'everstoneiowa@gmail.com'
   };
@@ -1155,7 +939,6 @@ function submitForm() {
 
       // Clear form
       ['fname','lname','email','phone','message'].forEach(id => document.getElementById(id).value = '');
-      document.getElementById('community').selectedIndex = 0;
 
       // Reset button after 6 seconds
       setTimeout(() => {

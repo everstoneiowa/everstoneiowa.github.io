@@ -10,8 +10,7 @@
 //
 //  TO ADD ONE BY HAND:
 //    Copy an entry below and fill in the fields. It automatically
-//    appears on the Available Homes page, the home-page map, and
-//    the community detail pages.
+//    appears on the Available Homes page and the home-page map.
 //
 //  STATUS OPTIONS:  "available" | "under-construction" | "coming-soon"
 //  zillowUrl:  paste the listing link to turn the home's button into
@@ -36,7 +35,6 @@ const EVERSTONE_HOMES = [
     price: "$565,000",                  // or "" to show "Contact for Pricing"
     image: "deer-creek-home.png",       // filename in same folder, or "" for placeholder
     note: "Select customization options available",
-    communityPage: "crossings-at-deer-creek.html",
     zillowUrl: "",                      // paste Zillow link → button becomes "View on Zillow"
     lat: 41.741743,                     // GPS coordinates - home appears on map automatically
     lng: -93.551448                     // find via Google Maps: right-click the lot → "What's here?"
@@ -59,7 +57,6 @@ const EVERSTONE_HOMES = [
   //   price: "$420,000",               // or "" for contact pricing
   //   image: "photo-filename.jpg",     // or "" for placeholder
   //   note: "Short description line",
-  //   communityPage: "community-page.html",
   //   zillowUrl: "https://www.zillow.com/homedetails/...",  // or "" to use the on-site popup
   //   lat: 41.000000,                  // GPS latitude
   //   lng: -93.000000                  // GPS longitude - omit both to skip the map
