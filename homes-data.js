@@ -32,7 +32,7 @@ const EVERSTONE_HOMES = [
     baths: 3,
     sqft: "2,861",
     garage: 3,
-    price: "$565,000",                  // or "" to show "Contact for Pricing"
+    price: "$569,900",                  // or "" to show "Contact for Pricing"
     image: "deer-creek-home.png",       // filename in same folder, or "" for placeholder
     note: "Select customization options available",
     zillowUrl: "",                      // paste Zillow link → button becomes "View on Zillow"
