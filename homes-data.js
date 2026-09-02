@@ -27,15 +27,15 @@ const EVERSTONE_HOMES = [
     name: "1203 NE Meadow Crossing Drive",
     community: "The Crossings at Deer Creek",
     city: "Ankeny, Iowa",
-    status: "under-construction",       // "available" | "under-construction" | "coming-soon"
+    status: "available",                // "available" | "under-construction" | "coming-soon"
     beds: 5,
     baths: 3,
-    sqft: "2,861",
+    sqft: "1,661",
     garage: 3,
     price: "$569,900",                  // or "" to show "Contact for Pricing"
-    image: "deer-creek-home.png",       // filename in same folder, or "" for placeholder
-    note: "Select customization options available",
-    zillowUrl: "",                      // paste Zillow link → button becomes "View on Zillow"
+    image: "1203-meadow-crossing.png",  // representative photo of the floor plan
+    note: "Wet bar, finished basement, and tons of natural light",
+    zillowUrl: "https://www.zillow.com/homedetails/1203-NE-Meadow-Crossing-Dr-Ankeny-IA-50021/464852141_zpid/",
     lat: 41.741743,                     // GPS coordinates - home appears on map automatically
     lng: -93.551448                     // find via Google Maps: right-click the lot → "What's here?"
   },
