@@ -27,7 +27,7 @@ const EVERSTONE_HOMES = [
     name: "1203 NE Meadow Crossing Drive",
     community: "The Crossings at Deer Creek",
     city: "Ankeny, Iowa",
-    status: "available",                // "available" | "under-construction" | "coming-soon"
+    status: "under-construction",       // "available" | "under-construction" | "coming-soon"
     beds: 5,
     baths: 3,
     sqft: "1,661",
