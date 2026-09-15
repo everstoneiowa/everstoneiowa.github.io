@@ -33,7 +33,7 @@ const EVERSTONE_HOMES = [
     sqft: "1,661",
     garage: 3,
     price: "$569,900",                  // or "" to show "Contact for Pricing"
-    image: "1203-meadow-crossing.png",  // representative photo of the floor plan
+    image: "1203-meadow-crossing.jpg",  // actual construction photo
     note: "Wet bar, finished basement, and tons of natural light",
     zillowUrl: "https://www.zillow.com/homedetails/1203-NE-Meadow-Crossing-Dr-Ankeny-IA-50021/464852141_zpid/",
     lat: 41.741743,                     // GPS coordinates - home appears on map automatically
