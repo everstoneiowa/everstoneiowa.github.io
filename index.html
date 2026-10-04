@@ -77,6 +77,7 @@
     ">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://photos.zillowstatic.com" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
@@ -1034,7 +1035,7 @@ document.addEventListener('keydown', e => {
   grid.innerHTML = homes.map(h => {
     const sc = STATUS_CONFIG[h.status] || STATUS_CONFIG['coming-soon'];
     const imgHTML = h.image
-      ? `<img src="${h.image}" alt="${h.name}" width="800" height="600" loading="lazy" />`
+      ? `<img src="${h.image}" alt="${h.name}" width="800" height="600" loading="lazy" onerror="this.style.display='none'" />`
       : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#1c1a14,#2a2318);">
            <svg aria-hidden="true" width="140" height="110" viewBox="0 0 140 110" fill="none" style="opacity:0.2">
              <path d="M70 8L132 48V100H8V48L70 8Z" stroke="#b8922a" stroke-width="1.5" fill="none"/>
@@ -1133,7 +1134,7 @@ function initHpMap() {
 
     const marker = L.marker([h.lat, h.lng], { icon: markerIcon }).addTo(hpMapInstance);
 
-    const imgHTML = h.image ? `<div class="map-popup-img"><img src="${h.image}" alt="${h.name}" /></div>` : '';
+    const imgHTML = h.image ? `<div class="map-popup-img"><img src="${h.image}" alt="${h.name}" onerror="this.style.display='none'" /></div>` : '';
 
     marker.bindPopup(`
       <div class="map-popup">
@@ -1211,7 +1212,7 @@ function hpOpenModal(id) {
   document.getElementById('hpModalNote').textContent = h.note || '';
   document.getElementById('hpModalPrice').textContent = h.price || 'Contact for Pricing';
   document.getElementById('hpModalImg').innerHTML = h.image
-    ? `<img src="${h.image}" alt="${h.name}" />`
+    ? `<img src="${h.image}" alt="${h.name}" onerror="this.style.display='none'" />`
     : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#1c1a14,#2a2318);">
          <svg aria-hidden="true" width="160" height="120" viewBox="0 0 160 120" fill="none" style="opacity:0.2"><path d="M80 10L150 55V110H10V55L80 10Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="64" y="20" width="32" height="26" fill="#b8922a" opacity="0.3"/></svg>
        </div>`;

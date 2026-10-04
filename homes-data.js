@@ -1,12 +1,21 @@
 // ═══════════════════════════════════════════════════════════════
 //  EVERSTONE HOMES - MASTER HOME LISTINGS
 //  ─────────────────────────────────────────────────────────────
-//  EASIEST WAY TO ADD A HOME:
-//    Paste the home's Zillow listing link into Claude and say
-//    "add this home." Claude pulls the address, price, beds, baths,
-//    sq ft, and map location from the listing, grabs the first
-//    exterior photo, and hands back an updated copy of this file
-//    plus the image file to drop into the repo.
+//  EASIEST WAY TO ADD A HOME (same method as the DS Solid site):
+//    1. Open the home on Zillow.
+//    2. Right-click the main exterior photo → "Copy image address."
+//       It looks like https://photos.zillowstatic.com/fp/....jpg
+//    3. Give Claude the Zillow listing link, that photo address, and
+//       the price / beds / baths / sq ft / garage (or paste the
+//       listing text). Claude fills in the entry and the map location.
+//    Paste the photo address straight into "image" — no download
+//    needed. Visitors' browsers load it from Zillow, exactly like
+//    the DS Solid Available Homes page does.
+//
+//  NOTE: Zillow sometimes removes photos after a home sells. If that
+//  happens the card just shows the dark background (no broken icon).
+//  For homes you'll keep up long-term, a self-hosted photo
+//  (e.g. "1203-meadow-crossing.jpg" in this folder) is the safest.
 //
 //  TO ADD ONE BY HAND:
 //    Copy an entry below and fill in the fields. It automatically
@@ -16,7 +25,9 @@
 //  zillowUrl:  paste the listing link to turn the home's button into
 //              "View on Zillow." Leave "" and the button opens the
 //              on-site details popup instead.
-//  image:      leave "" if you don't have a photo yet (placeholder shows).
+//  image:      a file in this folder ("my-home.jpg"), a Zillow photo
+//              address (https://photos.zillowstatic.com/...), or ""
+//              if you don't have a photo yet (placeholder shows).
 // ═══════════════════════════════════════════════════════════════
 
 const EVERSTONE_HOMES = [
@@ -55,7 +66,7 @@ const EVERSTONE_HOMES = [
   //   sqft: "2,200",
   //   garage: 2,
   //   price: "$420,000",               // or "" for contact pricing
-  //   image: "photo-filename.jpg",     // or "" for placeholder
+  //   image: "photo-filename.jpg",     // or a Zillow photo URL, or "" for placeholder
   //   note: "Short description line",
   //   zillowUrl: "https://www.zillow.com/homedetails/...",  // or "" to use the on-site popup
   //   lat: 41.000000,                  // GPS latitude

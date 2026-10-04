@@ -27,6 +27,7 @@
   <title>Available Homes – EverStone Homes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://photos.zillowstatic.com" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
@@ -490,7 +491,7 @@
   function cardHTML(h) {
     const sc = STATUS_CONFIG[h.status] || STATUS_CONFIG['coming-soon'];
     const imgHTML = h.image
-      ? `<img src="${h.image}" alt="${h.name}" width="800" height="600" loading="lazy" />`
+      ? `<img src="${h.image}" alt="${h.name}" width="800" height="600" loading="lazy" onerror="this.style.display='none'" />`
       : `<div class="home-card-placeholder">
            <svg aria-hidden="true" width="160" height="120" viewBox="0 0 160 120" fill="none" style="opacity:0.18">
              <path d="M80 10L150 55V110H10V55L80 10Z" stroke="#b8922a" stroke-width="1.5" fill="rgba(184,146,42,0.05)"/>
@@ -550,7 +551,7 @@
     if (h.zillowUrl) { zEl.href = h.zillowUrl; zEl.style.display = 'inline-block'; }
     else { zEl.style.display = 'none'; }
     document.getElementById('modalImg').innerHTML = h.image
-      ? `<img src="${h.image}" alt="${h.name}" width="1200" height="800" />`
+      ? `<img src="${h.image}" alt="${h.name}" width="1200" height="800" onerror="this.style.display='none'" />`
       : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#1c1a14,#2a2318);">
            <svg aria-hidden="true" width="160" height="120" viewBox="0 0 160 120" fill="none" style="opacity:0.2"><path d="M80 10L150 55V110H10V55L80 10Z" stroke="#b8922a" stroke-width="1.5" fill="none"/><rect x="64" y="20" width="32" height="26" fill="#b8922a" opacity="0.3"/></svg>
          </div>`;
@@ -695,7 +696,7 @@ function initMap() {
 
     // ── Rich popup ──
     const imgHTML = h.image
-      ? `<div class="map-popup-img"><img src="${h.image}" alt="${h.name}" width="400" height="260" loading="lazy" /></div>`
+      ? `<div class="map-popup-img"><img src="${h.image}" alt="${h.name}" width="400" height="260" loading="lazy" onerror="this.style.display='none'" /></div>`
       : '';
 
     marker.bindPopup(`
