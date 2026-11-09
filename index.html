@@ -15,13 +15,13 @@
   <meta property="og:url" content="https://www.everstoneiowa.com/" />
   <meta property="og:title" content="EverStone Homes – Built to Last" />
   <meta property="og:description" content="Locally owned home builder in Ankeny, Iowa. Now building at The Crossings at Deer Creek. Quality single-family homes." />
-  <meta property="og:image" content="https://www.everstoneiowa.com/deer-creek-home.png" />
+  <meta property="og:image" content="https://www.everstoneiowa.com/og-image.jpg" />
   <meta property="og:site_name" content="EverStone Homes" />
   <!-- Twitter/X Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="EverStone Homes – Built to Last" />
   <meta name="twitter:description" content="Locally owned home builder in Ankeny, Iowa. Now building at The Crossings at Deer Creek." />
-  <meta name="twitter:image" content="https://www.everstoneiowa.com/deer-creek-home.png" />
+  <meta name="twitter:image" content="https://www.everstoneiowa.com/og-image.jpg" />
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -31,7 +31,7 @@
     "alternateName": "DS Solid Construction LLC",
     "url": "https://www.everstoneiowa.com",
     "logo": "https://www.everstoneiowa.com/everstone-logo.jpg",
-    "image": "https://www.everstoneiowa.com/deer-creek-home.png",
+    "image": "https://www.everstoneiowa.com/og-image.jpg",
     "description": "Locally owned home builder in Ankeny, Iowa specializing in quality single-family residential construction.",
     "telephone": "+15157711924",
     "email": "everstoneiowa@gmail.com",
@@ -166,7 +166,19 @@
     /* ─── HERO ─── */
     #home { min-height: 100vh; background: var(--black); position: relative; overflow: hidden; display: flex; align-items: center; }
     .hero-photo { position: absolute; inset: 0; }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; display: block; filter: saturate(0.82) contrast(1.02); }
+    .hero-photo img, .hero-video { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; display: block; filter: saturate(0.82) contrast(1.02); }
+    .hero-video { position: absolute; inset: 0; }
+    @media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
+
+    /* ─── VIDEO TOUR ─── */
+    #video-tour { padding: 120px 0; background: var(--black); }
+    #video-tour .section-title, #video-tour .section-desc { color: var(--white); }
+    #video-tour .section-desc { color: rgba(255,255,255,0.6); }
+    .tour-video-wrap { position: relative; aspect-ratio: 16/9; background: #000; border: 1px solid rgba(184,146,42,0.25); }
+    .tour-video-wrap video { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .tour-meta { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 24px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+    .tour-meta strong { color: var(--gold); font-weight: 600; }
+    @media (max-width: 700px) { #video-tour { padding: 80px 0; } }
     .hero-scrim { position: absolute; inset: 0; background:
       linear-gradient(100deg, rgba(13,18,15,0.94) 0%, rgba(13,18,15,0.82) 34%, rgba(13,18,15,0.42) 62%, rgba(13,18,15,0.28) 100%),
       linear-gradient(to top, rgba(13,18,15,0.9) 0%, transparent 32%),
@@ -550,7 +562,10 @@
 <!-- ─── HERO ─── -->
 <section id="home">
   <div class="hero-photo">
-    <img src="hero-interior.jpg" alt="Sunlit dining space inside a finished EverStone home in Ankeny, Iowa, with a natural wood table and views to the deck" width="2400" height="1599" fetchpriority="high" />
+    <img src="video/hero-poster.jpg" alt="Finished EverStone home at 1203 NE Meadow Crossing Drive in Ankeny, Iowa, with stone and board-and-batten exterior" width="1920" height="1080" fetchpriority="high" />
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="video/hero-poster.jpg" aria-hidden="true">
+      <source src="video/hero-loop.mp4" type="video/mp4" />
+    </video>
   </div>
   <div class="hero-scrim"></div>
   <div class="hero-content">
@@ -586,6 +601,30 @@
     </div>
     <div class="hp-homes-grid" id="hpHomesGrid">
       <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ─── VIDEO TOUR ─── -->
+<section id="video-tour">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag">Move-In Ready · Video Tour</div>
+      <h2 class="section-title light">Tour <em>1203 NE Meadow Crossing</em></h2>
+      <div class="gold-divider"></div>
+      <p class="section-desc light">Walk through our newest finished home in The Crossings at Deer Creek, from the open kitchen and stone fireplace to the finished basement with wet bar.</p>
+    </div>
+    <div class="tour-video-wrap reveal">
+      <video controls playsinline preload="none" poster="video/tour-poster.jpg">
+        <source src="video/1203-meadow-crossing-tour.mp4" type="video/mp4" />
+        Your browser doesn't support embedded video.
+      </video>
+    </div>
+    <div class="tour-meta">
+      <span><strong>5</strong> Beds</span>
+      <span><strong>3</strong> Baths</span>
+      <span><strong>3</strong> Car Garage</span>
+      <span>Ankeny, Iowa</span>
     </div>
   </div>
 </section>
@@ -1318,6 +1357,26 @@ window.addEventListener('load', () => { if (hpMapInstance) hpMapInstance.invalid
   }
 
   document.addEventListener('DOMContentLoaded', renderHpGallery);
+})();
+</script>
+
+<!-- Keep the hero video looping even if the browser stops it -->
+<script>
+(function() {
+  const v = document.querySelector('.hero-video');
+  if (!v) return;
+  const restart = () => { v.currentTime = 0; v.play().catch(() => {}); };
+  v.addEventListener('ended', restart);
+  // If playback freezes (e.g. a slow connection), nudge it every few seconds
+  let last = -1;
+  setInterval(() => {
+    if (document.hidden || getComputedStyle(v).display === 'none') return;
+    if (v.paused || v.currentTime === last) {
+      if (v.duration && v.currentTime >= v.duration - 0.5) restart();
+      else v.play().catch(() => {});
+    }
+    last = v.currentTime;
+  }, 3000);
 })();
 </script>
 
