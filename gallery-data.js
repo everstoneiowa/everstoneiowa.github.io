@@ -27,7 +27,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-001",
-    src: "photos/1203-meadow-crossing/exterior-front.jpg",
+    src: "exterior-front.jpg",
     width: 2000,
     height: 1333,
     caption: "Front Exterior",
@@ -38,7 +38,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-002",
-    src: "photos/1203-meadow-crossing/exterior-rear-sunset.jpg",
+    src: "exterior-rear-sunset.jpg",
     width: 2000,
     height: 1333,
     caption: "Covered Deck at Sunset",
@@ -49,7 +49,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-003",
-    src: "photos/1203-meadow-crossing/kitchen.jpg",
+    src: "kitchen.jpg",
     width: 2000,
     height: 1334,
     caption: "Kitchen with Oversized Island",
@@ -60,7 +60,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-004",
-    src: "photos/1203-meadow-crossing/living-room.jpg",
+    src: "living-room.jpg",
     width: 2000,
     height: 1333,
     caption: "Living Room with Stone Fireplace",
@@ -71,7 +71,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-005",
-    src: "photos/1203-meadow-crossing/primary-bedroom.jpg",
+    src: "primary-bedroom.jpg",
     width: 2000,
     height: 1333,
     caption: "Primary Suite",
@@ -82,7 +82,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-006",
-    src: "photos/1203-meadow-crossing/primary-bath.jpg",
+    src: "primary-bath.jpg",
     width: 2000,
     height: 1333,
     caption: "Primary Bath",
@@ -93,7 +93,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-007",
-    src: "photos/1203-meadow-crossing/basement-wet-bar.jpg",
+    src: "basement-wet-bar.jpg",
     width: 2000,
     height: 1333,
     caption: "Finished Basement Wet Bar",
@@ -104,7 +104,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-008",
-    src: "photos/1203-meadow-crossing/exterior-dusk-aerial.jpg",
+    src: "exterior-dusk-aerial.jpg",
     width: 2000,
     height: 1333,
     caption: "Aerial View at Dusk",
@@ -115,7 +115,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-009",
-    src: "photos/1203-meadow-crossing/detail-fireplace.jpg",
+    src: "detail-fireplace.jpg",
     width: 2000,
     height: 1326,
     caption: "Stacked Stone Fireplace",
@@ -126,7 +126,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-010",
-    src: "photos/1203-meadow-crossing/exterior-front-angle.jpg",
+    src: "exterior-front-angle.jpg",
     width: 2000,
     height: 1342,
     caption: "Board and Batten with Stone Facade",
@@ -137,7 +137,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-011",
-    src: "photos/1203-meadow-crossing/exterior-front-sunset.jpg",
+    src: "exterior-front-sunset.jpg",
     width: 2000,
     height: 1333,
     caption: "Front Elevation at Sunset",
@@ -148,7 +148,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-012",
-    src: "photos/1203-meadow-crossing/exterior-driveway.jpg",
+    src: "exterior-driveway.jpg",
     width: 2000,
     height: 1333,
     caption: "Three-Car Garage",
@@ -159,7 +159,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-013",
-    src: "photos/1203-meadow-crossing/exterior-street.jpg",
+    src: "exterior-street.jpg",
     width: 2000,
     height: 1342,
     caption: "Street View",
@@ -170,7 +170,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-014",
-    src: "photos/1203-meadow-crossing/exterior-rear-deck.jpg",
+    src: "exterior-rear-deck.jpg",
     width: 2000,
     height: 1333,
     caption: "Rear Elevation",
@@ -181,7 +181,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-015",
-    src: "photos/1203-meadow-crossing/exterior-rear-patio.jpg",
+    src: "exterior-rear-patio.jpg",
     width: 2000,
     height: 1493,
     caption: "Covered Deck and Patio",
@@ -192,7 +192,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-016",
-    src: "photos/1203-meadow-crossing/exterior-sunset-aerial.jpg",
+    src: "exterior-sunset-aerial.jpg",
     width: 2000,
     height: 1333,
     caption: "Sunset Over the Neighborhood",
@@ -203,7 +203,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-017",
-    src: "photos/1203-meadow-crossing/kitchen-island.jpg",
+    src: "kitchen-island.jpg",
     width: 2000,
     height: 1333,
     caption: "Kitchen Island and Dining",
@@ -214,7 +214,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-018",
-    src: "photos/1203-meadow-crossing/kitchen-wide.jpg",
+    src: "kitchen-wide.jpg",
     width: 2000,
     height: 1333,
     caption: "Open Kitchen",
@@ -225,7 +225,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-019",
-    src: "photos/1203-meadow-crossing/kitchen-sink.jpg",
+    src: "kitchen-sink.jpg",
     width: 2000,
     height: 1333,
     caption: "Quartz Counters and Gas Range",
@@ -236,7 +236,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-020",
-    src: "photos/1203-meadow-crossing/great-room.jpg",
+    src: "great-room.jpg",
     width: 2000,
     height: 1333,
     caption: "Open Great Room",
@@ -247,7 +247,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-021",
-    src: "photos/1203-meadow-crossing/great-room-stairs.jpg",
+    src: "great-room-stairs.jpg",
     width: 2000,
     height: 1333,
     caption: "Great Room and Kitchen",
@@ -258,7 +258,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-022",
-    src: "photos/1203-meadow-crossing/living-fireplace.jpg",
+    src: "living-fireplace.jpg",
     width: 2000,
     height: 1333,
     caption: "Living Room",
@@ -269,7 +269,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-023",
-    src: "photos/1203-meadow-crossing/dining.jpg",
+    src: "dining.jpg",
     width: 2000,
     height: 1333,
     caption: "Dining Area and Deck Access",
@@ -280,7 +280,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-024",
-    src: "photos/1203-meadow-crossing/dining-window.jpg",
+    src: "dining-window.jpg",
     width: 2000,
     height: 1333,
     caption: "Dining Nook",
@@ -291,7 +291,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-025",
-    src: "photos/1203-meadow-crossing/entry.jpg",
+    src: "entry.jpg",
     width: 2000,
     height: 1333,
     caption: "Entry and Staircase",
@@ -302,7 +302,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-026",
-    src: "photos/1203-meadow-crossing/mudroom.jpg",
+    src: "mudroom.jpg",
     width: 2000,
     height: 1333,
     caption: "Mudroom Drop Zone",
@@ -313,7 +313,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-027",
-    src: "photos/1203-meadow-crossing/primary-shower.jpg",
+    src: "primary-shower.jpg",
     width: 2000,
     height: 1333,
     caption: "Tiled Walk-In Shower",
@@ -324,7 +324,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-028",
-    src: "photos/1203-meadow-crossing/bathroom.jpg",
+    src: "bathroom.jpg",
     width: 2000,
     height: 1333,
     caption: "Guest Bath",
@@ -335,7 +335,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-029",
-    src: "photos/1203-meadow-crossing/basement-family-room.jpg",
+    src: "basement-family-room.jpg",
     width: 2000,
     height: 1333,
     caption: "Basement Family Room",
@@ -346,7 +346,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-030",
-    src: "photos/1203-meadow-crossing/detail-chandelier.jpg",
+    src: "detail-chandelier.jpg",
     width: 2000,
     height: 1333,
     caption: "Dining Chandelier",
@@ -357,7 +357,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-031",
-    src: "photos/1203-meadow-crossing/detail-range.jpg",
+    src: "detail-range.jpg",
     width: 2000,
     height: 1333,
     caption: "Stainless Gas Range",
@@ -368,7 +368,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-032",
-    src: "photos/1203-meadow-crossing/detail-cabinetry.jpg",
+    src: "detail-cabinetry.jpg",
     width: 2000,
     height: 1332,
     caption: "Stained Cabinetry",
@@ -379,7 +379,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-033",
-    src: "photos/1203-meadow-crossing/detail-shower.jpg",
+    src: "detail-shower.jpg",
     width: 2000,
     height: 1334,
     caption: "Matte Black Fixtures",
@@ -390,7 +390,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-034",
-    src: "photos/1203-meadow-crossing/detail-stair.jpg",
+    src: "detail-stair.jpg",
     width: 2000,
     height: 1334,
     caption: "Stair Railing",
@@ -401,7 +401,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-035",
-    src: "photos/1203-meadow-crossing/detail-pendant.jpg",
+    src: "detail-pendant.jpg",
     width: 1333,
     height: 2000,
     caption: "Entry Pendant Light",
@@ -412,7 +412,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-036",
-    src: "photos/1203-meadow-crossing/community-sunset.jpg",
+    src: "community-sunset.jpg",
     width: 2000,
     height: 1333,
     caption: "Sunset Over Deer Creek",
@@ -423,7 +423,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-037",
-    src: "photos/1203-meadow-crossing/community-aerial.jpg",
+    src: "community-aerial.jpg",
     width: 2000,
     height: 1333,
     caption: "The Crossings at Deer Creek",
@@ -434,7 +434,7 @@ const EVERSTONE_GALLERY = [
 
   {
     id: "gallery-038",
-    src: "photos/1203-meadow-crossing/community-lot-aerial.jpg",
+    src: "community-lot-aerial.jpg",
     width: 2000,
     height: 1333,
     caption: "Neighborhood Aerial",
